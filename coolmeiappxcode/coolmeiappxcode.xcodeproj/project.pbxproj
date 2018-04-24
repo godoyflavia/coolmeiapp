@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */; };
 		57020E0F208F9FEA00D333AF /* coolmeiappxcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E0E208F9FEA00D333AF /* coolmeiappxcodeTests.swift */; };
 		57020E1A208F9FEA00D333AF /* coolmeiappxcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */; };
+		57020E28208FAC6600D333AF /* PopUpAddMembros.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57020E27208FAC6600D333AF /* PopUpAddMembros.xib */; };
+		57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E29208FAE9200D333AF /* PopUpAddMembros.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		57020E15208F9FEA00D333AF /* coolmeiappxcodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coolmeiappxcodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coolmeiappxcodeUITests.swift; sourceTree = "<group>"; };
 		57020E1B208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57020E27208FAC6600D333AF /* PopUpAddMembros.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpAddMembros.xib; sourceTree = "<group>"; };
+		57020E29208FAE9200D333AF /* PopUpAddMembros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddMembros.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				57020DF6208F9FE900D333AF /* AppDelegate.swift */,
 				57020DF8208F9FE900D333AF /* ViewController.swift */,
 				57020DFA208F9FE900D333AF /* Main.storyboard */,
+				57020E27208FAC6600D333AF /* PopUpAddMembros.xib */,
+				57020E29208FAE9200D333AF /* PopUpAddMembros.swift */,
 				57020E00208F9FEA00D333AF /* Assets.xcassets */,
 				57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */,
 				57020E05208F9FEA00D333AF /* Info.plist */,
@@ -196,19 +202,22 @@
 				TargetAttributes = {
 					57020DF2208F9FE900D333AF = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 					};
 					57020E09208F9FEA00D333AF = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 57020DF2208F9FE900D333AF;
 					};
 					57020E14208F9FEA00D333AF = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 57020DF2208F9FE900D333AF;
 					};
 				};
 			};
 			buildConfigurationList = 57020DEE208F9FE900D333AF /* Build configuration list for PBXProject "coolmeiappxcode" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -234,6 +243,7 @@
 			files = (
 				57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */,
 				57020E01208F9FEA00D333AF /* Assets.xcassets in Resources */,
+				57020E28208FAC6600D333AF /* PopUpAddMembros.xib in Resources */,
 				57020DFC208F9FE900D333AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +271,7 @@
 			files = (
 				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,
 				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
+				57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */,
 				57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,8 +435,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -437,10 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -455,10 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -473,11 +477,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -493,11 +493,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -512,11 +508,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -531,11 +523,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
