@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF6208F9FE900D333AF /* AppDelegate.swift */; };
+		57020DF9208F9FE900D333AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF8208F9FE900D333AF /* ViewController.swift */; };
+		57020DFC208F9FE900D333AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57020DFA208F9FE900D333AF /* Main.storyboard */; };
+		57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57020DFD208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld */; };
+		57020E01208F9FEA00D333AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57020E00208F9FEA00D333AF /* Assets.xcassets */; };
+		57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */; };
+		57020E0F208F9FEA00D333AF /* coolmeiappxcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E0E208F9FEA00D333AF /* coolmeiappxcodeTests.swift */; };
+		57020E1A208F9FEA00D333AF /* coolmeiappxcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57020E0B208F9FEA00D333AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57020DEB208F9FE900D333AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57020DF2208F9FE900D333AF;
+			remoteInfo = coolmeiappxcode;
+		};
+		57020E16208F9FEA00D333AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57020DEB208F9FE900D333AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57020DF2208F9FE900D333AF;
+			remoteInfo = coolmeiappxcode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		57020DF3208F9FE900D333AF /* coolmeiappxcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coolmeiappxcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57020DF6208F9FE900D333AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		57020DF8208F9FE900D333AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		57020DFB208F9FE900D333AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		57020DFE208F9FE900D333AF /* coolmeiappxcode.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coolmeiappxcode.xcdatamodel; sourceTree = "<group>"; };
+		57020E00208F9FEA00D333AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57020E03208F9FEA00D333AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		57020E05208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57020E0A208F9FEA00D333AF /* coolmeiappxcodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coolmeiappxcodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57020E0E208F9FEA00D333AF /* coolmeiappxcodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coolmeiappxcodeTests.swift; sourceTree = "<group>"; };
+		57020E10208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57020E15208F9FEA00D333AF /* coolmeiappxcodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coolmeiappxcodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coolmeiappxcodeUITests.swift; sourceTree = "<group>"; };
+		57020E1B208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57020DF0208F9FE900D333AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57020E07208F9FEA00D333AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57020E12208F9FEA00D333AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		57020DEA208F9FE900D333AF = {
+			isa = PBXGroup;
+			children = (
+				57020DF5208F9FE900D333AF /* coolmeiappxcode */,
+				57020E0D208F9FEA00D333AF /* coolmeiappxcodeTests */,
+				57020E18208F9FEA00D333AF /* coolmeiappxcodeUITests */,
+				57020DF4208F9FE900D333AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		57020DF4208F9FE900D333AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57020DF3208F9FE900D333AF /* coolmeiappxcode.app */,
+				57020E0A208F9FEA00D333AF /* coolmeiappxcodeTests.xctest */,
+				57020E15208F9FEA00D333AF /* coolmeiappxcodeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57020DF5208F9FE900D333AF /* coolmeiappxcode */ = {
+			isa = PBXGroup;
+			children = (
+				57020DF6208F9FE900D333AF /* AppDelegate.swift */,
+				57020DF8208F9FE900D333AF /* ViewController.swift */,
+				57020DFA208F9FE900D333AF /* Main.storyboard */,
+				57020E00208F9FEA00D333AF /* Assets.xcassets */,
+				57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */,
+				57020E05208F9FEA00D333AF /* Info.plist */,
+				57020DFD208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld */,
+			);
+			path = coolmeiappxcode;
+			sourceTree = "<group>";
+		};
+		57020E0D208F9FEA00D333AF /* coolmeiappxcodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				57020E0E208F9FEA00D333AF /* coolmeiappxcodeTests.swift */,
+				57020E10208F9FEA00D333AF /* Info.plist */,
+			);
+			path = coolmeiappxcodeTests;
+			sourceTree = "<group>";
+		};
+		57020E18208F9FEA00D333AF /* coolmeiappxcodeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */,
+				57020E1B208F9FEA00D333AF /* Info.plist */,
+			);
+			path = coolmeiappxcodeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57020DF2208F9FE900D333AF /* coolmeiappxcode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57020E1E208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcode" */;
+			buildPhases = (
+				57020DEF208F9FE900D333AF /* Sources */,
+				57020DF0208F9FE900D333AF /* Frameworks */,
+				57020DF1208F9FE900D333AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = coolmeiappxcode;
+			productName = coolmeiappxcode;
+			productReference = 57020DF3208F9FE900D333AF /* coolmeiappxcode.app */;
+			productType = "com.apple.product-type.application";
+		};
+		57020E09208F9FEA00D333AF /* coolmeiappxcodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57020E21208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcodeTests" */;
+			buildPhases = (
+				57020E06208F9FEA00D333AF /* Sources */,
+				57020E07208F9FEA00D333AF /* Frameworks */,
+				57020E08208F9FEA00D333AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57020E0C208F9FEA00D333AF /* PBXTargetDependency */,
+			);
+			name = coolmeiappxcodeTests;
+			productName = coolmeiappxcodeTests;
+			productReference = 57020E0A208F9FEA00D333AF /* coolmeiappxcodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		57020E14208F9FEA00D333AF /* coolmeiappxcodeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57020E24208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcodeUITests" */;
+			buildPhases = (
+				57020E11208F9FEA00D333AF /* Sources */,
+				57020E12208F9FEA00D333AF /* Frameworks */,
+				57020E13208F9FEA00D333AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57020E17208F9FEA00D333AF /* PBXTargetDependency */,
+			);
+			name = coolmeiappxcodeUITests;
+			productName = coolmeiappxcodeUITests;
+			productReference = 57020E15208F9FEA00D333AF /* coolmeiappxcodeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57020DEB208F9FE900D333AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Fem.me;
+				TargetAttributes = {
+					57020DF2208F9FE900D333AF = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					57020E09208F9FEA00D333AF = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 57020DF2208F9FE900D333AF;
+					};
+					57020E14208F9FEA00D333AF = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 57020DF2208F9FE900D333AF;
+					};
+				};
+			};
+			buildConfigurationList = 57020DEE208F9FE900D333AF /* Build configuration list for PBXProject "coolmeiappxcode" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 57020DEA208F9FE900D333AF;
+			productRefGroup = 57020DF4208F9FE900D333AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57020DF2208F9FE900D333AF /* coolmeiappxcode */,
+				57020E09208F9FEA00D333AF /* coolmeiappxcodeTests */,
+				57020E14208F9FEA00D333AF /* coolmeiappxcodeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57020DF1208F9FE900D333AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */,
+				57020E01208F9FEA00D333AF /* Assets.xcassets in Resources */,
+				57020DFC208F9FE900D333AF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57020E08208F9FEA00D333AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57020E13208F9FEA00D333AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57020DEF208F9FE900D333AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,
+				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
+				57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57020E06208F9FEA00D333AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57020E0F208F9FEA00D333AF /* coolmeiappxcodeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57020E11208F9FEA00D333AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57020E1A208F9FEA00D333AF /* coolmeiappxcodeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		57020E0C208F9FEA00D333AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57020DF2208F9FE900D333AF /* coolmeiappxcode */;
+			targetProxy = 57020E0B208F9FEA00D333AF /* PBXContainerItemProxy */;
+		};
+		57020E17208F9FEA00D333AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57020DF2208F9FE900D333AF /* coolmeiappxcode */;
+			targetProxy = 57020E16208F9FEA00D333AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		57020DFA208F9FE900D333AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57020DFB208F9FE900D333AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57020E03208F9FEA00D333AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		57020E1C208F9FEA00D333AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		57020E1D208F9FEA00D333AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		57020E1F208F9FEA00D333AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		57020E20208F9FEA00D333AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		57020E22208F9FEA00D333AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = coolmeiappxcodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coolmeiappxcode.app/coolmeiappxcode";
+			};
+			name = Debug;
+		};
+		57020E23208F9FEA00D333AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = coolmeiappxcodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coolmeiappxcode.app/coolmeiappxcode";
+			};
+			name = Release;
+		};
+		57020E25208F9FEA00D333AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = coolmeiappxcodeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = coolmeiappxcode;
+			};
+			name = Debug;
+		};
+		57020E26208F9FEA00D333AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = coolmeiappxcodeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = coolmeiappxcode;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57020DEE208F9FE900D333AF /* Build configuration list for PBXProject "coolmeiappxcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57020E1C208F9FEA00D333AF /* Debug */,
+				57020E1D208F9FEA00D333AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57020E1E208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57020E1F208F9FEA00D333AF /* Debug */,
+				57020E20208F9FEA00D333AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57020E21208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57020E22208F9FEA00D333AF /* Debug */,
+				57020E23208F9FEA00D333AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57020E24208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcodeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57020E25208F9FEA00D333AF /* Debug */,
+				57020E26208F9FEA00D333AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		57020DFD208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				57020DFE208F9FE900D333AF /* coolmeiappxcode.xcdatamodel */,
+			);
+			currentVersion = 57020DFE208F9FE900D333AF /* coolmeiappxcode.xcdatamodel */;
+			path = coolmeiappxcode.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 57020DEB208F9FE900D333AF /* Project object */;
+}
