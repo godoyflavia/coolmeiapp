@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var PopUpAddMembros: PopUpAddMembros!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        PopUpAddMembros.labelView.text = "milena é poc"
     }
 
     override func didReceiveMemoryWarning() {

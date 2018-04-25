@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */; };
 		57020E0F208F9FEA00D333AF /* coolmeiappxcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E0E208F9FEA00D333AF /* coolmeiappxcodeTests.swift */; };
 		57020E1A208F9FEA00D333AF /* coolmeiappxcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */; };
+		57020E28208FAC6600D333AF /* PopUpAddMembros.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57020E27208FAC6600D333AF /* PopUpAddMembros.xib */; };
+		57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E29208FAE9200D333AF /* PopUpAddMembros.swift */; };
+		EFD41DC4208FD3E80076C40C /* Classe TarefaDomestica.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD41DC3208FD3E80076C40C /* Classe TarefaDomestica.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		57020E15208F9FEA00D333AF /* coolmeiappxcodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coolmeiappxcodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coolmeiappxcodeUITests.swift; sourceTree = "<group>"; };
 		57020E1B208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57020E27208FAC6600D333AF /* PopUpAddMembros.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpAddMembros.xib; sourceTree = "<group>"; };
+		57020E29208FAE9200D333AF /* PopUpAddMembros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddMembros.swift; sourceTree = "<group>"; };
+		EFD41DC3208FD3E80076C40C /* Classe TarefaDomestica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classe TarefaDomestica.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,10 @@
 		57020DEA208F9FE900D333AF = {
 			isa = PBXGroup;
 			children = (
+				EFD41DC2208FD3540076C40C /* Subclasses novas */,
+				EFD41DC1208FD33A0076C40C /* Classes novas */,
+				EFD41DC0208FD3150076C40C /* Banco de Dados (local) */,
+				EFD41DBF208FD2E90076C40C /* Pop Ups Iniciais */,
 				57020DF5208F9FE900D333AF /* coolmeiappxcode */,
 				57020E0D208F9FEA00D333AF /* coolmeiappxcodeTests */,
 				57020E18208F9FEA00D333AF /* coolmeiappxcodeUITests */,
@@ -126,6 +136,38 @@
 				57020E1B208F9FEA00D333AF /* Info.plist */,
 			);
 			path = coolmeiappxcodeUITests;
+			sourceTree = "<group>";
+		};
+		EFD41DBF208FD2E90076C40C /* Pop Ups Iniciais */ = {
+			isa = PBXGroup;
+			children = (
+				57020E27208FAC6600D333AF /* PopUpAddMembros.xib */,
+				57020E29208FAE9200D333AF /* PopUpAddMembros.swift */,
+			);
+			name = "Pop Ups Iniciais";
+			path = coolmeiappxcode;
+			sourceTree = "<group>";
+		};
+		EFD41DC0208FD3150076C40C /* Banco de Dados (local) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Banco de Dados (local)";
+			sourceTree = "<group>";
+		};
+		EFD41DC1208FD33A0076C40C /* Classes novas */ = {
+			isa = PBXGroup;
+			children = (
+				EFD41DC3208FD3E80076C40C /* Classe TarefaDomestica.swift */,
+			);
+			name = "Classes novas";
+			sourceTree = "<group>";
+		};
+		EFD41DC2208FD3540076C40C /* Subclasses novas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Subclasses novas";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,19 +238,22 @@
 				TargetAttributes = {
 					57020DF2208F9FE900D333AF = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 					};
 					57020E09208F9FEA00D333AF = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 57020DF2208F9FE900D333AF;
 					};
 					57020E14208F9FEA00D333AF = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 57020DF2208F9FE900D333AF;
 					};
 				};
 			};
 			buildConfigurationList = 57020DEE208F9FE900D333AF /* Build configuration list for PBXProject "coolmeiappxcode" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -234,6 +279,7 @@
 			files = (
 				57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */,
 				57020E01208F9FEA00D333AF /* Assets.xcassets in Resources */,
+				57020E28208FAC6600D333AF /* PopUpAddMembros.xib in Resources */,
 				57020DFC208F9FE900D333AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +307,8 @@
 			files = (
 				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,
 				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
+				EFD41DC4208FD3E80076C40C /* Classe TarefaDomestica.swift in Sources */,
+				57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */,
 				57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,8 +472,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -437,10 +484,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -455,10 +500,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -473,11 +516,8 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -493,11 +533,8 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -512,11 +549,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -531,11 +565,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
