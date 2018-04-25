@@ -17,6 +17,7 @@
 		57020E1A208F9FEA00D333AF /* coolmeiappxcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */; };
 		57020E28208FAC6600D333AF /* PopUpAddMembros.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57020E27208FAC6600D333AF /* PopUpAddMembros.xib */; };
 		57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E29208FAE9200D333AF /* PopUpAddMembros.swift */; };
+		EFD41DC4208FD3E80076C40C /* Classe TarefaDomestica.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD41DC3208FD3E80076C40C /* Classe TarefaDomestica.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		57020E1B208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57020E27208FAC6600D333AF /* PopUpAddMembros.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpAddMembros.xib; sourceTree = "<group>"; };
 		57020E29208FAE9200D333AF /* PopUpAddMembros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddMembros.swift; sourceTree = "<group>"; };
+		EFD41DC3208FD3E80076C40C /* Classe TarefaDomestica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classe TarefaDomestica.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,10 @@
 		57020DEA208F9FE900D333AF = {
 			isa = PBXGroup;
 			children = (
+				EFD41DC2208FD3540076C40C /* Subclasses novas */,
+				EFD41DC1208FD33A0076C40C /* Classes novas */,
+				EFD41DC0208FD3150076C40C /* Banco de Dados (local) */,
+				EFD41DBF208FD2E90076C40C /* Pop Ups Iniciais */,
 				57020DF5208F9FE900D333AF /* coolmeiappxcode */,
 				57020E0D208F9FEA00D333AF /* coolmeiappxcodeTests */,
 				57020E18208F9FEA00D333AF /* coolmeiappxcodeUITests */,
@@ -106,8 +112,6 @@
 				57020DF6208F9FE900D333AF /* AppDelegate.swift */,
 				57020DF8208F9FE900D333AF /* ViewController.swift */,
 				57020DFA208F9FE900D333AF /* Main.storyboard */,
-				57020E27208FAC6600D333AF /* PopUpAddMembros.xib */,
-				57020E29208FAE9200D333AF /* PopUpAddMembros.swift */,
 				57020E00208F9FEA00D333AF /* Assets.xcassets */,
 				57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */,
 				57020E05208F9FEA00D333AF /* Info.plist */,
@@ -132,6 +136,38 @@
 				57020E1B208F9FEA00D333AF /* Info.plist */,
 			);
 			path = coolmeiappxcodeUITests;
+			sourceTree = "<group>";
+		};
+		EFD41DBF208FD2E90076C40C /* Pop Ups Iniciais */ = {
+			isa = PBXGroup;
+			children = (
+				57020E27208FAC6600D333AF /* PopUpAddMembros.xib */,
+				57020E29208FAE9200D333AF /* PopUpAddMembros.swift */,
+			);
+			name = "Pop Ups Iniciais";
+			path = coolmeiappxcode;
+			sourceTree = "<group>";
+		};
+		EFD41DC0208FD3150076C40C /* Banco de Dados (local) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Banco de Dados (local)";
+			sourceTree = "<group>";
+		};
+		EFD41DC1208FD33A0076C40C /* Classes novas */ = {
+			isa = PBXGroup;
+			children = (
+				EFD41DC3208FD3E80076C40C /* Classe TarefaDomestica.swift */,
+			);
+			name = "Classes novas";
+			sourceTree = "<group>";
+		};
+		EFD41DC2208FD3540076C40C /* Subclasses novas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Subclasses novas";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +307,7 @@
 			files = (
 				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,
 				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
+				EFD41DC4208FD3E80076C40C /* Classe TarefaDomestica.swift in Sources */,
 				57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */,
 				57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */,
 			);
@@ -447,6 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,6 +500,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -477,6 +516,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,6 +533,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,6 +549,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -523,6 +565,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = coolmeiappxcodeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
