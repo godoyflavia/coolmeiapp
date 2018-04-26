@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     let defaults = UserDefaults.standard
     var mediadora = Mediadora.shared
     
@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var nomeTitulo: UILabel!
     @IBOutlet weak var inserirNomeOutlet: UITextField!
     @IBAction func inserirNome(_ sender: Any) {
-        
+      
     }
     @IBOutlet weak var corTitulo: UILabel!
     @IBOutlet weak var escolherCor1Outlet: UIButton!
@@ -63,6 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var okOutlet: UIButton!
     @IBAction func ok(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {
@@ -71,6 +72,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         membrosTableView.delegate = self
         membrosTableView.dataSource = self
+        
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        popUpDPegarInfo.addGestureRecognizer(tap)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,6 +83,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 
-
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 

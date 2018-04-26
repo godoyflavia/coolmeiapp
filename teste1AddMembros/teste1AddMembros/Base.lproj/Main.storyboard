@@ -114,6 +114,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="inserirNome:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="2wZ-mv-23C"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="3Bg-Uc-gIE"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHL-gn-0y1">
@@ -153,6 +154,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
