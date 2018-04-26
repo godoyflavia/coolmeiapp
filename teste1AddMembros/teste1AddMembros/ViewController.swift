@@ -33,6 +33,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var membros:[Pessoa] = []
     
+    var corEscolhida = ""
+    
     // pop up inicial
     @IBOutlet weak var popUpAddMembros: UIView!
     @IBOutlet weak var titulo: UILabel!
@@ -42,28 +44,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var irOutlet: UIButton!
     @IBAction func ir(_ sender: Any) {
     }
-    
+    var nomeGenerico = ""
     // pop up pra cadastrar infos
     @IBOutlet weak var popUpDPegarInfo: UIView!
     @IBOutlet weak var nomeTitulo: UILabel!
     @IBOutlet weak var inserirNomeOutlet: UITextField!
     @IBAction func inserirNome(_ sender: Any) {
-      
+        self.nomeGenerico = inserirNomeOutlet.text!
     }
     @IBOutlet weak var corTitulo: UILabel!
     @IBOutlet weak var escolherCor1Outlet: UIButton!
     @IBAction func escolherCor1(_ sender: Any) {
+        self.corEscolhida = "1"
     }
     @IBOutlet weak var escolherCor2Outlet: UIButton!
     @IBAction func escolherCor2(_ sender: Any) {
+        self.corEscolhida = "2"
     }
     @IBOutlet weak var escolherCor3Outlet: UIButton!
     @IBAction func escolherCor3(_ sender: Any) {
+        self.corEscolhida = "3"
     }
     
     @IBOutlet weak var okOutlet: UIButton!
     @IBAction func ok(_ sender: Any) {
-        
+        membros.append(Pessoa(nome: nomeGenerico, cor: "1", pontos: 0))
+         print(membros[0].nome)
     }
     
     override func viewDidLoad() {
@@ -75,6 +81,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         popUpDPegarInfo.addGestureRecognizer(tap)
+        
+       
         
     }
 
