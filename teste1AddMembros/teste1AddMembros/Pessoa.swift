@@ -12,11 +12,13 @@ class Pessoa {
     
     var nome: String
     var cor: String
+    var pontos: Int
     
-    init (nome: String, cor: String) {
+    init (nome: String, cor: String, pontos: Int) {
         
         self.nome = nome
         self.cor = cor
+        self.pontos = pontos
         
     }
     

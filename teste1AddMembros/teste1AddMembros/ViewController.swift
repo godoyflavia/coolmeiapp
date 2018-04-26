@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let defaults = UserDefaults.standard
+    var mediadora = Mediadora.shared
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return membros.count
@@ -28,9 +30,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBOutlet weak var membrosTableView: UITableView!
-    var mediadora = Mediadora.shared
     
-    var membros:[Pessoa] = [Pessoa(nome: "aaaaaa", cor: "corkk")]
+    var membros:[Pessoa] = []
     
     // pop up inicial
     @IBOutlet weak var popUpAddMembros: UIView!
@@ -50,6 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var inserirNomeOutlet: UITextField!
     @IBAction func inserirNome(_ sender: Any) {
+        
     }
     
     @IBOutlet weak var corTitulo: UILabel!
