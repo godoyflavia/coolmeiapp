@@ -44,30 +44,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // pop up pra cadastrar infos
-    
     @IBOutlet weak var popUpDPegarInfo: UIView!
-    
     @IBOutlet weak var nomeTitulo: UILabel!
-    
     @IBOutlet weak var inserirNomeOutlet: UITextField!
     @IBAction func inserirNome(_ sender: Any) {
         
     }
-    
     @IBOutlet weak var corTitulo: UILabel!
-    
     @IBOutlet weak var escolherCor1Outlet: UIButton!
-
     @IBAction func escolherCor1(_ sender: Any) {
     }
-    
     @IBOutlet weak var escolherCor2Outlet: UIButton!
-    
     @IBAction func escolherCor2(_ sender: Any) {
     }
-    
     @IBOutlet weak var escolherCor3Outlet: UIButton!
-
     @IBAction func escolherCor3(_ sender: Any) {
     }
     
