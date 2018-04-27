@@ -157,6 +157,10 @@
                                             <action selector="ok:" destination="BYZ-38-t0r" eventType="touchUpInside" id="izI-pP-Nvg"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="corkk" translatesAutoresizingMaskIntoConstraints="NO" id="mxB-zo-6u8">
+                                        <rect key="frame" x="23" y="187" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.73272026909722221" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -171,6 +175,7 @@
                         <outlet property="escolherCor1Outlet" destination="BHL-gn-0y1" id="whU-zt-F4t"/>
                         <outlet property="escolherCor2Outlet" destination="WtA-vH-OeW" id="WuL-tG-DHd"/>
                         <outlet property="escolherCor3Outlet" destination="pOI-Vw-7pB" id="Bzs-zN-TIX"/>
+                        <outlet property="imagemBotaoSelecionado" destination="mxB-zo-6u8" id="c47-oc-vQ8"/>
                         <outlet property="inserirNomeOutlet" destination="1ke-tx-c0O" id="RMb-8t-ozA"/>
                         <outlet property="irOutlet" destination="JiE-h3-tOf" id="1b6-Bj-Jwx"/>
                         <outlet property="labelText" destination="hpv-pX-6KR" id="UXZ-sf-CZk"/>
@@ -187,4 +192,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="corkk" width="64" height="64"/>
+    </resources>
 </document>

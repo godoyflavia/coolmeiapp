@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var colorsDictionary:[UIColor:String] = [:]
     
     
+    @IBOutlet weak var imagemBotaoSelecionado: UIImageView!
     @IBOutlet weak var labelText: UILabel!
     
     // MARK: - TableView Functions
@@ -78,20 +79,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var escolherCor1Outlet: UIButton!
     @IBAction func escolherCor1(_ sender: Any) {
         self.corEscolhida = "1"
+        imagemBotaoSelecionado.isHidden = false
+        imagemBotaoSelecionado.frame = CGRect(x: 23, y: 187, width: 50, height: 50)
     }
     @IBOutlet weak var escolherCor2Outlet: UIButton!
     @IBAction func escolherCor2(_ sender: Any) {
         self.corEscolhida = "2"
+        imagemBotaoSelecionado.isHidden = false
+        imagemBotaoSelecionado.frame = CGRect(x: 84, y: 187, width: 50, height: 50)
     }
     @IBOutlet weak var escolherCor3Outlet: UIButton!
     @IBAction func escolherCor3(_ sender: Any) {
         self.corEscolhida = "3"
+        imagemBotaoSelecionado.isHidden = false
+        imagemBotaoSelecionado.frame = CGRect(x: 147, y: 187, width: 50, height: 50)
     }
     
     @IBOutlet weak var okOutlet: UIButton!
     @IBAction func ok(_ sender: Any) { // *** limpar o textfield e atualizar das cores
         membros.append(Pessoa(nome: nomeGenerico, cor: "1", pontos: 0))
-        print(membros[0].nome)
+
         membrosTableView.reloadData()
     }
     
@@ -109,10 +116,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             labelText.text = name
         }
         
+        imagemBotaoSelecionado.isHidden = true
+        
         colorsDictionary[#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)] = "1"
         colorsDictionary[#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)] = "2"
         colorsDictionary[#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)] = "3"
         colorsDictionary[#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)] = "desativada"
+        
+        // arredondando botoes de escolha das cores
+        escolherCor1Outlet.layer.cornerRadius = 0.5 * escolherCor1Outlet.bounds.size.width
+        escolherCor1Outlet.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+        
+        escolherCor2Outlet.layer.cornerRadius = 0.5 * escolherCor2Outlet.bounds.size.width
+        escolherCor2Outlet.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        
+        escolherCor3Outlet.layer.cornerRadius = 0.5 * escolherCor3Outlet.bounds.size.width
+        escolherCor3Outlet.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         
 //        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 //        popUpDPegarInfo.addGestureRecognizer(tap)
