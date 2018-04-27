@@ -15,6 +15,7 @@ final class Mediadora {
     var nomesDasPessoas:[String] = []
     var coresDasPessoas:[String] = []
     
+    
     private init() {}
     
 }
