@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TEXTFIELD: SO SALVA O NOME COM O ENTER - AJEITAR
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UITextFieldDelegate {
     let defaults = UserDefaults.standard
     var mediadora = Mediadora.shared
@@ -40,7 +42,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if textField.tag == 1 {
             labelText.text = textField.text!
  
-            UserDefaults.standard.set(textField.text, forKey: "name")
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: [Pessoa(nome: "ooo", cor: "1", pontos: 0)])
+            UserDefaults.standard.set(encodedData, forKey: "pessoa")
             
             textField.resignFirstResponder()
         }
@@ -114,6 +117,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // LEMBRAR DE APLICAR USER DEFAULTS A TABLEVIEW
         if let name = UserDefaults.standard.value(forKey: "name") as? String {
             labelText.text = name
+        }
+        
+        if let decoded  = UserDefaults.standard.object(forKey: "pessoa") as? Data {
+            let decodedName = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Pessoa]
+            labelText.text = decodedName[0].nome
         }
         
         imagemBotaoSelecionado.isHidden = true
