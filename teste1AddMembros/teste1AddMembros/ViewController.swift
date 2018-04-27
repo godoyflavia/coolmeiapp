@@ -12,6 +12,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let defaults = UserDefaults.standard
     var mediadora = Mediadora.shared
     
+    var colorsDictionary:[UIColor:String] = [:]
+    
+    
     @IBOutlet weak var labelText: UILabel!
     
     // MARK: - TableView Functions
@@ -45,10 +48,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func terminou(_ sender: UITextField) {
-        membros.append(Pessoa(nome: nomeGenerico, cor: "1", pontos: 0))
-        print(membros[0].nome)
-        membrosTableView.reloadData()
     }
+    
     // MARK: - Outlets and variables
     @IBOutlet weak var membrosTableView: UITableView!
     
@@ -88,9 +89,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBOutlet weak var okOutlet: UIButton!
-    @IBAction func ok(_ sender: Any) {
+    @IBAction func ok(_ sender: Any) { // *** limpar o textfield e atualizar das cores
         membros.append(Pessoa(nome: nomeGenerico, cor: "1", pontos: 0))
-         print(membros[0].nome)
+        print(membros[0].nome)
+        membrosTableView.reloadData()
     }
     
     // MARK: - methods
@@ -102,9 +104,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         membrosTableView.dataSource = self
         inserirNomeOutlet.delegate = self
         
+        // LEMBRAR DE APLICAR USER DEFAULTS A TABLEVIEW
         if let name = UserDefaults.standard.value(forKey: "name") as? String {
             labelText.text = name
         }
+        
+        colorsDictionary[#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)] = "1"
+        colorsDictionary[#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)] = "2"
+        colorsDictionary[#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)] = "3"
+        colorsDictionary[#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)] = "desativada"
         
 //        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 //        popUpDPegarInfo.addGestureRecognizer(tap)
