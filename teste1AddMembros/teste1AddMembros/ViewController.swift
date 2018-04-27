@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let defaults = UserDefaults.standard
     var mediadora = Mediadora.shared
     
-    var colorsDictionary:[UIColor:String] = [:]
+    var colorsDictionary:[String:UIColor] = [:]
     
     
     @IBOutlet weak var imagemBotaoSelecionado: UIImageView!
@@ -29,8 +29,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = membrosTableView.dequeueReusableCell(withIdentifier: "customCell") as! customTableViewCell
-        cell.colorImage.image = UIImage(named: membros[indexPath.row].cor)
         cell.personName.text = membros[indexPath.row].nome
+        cell.personColorView.backgroundColor = colorsDictionary[membros[indexPath.row].cor]
         
         return cell
     }
@@ -97,7 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var okOutlet: UIButton!
     @IBAction func ok(_ sender: Any) { // *** limpar o textfield e atualizar das cores
-        membros.append(Pessoa(nome: nomeGenerico, cor: "1", pontos: 0))
+        membros.append(Pessoa(nome: nomeGenerico, cor: corEscolhida, pontos: 0))
 
         membrosTableView.reloadData()
     }
@@ -118,10 +118,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         imagemBotaoSelecionado.isHidden = true
         
-        colorsDictionary[#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)] = "1"
-        colorsDictionary[#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)] = "2"
-        colorsDictionary[#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)] = "3"
-        colorsDictionary[#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)] = "desativada"
+        colorsDictionary["1"] = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+        colorsDictionary["2"] = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        colorsDictionary["3"] = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+        colorsDictionary["desativada"] = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         
         // arredondando botoes de escolha das cores
         escolherCor1Outlet.layer.cornerRadius = 0.5 * escolherCor1Outlet.bounds.size.width
