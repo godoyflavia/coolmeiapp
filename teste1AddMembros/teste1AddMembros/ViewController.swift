@@ -35,18 +35,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 1 {
             labelText.text = textField.text!
+            
+         
+            
             UserDefaults.standard.set(textField.text, forKey: "name")
+            
+            textField.resignFirstResponder()
         }
         
         return true
     }
     
+    @IBAction func terminou(_ sender: UITextField) {
+        membros.append(Pessoa(nome: nomeGenerico, cor: "1", pontos: 0))
+        print(membros[0].nome)
+        membrosTableView.reloadData()
+    }
     // MARK: - Outlets and variables
     @IBOutlet weak var membrosTableView: UITableView!
     
     var membros:[Pessoa] = []
     var corEscolhida = ""
-    var nomeGenerico = ""
+    var nomeGenerico = "lalala"
     
     // pop up inicial
     @IBOutlet weak var popUpAddMembros: UIView!

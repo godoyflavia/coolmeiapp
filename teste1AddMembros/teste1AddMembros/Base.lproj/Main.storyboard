@@ -121,6 +121,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="inserirNome:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="2wZ-mv-23C"/>
+                                            <action selector="terminou:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="5EV-lA-RAh"/>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="3Bg-Uc-gIE"/>
                                         </connections>
                                     </textField>
