@@ -10,5 +10,6 @@ import UIKit
 
 class TesteCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var imageTeste: UIImageView!
     @IBOutlet weak var labelTeste: UILabel!
 }

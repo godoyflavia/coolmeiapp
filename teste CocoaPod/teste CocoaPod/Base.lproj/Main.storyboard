@@ -50,6 +50,7 @@
                                             </subviews>
                                         </view>
                                         <connections>
+                                            <outlet property="imageTeste" destination="K2C-9V-MoH" id="OOb-Tj-fgR"/>
                                             <outlet property="labelTeste" destination="K51-SM-FBw" id="5ls-fM-9JR"/>
                                         </connections>
                                     </collectionViewCell>

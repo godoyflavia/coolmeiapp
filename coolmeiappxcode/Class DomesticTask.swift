@@ -15,9 +15,9 @@ class DomesticTask {
   var name: String
   var iconColor: UIImage
   var iconGreyScale: UIImage
-  var value: Int
+  var value: Int = 0
   var isTaken: Bool = false // por default começam sem dono
-  var whoWillDo: String = ""// futuramente ser do tipo "Resident" (a classe das pessoas da casa) e ser inicializado com um Resident "nobody"
+  var whoWillDo: String = ""// futuramente ser do tipo "HouseMember" (a classe das pessoas da casa) e ser inicializado com um HouseMember "nobody"
   var isDone: Bool = false
 
   // init padrão pras tarefas
@@ -29,14 +29,14 @@ class DomesticTask {
     self.value = value1to5
   }
   
-    // essa função ficaria aqui ou dentro de Resident?
+    // essa função ficaria aqui ou dentro de HouseMember?
     //  func getPoints() {
     //    if isDone == true {
-    //      resident1.points = resident1.points + value
+    //      member1.points = member1.points + value
     //    }
     //  }
     
 }
 
-// var nobody: Resident
+// var nobody: HouseMember
 
