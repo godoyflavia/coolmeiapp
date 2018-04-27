@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import PBJHexagon
 
 class ViewController: UIViewController, UICollectionViewDataSource {
 
+    @IBOutlet weak var collectionTeste: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.collectionTeste.dataSource = self
+        collectionTeste.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
