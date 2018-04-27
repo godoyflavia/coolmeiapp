@@ -35,9 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 1 {
             labelText.text = textField.text!
-            
-         
-            
+ 
             UserDefaults.standard.set(textField.text, forKey: "name")
             
             textField.resignFirstResponder()
