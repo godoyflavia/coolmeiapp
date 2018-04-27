@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UITextFieldDelegate {
     let defaults = UserDefaults.standard
     var mediadora = Mediadora.shared
     
+    @IBOutlet weak var labelText: UILabel!
+    
+    // MARK: - TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return membros.count
     }
@@ -28,12 +31,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    // MARK: - TextField Functions
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 1 {
+            labelText.text = textField.text!
+ 
+            UserDefaults.standard.set(textField.text, forKey: "name")
+            
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
     
+    @IBAction func terminou(_ sender: UITextField) {
+        membros.append(Pessoa(nome: nomeGenerico, cor: "1", pontos: 0))
+        print(membros[0].nome)
+        membrosTableView.reloadData()
+    }
+    // MARK: - Outlets and variables
     @IBOutlet weak var membrosTableView: UITableView!
     
     var membros:[Pessoa] = []
-    
     var corEscolhida = ""
+    var nomeGenerico = "lalala"
     
     // pop up inicial
     @IBOutlet weak var popUpAddMembros: UIView!
@@ -44,7 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var irOutlet: UIButton!
     @IBAction func ir(_ sender: Any) {
     }
-    var nomeGenerico = ""
+    
     // pop up pra cadastrar infos
     @IBOutlet weak var popUpDPegarInfo: UIView!
     @IBOutlet weak var nomeTitulo: UILabel!
@@ -72,17 +93,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
          print(membros[0].nome)
     }
     
+    // MARK: - methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         membrosTableView.delegate = self
         membrosTableView.dataSource = self
+        inserirNomeOutlet.delegate = self
         
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        popUpDPegarInfo.addGestureRecognizer(tap)
+        if let name = UserDefaults.standard.value(forKey: "name") as? String {
+            labelText.text = name
+        }
         
-       
+//        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+//        popUpDPegarInfo.addGestureRecognizer(tap)
         
     }
 
@@ -91,8 +116,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
+//    func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
 }
 
