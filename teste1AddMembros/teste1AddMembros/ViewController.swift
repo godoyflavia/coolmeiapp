@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 1 {
             labelText.text = textField.text!
- 
+            
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: [Pessoa(nome: "ooo", cor: "1", pontos: 0)])
             UserDefaults.standard.set(encodedData, forKey: "pessoa")
             
@@ -58,8 +58,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var membrosTableView: UITableView!
     
     var membros:[Pessoa] = []
+    var coresUsadas:[String] = []
     var corEscolhida = ""
-    var nomeGenerico = "lalala"
+    var nomeGenerico = ""
     
     // pop up inicial
     @IBOutlet weak var popUpAddMembros: UIView!
@@ -82,18 +83,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var escolherCor1Outlet: UIButton!
     @IBAction func escolherCor1(_ sender: Any) {
         self.corEscolhida = "1"
+        coresUsadas.append(self.corEscolhida)
         imagemBotaoSelecionado.isHidden = false
         imagemBotaoSelecionado.frame = CGRect(x: 23, y: 187, width: 50, height: 50)
     }
     @IBOutlet weak var escolherCor2Outlet: UIButton!
     @IBAction func escolherCor2(_ sender: Any) {
         self.corEscolhida = "2"
+        coresUsadas.append(self.corEscolhida)
         imagemBotaoSelecionado.isHidden = false
         imagemBotaoSelecionado.frame = CGRect(x: 84, y: 187, width: 50, height: 50)
     }
     @IBOutlet weak var escolherCor3Outlet: UIButton!
     @IBAction func escolherCor3(_ sender: Any) {
         self.corEscolhida = "3"
+        coresUsadas.append(self.corEscolhida)
         imagemBotaoSelecionado.isHidden = false
         imagemBotaoSelecionado.frame = CGRect(x: 147, y: 187, width: 50, height: 50)
     }
@@ -101,9 +105,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var okOutlet: UIButton!
     @IBAction func ok(_ sender: Any) { // *** limpar o textfield e atualizar das cores
         membros.append(Pessoa(nome: nomeGenerico, cor: corEscolhida, pontos: 0))
-
         membrosTableView.reloadData()
+        print(corEscolhida)
+        
+        imagemBotaoSelecionado.isHidden = true
+        
+        //Botao bloqueado se já foi escolhido
+        for cor in corEscolhida {
+            if cor == "1" {
+                escolherCor1Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+                escolherCor1Outlet.isEnabled = false
+            }
+            if cor == "2" {
+                escolherCor2Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+                escolherCor2Outlet.isEnabled = false
+            }
+            if cor == "3" {
+                escolherCor3Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+                escolherCor3Outlet.isEnabled = false
+            }
+        }
     }
+    
+    
     
     // MARK: - methods
     override func viewDidLoad() {
@@ -141,18 +165,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         escolherCor3Outlet.layer.cornerRadius = 0.5 * escolherCor3Outlet.bounds.size.width
         escolherCor3Outlet.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         
-//        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-//        popUpDPegarInfo.addGestureRecognizer(tap)
+        //        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        //        popUpDPegarInfo.addGestureRecognizer(tap)
+        
+        
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-//    func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
+    
+    //    func dismissKeyboard() {
+    //        view.endEditing(true)
+    //    }
 }
 
