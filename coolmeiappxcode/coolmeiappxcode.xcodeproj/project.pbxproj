@@ -19,6 +19,7 @@
 		57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E29208FAE9200D333AF /* PopUpAddMembros.swift */; };
 		5732D6CE2093C2D2009E7435 /* Class HouseMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CD2093C2D2009E7435 /* Class HouseMember.swift */; };
 		5732D6D02093C44C009E7435 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CF2093C44C009E7435 /* LocalData.swift */; };
+		EF53739320950B11006CD886 /* DomesticTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53739220950B11006CD886 /* DomesticTasksCell.swift */; };
 		EFD41DC4208FD3E80076C40C /* Class DomesticTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD41DC3208FD3E80076C40C /* Class DomesticTask.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		57020E29208FAE9200D333AF /* PopUpAddMembros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddMembros.swift; sourceTree = "<group>"; };
 		5732D6CD2093C2D2009E7435 /* Class HouseMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class HouseMember.swift"; sourceTree = "<group>"; };
 		5732D6CF2093C44C009E7435 /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
+		EF53739220950B11006CD886 /* DomesticTasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticTasksCell.swift; sourceTree = "<group>"; };
 		EFD41DC3208FD3E80076C40C /* Class DomesticTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class DomesticTask.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +174,7 @@
 		EFD41DC2208FD3540076C40C /* Subclasses novas */ = {
 			isa = PBXGroup;
 			children = (
+				EF53739220950B11006CD886 /* DomesticTasksCell.swift */,
 			);
 			name = "Subclasses novas";
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF53739320950B11006CD886 /* DomesticTasksCell.swift in Sources */,
 				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,
 				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
 				5732D6CE2093C2D2009E7435 /* Class HouseMember.swift in Sources */,
