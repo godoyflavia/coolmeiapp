@@ -61,6 +61,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var coresUsadas:[String] = []
     var corEscolhida = ""
     var nomeGenerico = ""
+    var escolheuNomeOk = false
+    var escolheuCorOk = false
     
     // pop up inicial
     @IBOutlet weak var popUpAddMembros: UIView!
@@ -78,6 +80,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var inserirNomeOutlet: UITextField!
     @IBAction func inserirNome(_ sender: Any) {
         self.nomeGenerico = inserirNomeOutlet.text!
+        escolheuNomeOk = true
+        if escolheuNomeOk && escolheuCorOk {
+            okOutlet.isEnabled = true
+        }
     }
     @IBOutlet weak var corTitulo: UILabel!
     @IBOutlet weak var escolherCor1Outlet: UIButton!
@@ -86,13 +92,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         coresUsadas.append(self.corEscolhida)
         imagemBotaoSelecionado.isHidden = false
         imagemBotaoSelecionado.frame = CGRect(x: 23, y: 187, width: 50, height: 50)
+        escolheuCorOk = true
+        if escolheuNomeOk && escolheuCorOk {
+            okOutlet.isEnabled = true
+        }
     }
+    
     @IBOutlet weak var escolherCor2Outlet: UIButton!
     @IBAction func escolherCor2(_ sender: Any) {
         self.corEscolhida = "2"
         coresUsadas.append(self.corEscolhida)
         imagemBotaoSelecionado.isHidden = false
         imagemBotaoSelecionado.frame = CGRect(x: 84, y: 187, width: 50, height: 50)
+        escolheuCorOk = true
+        if escolheuNomeOk && escolheuCorOk {
+            okOutlet.isEnabled = true
+        }
     }
     @IBOutlet weak var escolherCor3Outlet: UIButton!
     @IBAction func escolherCor3(_ sender: Any) {
@@ -100,6 +115,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         coresUsadas.append(self.corEscolhida)
         imagemBotaoSelecionado.isHidden = false
         imagemBotaoSelecionado.frame = CGRect(x: 147, y: 187, width: 50, height: 50)
+        escolheuCorOk = true
+        if escolheuNomeOk && escolheuCorOk {
+            okOutlet.isEnabled = true
+        }
     }
     
     @IBOutlet weak var okOutlet: UIButton!
@@ -125,6 +144,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 escolherCor3Outlet.isEnabled = false
             }
         }
+        okOutlet.isEnabled = false
     }
     
     
@@ -137,6 +157,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         membrosTableView.delegate = self
         membrosTableView.dataSource = self
         inserirNomeOutlet.delegate = self
+        
+        okOutlet.isEnabled = false
         
         // LEMBRAR DE APLICAR USER DEFAULTS A TABLEVIEW
         if let name = UserDefaults.standard.value(forKey: "name") as? String {
