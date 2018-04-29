@@ -122,7 +122,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBOutlet weak var okOutlet: UIButton!
-    @IBAction func ok(_ sender: Any) { // *** limpar o textfield e atualizar das cores
+    @IBAction func ok(_ sender: Any) { // *** limpar o textfield
         membros.append(Pessoa(nome: nomeGenerico, cor: corEscolhida, pontos: 0))
         membrosTableView.reloadData()
         print(corEscolhida)
@@ -145,6 +145,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         okOutlet.isEnabled = false
+        escolheuCorOk = false
+        escolheuNomeOk = false
+        inserirNomeOutlet.text = ""
     }
     
     
@@ -198,7 +201,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+   
     //    func dismissKeyboard() {
     //        view.endEditing(true)
     //    }
