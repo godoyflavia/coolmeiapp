@@ -54,6 +54,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func terminou(_ sender: UITextField) {
     }
     
+    
+    
     // MARK: - Outlets and variables
     @IBOutlet weak var membrosTableView: UITableView!
     
@@ -69,9 +71,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var adicionarPessoaOutlet: UIButton!
     @IBAction func adicionarPessoa(_ sender: Any) {
+        popUpDPegarInfo.isHidden = false
     }
     @IBOutlet weak var irOutlet: UIButton!
     @IBAction func ir(_ sender: Any) {
+        popUpDPegarInfo.isHidden = true
+        popUpAddMembros.isHidden = true
     }
     
     // pop up pra cadastrar infos
@@ -127,6 +132,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         membrosTableView.reloadData()
         print(corEscolhida)
         
+        if membros.count >= 2 {
+            irOutlet.isEnabled = true
+        }
+        
+        if membros.count == 6 {
+            adicionarPessoaOutlet.isEnabled = false
+        }
+        
         imagemBotaoSelecionado.isHidden = true
         
         //Botao bloqueado se já foi escolhido
@@ -148,6 +161,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         escolheuCorOk = false
         escolheuNomeOk = false
         inserirNomeOutlet.text = ""
+        popUpDPegarInfo.isHidden = true
     }
     
     
@@ -156,6 +170,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        popUpDPegarInfo.isHidden = true
+        irOutlet.isEnabled = false
         
         membrosTableView.delegate = self
         membrosTableView.dataSource = self
