@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,9 +77,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-UC-a3k" userLabel="taks icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-UC-a3k" userLabel="taks icon">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZR-NK-lla" userLabel="member color">
                                                     <rect key="frame" x="20" y="0.0" width="30" height="30"/>
@@ -87,6 +86,12 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="5e2-UC-a3k" firstAttribute="height" secondItem="yOR-0o-mBa" secondAttribute="height" id="76h-0u-DIf"/>
+                                            <constraint firstItem="5e2-UC-a3k" firstAttribute="centerY" secondItem="yOR-0o-mBa" secondAttribute="centerY" id="SZ8-vd-aZP"/>
+                                            <constraint firstItem="5e2-UC-a3k" firstAttribute="width" secondItem="yOR-0o-mBa" secondAttribute="width" id="UEU-mW-KUm"/>
+                                            <constraint firstItem="5e2-UC-a3k" firstAttribute="centerX" secondItem="yOR-0o-mBa" secondAttribute="centerX" id="mXG-cd-xml"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="memberColor" destination="KZR-NK-lla" id="c0C-YS-7na"/>
                                             <outlet property="taskIcon" destination="5e2-UC-a3k" id="Z1Q-dk-LAt"/>

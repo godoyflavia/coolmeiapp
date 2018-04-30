@@ -26,7 +26,7 @@ class ViewController: UIViewController {
       let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
       //flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
       //flowLayout.minimumInteritemSpacing = 3
-      //flowLayout.itemSize = CGSize(width: 100, height: 115)
+      flowLayout.itemSize = CGSize(width: 80, height: 80)
       //flowLayout.itemsPerRow = 4
       self.domesticTasksCollection.setCollectionViewLayout(flowLayout, animated: false)
       
@@ -79,6 +79,7 @@ extension ViewController: UICollectionViewDelegate {
     //domesticTasksCollection.reloadData()
     
   }
+  
   
   
 }

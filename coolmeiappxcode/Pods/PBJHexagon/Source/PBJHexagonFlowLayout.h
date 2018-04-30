@@ -30,4 +30,20 @@
 
 @property (nonatomic) NSInteger itemsPerRow;
 
+//func itemsPerRow(indexPath: IndexPath) -> Int {
+//  if indexPath.row % 2 == 0 {
+//    return 4
+//  } else {
+//    return 3
+//  }
+//}
+
+//- (NSInteger *)itemsPerRow:(NSIndexPath *)indexPath; {
+//  if (indexPath.row % 2 == 0) {
+//    return 4;
+//  } else {
+//    return 3;
+//  }
+//}
+
 @end
