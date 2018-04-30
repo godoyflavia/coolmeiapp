@@ -58,7 +58,7 @@ CG_INLINE CGFloat CGFloat_floor(CGFloat cgfloat) {
     [super prepareLayout];
     
     if (_itemsPerRow == 0)
-        _itemsPerRow = 4;
+        _itemsPerRow = 6; // mudei de 4 pra 6
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
@@ -84,7 +84,8 @@ CG_INLINE CGFloat CGFloat_floor(CGFloat cgfloat) {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     attributes.size = self.itemSize;
     attributes.center = CGPointMake( ( (col * self.itemSize.width) + (0.5f * self.itemSize.width) + horiOffset),
-                                     ( ( (row * 0.75f) * self.itemSize.height) + (0.5f * self.itemSize.height) + vertOffset) );
+                                     ( ( (row * 0.90f) * self.itemSize.height) + (0.5f * self.itemSize.height) + vertOffset) );
+  // mudei de: 0.75f pra 0.90f
     return attributes;
 }
 
