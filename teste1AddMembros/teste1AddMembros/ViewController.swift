@@ -207,8 +207,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         escolherCor3Outlet.layer.cornerRadius = 0.5 * escolherCor3Outlet.bounds.size.width
         escolherCor3Outlet.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         
-        //        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        //        popUpDPegarInfo.addGestureRecognizer(tap)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
         
         
         
@@ -219,8 +219,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
    
-    //    func dismissKeyboard() {
-    //        view.endEditing(true)
-    //    }
+    @objc func hideKeyboard() {
+            view.endEditing(true)
+        }
 }
 
