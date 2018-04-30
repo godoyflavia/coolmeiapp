@@ -37,13 +37,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedIndex = indexPath.row
+        let pessoa = membros[selectedIndex]
+        adicionarPessoa(pessoa)
+        inserirNomeOutlet.text! = pessoa.nome
+    }
+    
     // MARK: - TextField Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 1 {
             labelText.text = textField.text!
-            
-            let encodedData = NSKeyedArchiver.archivedData(withRootObject: [Pessoa(nome: "ooo", cor: "1", pontos: 0)])
-            UserDefaults.standard.set(encodedData, forKey: "pessoa")
             
             textField.resignFirstResponder()
         }
@@ -53,8 +57,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func terminou(_ sender: UITextField) {
     }
-    
-    
     
     // MARK: - Outlets and variables
     @IBOutlet weak var membrosTableView: UITableView!
@@ -157,6 +159,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 escolherCor3Outlet.isEnabled = false
             }
         }
+        
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: membros)
+        UserDefaults.standard.set(encodedData, forKey: "pessoa")
+        
         okOutlet.isEnabled = false
         escolheuCorOk = false
         escolheuNomeOk = false
@@ -186,8 +192,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         if let decoded  = UserDefaults.standard.object(forKey: "pessoa") as? Data {
-            let decodedName = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Pessoa]
-            labelText.text = decodedName[0].nome
+            let pessoas = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Pessoa]
+            labelText.text = pessoas[0].nome
+            membros = pessoas
         }
         
         imagemBotaoSelecionado.isHidden = true
@@ -209,8 +216,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
-        
-        
         
     }
     
