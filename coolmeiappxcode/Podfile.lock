@@ -1,0 +1,16 @@
+PODS:
+  - PBJHexagon (0.1.1)
+
+DEPENDENCIES:
+  - PBJHexagon
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - PBJHexagon
+
+SPEC CHECKSUMS:
+  PBJHexagon: 689c33964ff02f71f90d86fb181cbfdabce7886a
+
+PODFILE CHECKSUM: 286004048c26fa6a027034ae455aa287cd1cded6
+
+COCOAPODS: 1.5.0

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PBJHexagon
 
 class ViewController: UIViewController {
 
@@ -21,6 +22,13 @@ class ViewController: UIViewController {
       self.domesticTasksCollection.dataSource = self
       self.domesticTasksCollection.delegate = self
       
+      //flow layout
+      let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
+      //flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
+      //flowLayout.minimumInteritemSpacing = 3
+      //flowLayout.itemSize = CGSize(width: 100, height: 115)
+      //flowLayout.itemsPerRow = 4
+      self.domesticTasksCollection.setCollectionViewLayout(flowLayout, animated: false)
       
       
         PopUpAddMembros.labelView.text = "milena é poc"
