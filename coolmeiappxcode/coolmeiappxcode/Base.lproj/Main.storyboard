@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,14 +26,17 @@
                                     <constraint firstAttribute="width" constant="240" id="Agk-a8-c2D"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XCT-0l-Dcv" userLabel="header view">
-                                <rect key="frame" x="37" y="36" width="300" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCT-0l-Dcv" userLabel="header view">
+                                <rect key="frame" x="37" y="40" width="300" height="70"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="hI9-Wb-ZH4" userLabel="tempo">
-                                        <rect key="frame" x="0.0" y="59" width="300" height="3"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="hI9-Wb-ZH4" userLabel="tempo">
+                                        <rect key="frame" x="0.0" y="58" width="300" height="12"/>
                                         <color key="tintColor" red="0.99215686274509807" green="0.84705882352941175" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="rao-ah-mhA"/>
+                                        </constraints>
+                                        <color key="progressTintColor" red="0.34901960784313724" green="0.30196078431372547" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="trackTintColor" red="0.99215686274509807" green="0.84705882352941175" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-CY-g1x" userLabel="ver membros">
                                         <rect key="frame" x="8" y="8" width="46" height="43"/>
@@ -63,6 +66,13 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hI9-Wb-ZH4" firstAttribute="width" secondItem="XCT-0l-Dcv" secondAttribute="width" id="GQy-5q-pIi"/>
+                                    <constraint firstAttribute="height" constant="70" id="MSe-9J-7X9"/>
+                                    <constraint firstItem="hI9-Wb-ZH4" firstAttribute="centerX" secondItem="XCT-0l-Dcv" secondAttribute="centerX" id="VzR-mv-csH"/>
+                                    <constraint firstAttribute="bottom" secondItem="hI9-Wb-ZH4" secondAttribute="bottom" id="XW6-j3-BOP"/>
+                                    <constraint firstAttribute="width" constant="300" id="tz0-Fd-Ais"/>
+                                </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EHW-dI-M98">
                                 <rect key="frame" x="16" y="143" width="343" height="435"/>
@@ -101,8 +111,10 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.99215686274509807" green="0.84705882352941175" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.99215686274509807" green="0.84705882352941175" blue="0.39215686274509803" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="XCT-0l-Dcv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="11Q-6b-rig"/>
+                            <constraint firstItem="XCT-0l-Dcv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cuy-cS-xe5"/>
                             <constraint firstItem="hZk-8K-Hhe" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="HwH-1l-uv8"/>
                             <constraint firstItem="hZk-8K-Hhe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="crX-PJ-Hay"/>
                         </constraints>
@@ -111,6 +123,10 @@
                     <connections>
                         <outlet property="PopUpAddMembros" destination="hZk-8K-Hhe" id="Esp-KY-XHE"/>
                         <outlet property="domesticTasksCollection" destination="EHW-dI-M98" id="AGs-G2-MYv"/>
+                        <outlet property="familiaButton" destination="1eC-CY-g1x" id="HYJ-zw-0lR"/>
+                        <outlet property="timeToEndOfDayLabel" destination="Tnh-hk-ThR" id="EaV-ns-9GF"/>
+                        <outlet property="timeToEndOfDayProgressView" destination="hI9-Wb-ZH4" id="6wf-sm-mHI"/>
+                        <outlet property="toTheEndOfDayText" destination="gca-Sd-bae" id="emS-Lu-Wid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

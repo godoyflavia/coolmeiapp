@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  coolmeiappxcode
 //
-//  Created by Aluno on 24/04/18.
+//  Created by Flávia Godoy on 24/04/18.
 //  Copyright © 2018 Fem.me. All rights reserved.
 //
 
@@ -10,42 +10,65 @@ import UIKit
 import PBJHexagon
 
 class ViewController: UIViewController {
-
+  
+  //MARK: outlets do cabeçalho
+  @IBOutlet weak var familiaButton: UIButton! // dar um refactor depois pra um nome melhor
+  @IBOutlet weak var timeToEndOfDayProgressView: UIProgressView!
+  @IBOutlet weak var timeToEndOfDayLabel: UILabel!
+  @IBOutlet weak var toTheEndOfDayText: UILabel!
+  
+  
+  //MARK: collection da view tela principal
   @IBOutlet weak var domesticTasksCollection: UICollectionView!
   
+  //MARK: Pop Ups (11)
+  @IBOutlet weak var PopUpAddMembros: PopUpAddMembros!
   
-    @IBOutlet weak var PopUpAddMembros: PopUpAddMembros!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-      
-      self.domesticTasksCollection.dataSource = self
-      self.domesticTasksCollection.delegate = self
-      
-      //flow layout
-      let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
-      //flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
-      //flowLayout.minimumInteritemSpacing = 3
-      flowLayout.itemSize = CGSize(width: 80, height: 80)
-      //flowLayout.itemsPerRow = 4
-      self.domesticTasksCollection.setCollectionViewLayout(flowLayout, animated: false)
-      
-      
-        PopUpAddMembros.labelView.text = "milena é poc"
-      // se vc veio aqui tentando descobrir pq o pop-up nao aparece
-      // eh pq ele tem q ficar em cima de tudo no storyboard == ser o último dos arquivinhos
-    }
+  
+  //MARK: viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    //do progress view
+    timeToEndOfDayProgressView.layer.cornerRadius = 6 // metade da altura
+    timeToEndOfDayProgressView.clipsToBounds = true
+    timeToEndOfDayProgressView.layer.sublayers![1].cornerRadius = 6
+    timeToEndOfDayProgressView.subviews[1].clipsToBounds = true
+    // self.timeToEndOfDayProgressView.transform = timeToEndOfDayProgressView.transform.scaledBy(x: 1, y: 4)
+    // o auto-layout vai se aplicar ao tamanho original dela (height = 3)
+    
+    
+    //da collection view
+    self.domesticTasksCollection.dataSource = self
+    self.domesticTasksCollection.delegate = self
+    
+    //MARK: flow layout
+    let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
+    //flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
+    //flowLayout.minimumInteritemSpacing = 3
+    flowLayout.itemSize = CGSize(width: 80, height: 80)
+    // flowLayout.itemsPerRow - nao existe
+    //flowLayout.itemsPerRow = 4
+    self.domesticTasksCollection.setCollectionViewLayout(flowLayout, animated: false)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    // abre o pop-up de add membros na 1a vez que o app é aberto
+    // colocar pra não abrir sempre depois
+    PopUpAddMembros.labelView.text = "milena é poc"
+    // se vc veio aqui tentando descobrir pq o pop-up nao aparece
+    // eh pq ele tem q ficar em cima de tudo no storyboard == ser o último dos arquivinhos
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
 }
+
 
 //MARK: DataSource da CollectionVIew
 extension ViewController: UICollectionViewDataSource {
-
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 30
   }
@@ -76,10 +99,7 @@ extension ViewController: UICollectionViewDelegate {
       cell.taskIcon.image = UIImage(named: "hexagon.png")
     }
     
-    //domesticTasksCollection.reloadData()
-    
+    //domesticTasksCollection.reloadData() - quando chama reloadData() ele relê o cellForItemAt e refaz as células por ele, ignorando qualquer mudança posterior
   }
-  
-  
   
 }
