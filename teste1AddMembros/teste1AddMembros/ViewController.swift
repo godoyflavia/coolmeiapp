@@ -47,6 +47,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             membros.remove(at: indexPath.row)
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: membros)
+            UserDefaults.standard.set(encodedData, forKey: "pessoa")
             tableView.reloadData()
         }
     }
@@ -54,11 +56,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - TextField Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 1 {
-            labelText.text = textField.text!
-            
             textField.resignFirstResponder()
         }
-        
         return true
     }
     
@@ -197,6 +196,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let pessoas = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Pessoa]
             membros = pessoas
         }
+       
         
         imagemBotaoSelecionado.isHidden = true
         
