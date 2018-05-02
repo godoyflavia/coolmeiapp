@@ -13,12 +13,12 @@ import UIKit
 class HouseMember {
   var localData = LocalData.shared
   var name: String
-  var color: UIColor
+  var color: String
   var points: Int = 0
 //  var areYouWinning: Bool = false
 //  var won: Bool = false
   
-  init(name: String, color: UIColor) {
+  init(name: String, color: String) {
     self.name = name
     self.color = color
   }

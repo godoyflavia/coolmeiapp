@@ -13,7 +13,7 @@ import UIKit
 struct LocalData {
   
   // se precisar de objetos pra "ninguem"
-  var nobody = HouseMember(name: "nobody", color: .white)
+  var nobody = HouseMember(name: "nobody", color: "1")
   
   
   //MARK: arrays Banco de Dados
