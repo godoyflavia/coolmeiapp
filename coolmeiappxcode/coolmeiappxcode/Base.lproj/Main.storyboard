@@ -41,7 +41,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-CY-g1x" userLabel="ver membros">
                                         <rect key="frame" x="8" y="8" width="46" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="hexagon-black"/>
+                                        <state key="normal" backgroundImage="hexagon-black-horiz"/>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJj-o6-hNS" userLabel="box labels view">
                                         <rect key="frame" x="172" y="6" width="128" height="47"/>
@@ -51,14 +51,14 @@
                                                 <rect key="frame" x="0.0" y="26" width="128" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.27843137254901962" green="0.24313725490196078" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hora" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnh-hk-ThR">
                                                 <rect key="frame" x="51" y="0.0" width="77" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.27843137254901962" green="0.24313725490196078" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -74,10 +74,13 @@
                                     <constraint firstAttribute="width" constant="300" id="tz0-Fd-Ais"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EHW-dI-M98">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EHW-dI-M98">
                                 <rect key="frame" x="16" y="143" width="343" height="468"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="IDa-lK-DEY"/>
+                                    <constraint firstAttribute="height" constant="468" id="JHG-le-I4Q"/>
+                                </constraints>
                                 <collectionViewLayout key="collectionViewLayout" id="39N-9j-U2w" customClass="PBJHexagonFlowLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taskCell" id="yOR-0o-mBa" customClass="DomesticTasksCell" customModule="coolmeiappxcode" customModuleProvider="target">
@@ -116,7 +119,9 @@
                             <constraint firstItem="XCT-0l-Dcv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="11Q-6b-rig"/>
                             <constraint firstItem="XCT-0l-Dcv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cuy-cS-xe5"/>
                             <constraint firstItem="hZk-8K-Hhe" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="HwH-1l-uv8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EHW-dI-M98" secondAttribute="bottom" constant="56" id="O3V-6F-cyo"/>
                             <constraint firstItem="hZk-8K-Hhe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="crX-PJ-Hay"/>
+                            <constraint firstItem="EHW-dI-M98" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dxB-Ra-veF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -135,6 +140,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hexagon-black" width="128" height="128"/>
+        <image name="hexagon-black-horiz" width="82" height="82"/>
     </resources>
 </document>

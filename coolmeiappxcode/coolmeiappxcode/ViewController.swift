@@ -77,11 +77,13 @@ extension ViewController: UICollectionViewDataSource {
     
     let cell: DomesticTasksCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTasksCell
     
-    if indexPath.row % 8 == 3 || indexPath.row == 9 {
+    if indexPath.row % 8 == 3 {
        // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
        // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
-       // o caso 10 é pra abrir espaço pro botão de add
-       return cell
+       // nada acontece feijoada
+    } else if indexPath.row == 9 {
+        // o caso 9 é pra mostrar o botão de add
+        cell.taskIcon.image = UIImage(named: "add-task.png")
     } else {
        cell.taskIcon.image = UIImage(named: "hexagon.png")
     }
@@ -101,9 +103,12 @@ extension ViewController: UICollectionViewDelegate {
     
     // não atinge as células invisíveis (pq não tem else sem condição)
     if cell.taskIcon.image == UIImage(named: "hexagon.png") {
-      cell.taskIcon.image = UIImage(named: "hexagon-black.png")
-    } else if cell.taskIcon.image == UIImage(named: "hexagon-black.png") {
+      cell.taskIcon.image = UIImage(named: "hexagon-black-vert.png")
+    } else if cell.taskIcon.image == UIImage(named: "hexagon-black-vert.png") {
       cell.taskIcon.image = UIImage(named: "hexagon.png")
+    } else if cell.taskIcon.image == UIImage(named: "add-task.png") {
+        // abrir popUp de add tarefa!!
+        print("popUp abriu!")
     }
     
     //domesticTasksCollection.reloadData() - quando chama reloadData() ele relê o cellForItemAt e refaz as células por ele, ignorando qualquer mudança posterior
