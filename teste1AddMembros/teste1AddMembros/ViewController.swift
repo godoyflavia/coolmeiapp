@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBOutlet weak var imagemBotaoSelecionado: UIImageView!
-    @IBOutlet weak var labelText: UILabel!
+
     
     // MARK: - TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +47,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             membros.remove(at: indexPath.row)
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: membros)
+            UserDefaults.standard.set(encodedData, forKey: "pessoa")
             tableView.reloadData()
         }
     }
@@ -54,11 +56,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - TextField Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 1 {
-            labelText.text = textField.text!
-            
             textField.resignFirstResponder()
         }
-        
         return true
     }
     
@@ -192,17 +191,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         inserirNomeOutlet.delegate = self
         
         okOutlet.isEnabled = false
-        
-        // LEMBRAR DE APLICAR USER DEFAULTS A TABLEVIEW
-        if let name = UserDefaults.standard.value(forKey: "name") as? String {
-            labelText.text = name
-        }
-        
+
         if let decoded  = UserDefaults.standard.object(forKey: "pessoa") as? Data {
             let pessoas = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Pessoa]
-            labelText.text = pessoas[0].nome
             membros = pessoas
         }
+       
         
         imagemBotaoSelecionado.isHidden = true
         

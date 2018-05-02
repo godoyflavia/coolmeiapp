@@ -91,13 +91,6 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-pX-6KR">
-                                        <rect key="frame" x="108" y="237" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.65928819444444442" green="0.80425347222222221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -184,7 +177,6 @@
                         <outlet property="imagemBotaoSelecionado" destination="mxB-zo-6u8" id="c47-oc-vQ8"/>
                         <outlet property="inserirNomeOutlet" destination="1ke-tx-c0O" id="RMb-8t-ozA"/>
                         <outlet property="irOutlet" destination="JiE-h3-tOf" id="1b6-Bj-Jwx"/>
-                        <outlet property="labelText" destination="hpv-pX-6KR" id="UXZ-sf-CZk"/>
                         <outlet property="membrosTableView" destination="Bep-Zx-4Oi" id="XUh-xb-e7r"/>
                         <outlet property="nomeTitulo" destination="5fa-yV-7Wm" id="9Ap-2v-v8l"/>
                         <outlet property="okOutlet" destination="oT2-0b-uMO" id="hxR-dr-gyq"/>
