@@ -70,20 +70,26 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 24 // na prática só mostra 20 (4 células invisíveis)
+    return 27 // na prática só mostra 22 (3 células invisíveis)
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell: DomesticTasksCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTasksCell
     
-    if indexPath.row % 8 == 3 {
+    if indexPath.row % 8 == 3 || indexPath.row == 25 {
        // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
        // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
        // nada acontece feijoada
     } else if indexPath.row == 9 {
-        // o caso 9 é pra mostrar o botão de add
-        cell.taskIcon.image = UIImage(named: "add-task.png")
+       // o caso 9 é pra mostrar o botão de add
+       cell.taskIcon.image = UIImage(named: "add-task.png")
+    } else if indexPath.row == 24 {
+      // verificar atividades
+      cell.taskIcon.image = UIImage(named: "verify-tasks.png")
+    } else if indexPath.row == 26 {
+      // share (ultima celula)
+      cell.taskIcon.image = UIImage(named: "share.png")
     } else {
        cell.taskIcon.image = UIImage(named: "hexagon.png")
     }
@@ -107,8 +113,14 @@ extension ViewController: UICollectionViewDelegate {
     } else if cell.taskIcon.image == UIImage(named: "hexagon-black-vert.png") {
       cell.taskIcon.image = UIImage(named: "hexagon.png")
     } else if cell.taskIcon.image == UIImage(named: "add-task.png") {
-        // abrir popUp de add tarefa!!
-        print("popUp abriu!")
+      // abrir popUp de add tarefa!!
+      print("ui, adicionei!")
+    } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {
+      // abrir popUp de verificar tarefas
+      print("ui, verifiquei!")
+    } else if cell.taskIcon.image == UIImage(named: "share.png") {
+      // fazer o negocio la de share com os apps (Anna)
+      print("ui, compartilhei!")
     }
     
     //domesticTasksCollection.reloadData() - quando chama reloadData() ele relê o cellForItemAt e refaz as células por ele, ignorando qualquer mudança posterior

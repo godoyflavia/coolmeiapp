@@ -75,11 +75,11 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EHW-dI-M98">
-                                <rect key="frame" x="16" y="143" width="343" height="468"/>
+                                <rect key="frame" x="27.5" y="135" width="320" height="517"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="IDa-lK-DEY"/>
-                                    <constraint firstAttribute="height" constant="468" id="JHG-le-I4Q"/>
+                                    <constraint firstAttribute="width" constant="320" id="IDa-lK-DEY"/>
+                                    <constraint firstAttribute="height" constant="517" id="JHG-le-I4Q"/>
                                 </constraints>
                                 <collectionViewLayout key="collectionViewLayout" id="39N-9j-U2w" customClass="PBJHexagonFlowLayout"/>
                                 <cells>
@@ -119,7 +119,7 @@
                             <constraint firstItem="XCT-0l-Dcv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="11Q-6b-rig"/>
                             <constraint firstItem="XCT-0l-Dcv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cuy-cS-xe5"/>
                             <constraint firstItem="hZk-8K-Hhe" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="HwH-1l-uv8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EHW-dI-M98" secondAttribute="bottom" constant="56" id="O3V-6F-cyo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EHW-dI-M98" secondAttribute="bottom" constant="15" id="O3V-6F-cyo"/>
                             <constraint firstItem="hZk-8K-Hhe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="crX-PJ-Hay"/>
                             <constraint firstItem="EHW-dI-M98" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dxB-Ra-veF"/>
                         </constraints>
