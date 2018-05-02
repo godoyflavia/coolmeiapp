@@ -18,14 +18,14 @@
 		57020E1A208F9FEA00D333AF /* coolmeiappxcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */; };
 		57020E28208FAC6600D333AF /* addMembersPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57020E27208FAC6600D333AF /* addMembersPopUp.xib */; };
 		57020E2A208FAE9200D333AF /* addMembersPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E29208FAE9200D333AF /* addMembersPopUp.swift */; };
-		5732D6CE2093C2D2009E7435 /* Class HouseMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CD2093C2D2009E7435 /* Class HouseMember.swift */; };
+		5732D6CE2093C2D2009E7435 /* HouseMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CD2093C2D2009E7435 /* HouseMember.swift */; };
 		5732D6D02093C44C009E7435 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CF2093C44C009E7435 /* LocalData.swift */; };
 		57AEEAED209A4B64001C499D /* membersInfoPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57AEEAEC209A4B64001C499D /* membersInfoPopUp.xib */; };
 		57AEEAEF209A54DC001C499D /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AEEAEE209A54DC001C499D /* customTableViewCell.swift */; };
 		63DDC7281624AD4A6612AE66 /* Pods_coolmeiappxcodeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0A1EBE3AB8DBBEB99A2F25 /* Pods_coolmeiappxcodeUITests.framework */; };
 		80307B178DDED610F0CAF380 /* Pods_coolmeiappxcodeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A8E930E6FBFE79493A7FC0 /* Pods_coolmeiappxcodeTests.framework */; };
 		EF53739320950B11006CD886 /* DomesticTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53739220950B11006CD886 /* DomesticTasksCell.swift */; };
-		EFD41DC4208FD3E80076C40C /* Class DomesticTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD41DC3208FD3E80076C40C /* Class DomesticTask.swift */; };
+		EFD41DC4208FD3E80076C40C /* DomesticTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD41DC3208FD3E80076C40C /* DomesticTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,7 @@
 		57020E1B208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57020E27208FAC6600D333AF /* addMembersPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addMembersPopUp.xib; sourceTree = "<group>"; };
 		57020E29208FAE9200D333AF /* addMembersPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addMembersPopUp.swift; sourceTree = "<group>"; };
-		5732D6CD2093C2D2009E7435 /* Class HouseMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class HouseMember.swift"; sourceTree = "<group>"; };
+		5732D6CD2093C2D2009E7435 /* HouseMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseMember.swift; sourceTree = "<group>"; };
 		5732D6CF2093C44C009E7435 /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 		57AEEAEC209A4B64001C499D /* membersInfoPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = membersInfoPopUp.xib; sourceTree = "<group>"; };
 		57AEEAEE209A54DC001C499D /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		E8A8E930E6FBFE79493A7FC0 /* Pods_coolmeiappxcodeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coolmeiappxcodeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE2E6D89447685326704771 /* Pods-coolmeiappxcodeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeUITests/Pods-coolmeiappxcodeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EF53739220950B11006CD886 /* DomesticTasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticTasksCell.swift; sourceTree = "<group>"; };
-		EFD41DC3208FD3E80076C40C /* Class DomesticTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class DomesticTask.swift"; sourceTree = "<group>"; };
+		EFD41DC3208FD3E80076C40C /* DomesticTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,8 +211,8 @@
 		EFD41DC1208FD33A0076C40C /* Classes novas */ = {
 			isa = PBXGroup;
 			children = (
-				EFD41DC3208FD3E80076C40C /* Class DomesticTask.swift */,
-				5732D6CD2093C2D2009E7435 /* Class HouseMember.swift */,
+				EFD41DC3208FD3E80076C40C /* DomesticTask.swift */,
+				5732D6CD2093C2D2009E7435 /* HouseMember.swift */,
 			);
 			name = "Classes novas";
 			sourceTree = "<group>";
@@ -443,8 +443,8 @@
 				EF53739320950B11006CD886 /* DomesticTasksCell.swift in Sources */,
 				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,
 				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
-				5732D6CE2093C2D2009E7435 /* Class HouseMember.swift in Sources */,
-				EFD41DC4208FD3E80076C40C /* Class DomesticTask.swift in Sources */,
+				5732D6CE2093C2D2009E7435 /* HouseMember.swift in Sources */,
+				EFD41DC4208FD3E80076C40C /* DomesticTask.swift in Sources */,
 				57020E2A208FAE9200D333AF /* addMembersPopUp.swift in Sources */,
 				57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */,
 				5732D6D02093C44C009E7435 /* LocalData.swift in Sources */,

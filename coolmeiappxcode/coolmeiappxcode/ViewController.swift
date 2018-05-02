@@ -261,8 +261,6 @@ extension ViewController: UITableViewDataSource {
         cell.memberColor.backgroundColor = colorsDictionary[localData.houseMembers[indexPath.row].color]
         return cell
     }
-    
-    
 }
 
 //MARK: TextField
