@@ -70,15 +70,21 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 30
+    return 24 // na prática só mostra 20 (4 células invisíveis)
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell: DomesticTasksCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTasksCell
     
-    cell.taskIcon.image = UIImage(named: "hexagon.png")
-    
+    if indexPath.row % 8 == 3 || indexPath.row == 9 {
+       // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
+       // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
+       // o caso 10 é pra abrir espaço pro botão de add
+       return cell
+    } else {
+       cell.taskIcon.image = UIImage(named: "hexagon.png")
+    }
     return cell
   }
   
@@ -93,9 +99,10 @@ extension ViewController: UICollectionViewDelegate {
     let cell: DomesticTasksCell = collectionView.cellForItem(at: indexPath)
       as! DomesticTasksCell
     
+    // não atinge as células invisíveis (pq não tem else sem condição)
     if cell.taskIcon.image == UIImage(named: "hexagon.png") {
       cell.taskIcon.image = UIImage(named: "hexagon-black.png")
-    } else {
+    } else if cell.taskIcon.image == UIImage(named: "hexagon-black.png") {
       cell.taskIcon.image = UIImage(named: "hexagon.png")
     }
     
