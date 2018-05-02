@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopUpAddMembros: UIView {
+class addMembersPopUp: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var labelView: UILabel!
@@ -24,7 +24,7 @@ class PopUpAddMembros: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("PopUpAddMembros", owner: self, options: nil)
+        Bundle.main.loadNibNamed("addMembersPopUp", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
