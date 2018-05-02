@@ -14,7 +14,6 @@ class customTableViewCell: UITableViewCell {
     @IBOutlet weak var personName: UILabel!
     @IBOutlet weak var personColorView: UIView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

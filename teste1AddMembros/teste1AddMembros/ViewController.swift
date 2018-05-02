@@ -44,6 +44,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         inserirNomeOutlet.text! = pessoa.nome
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            membros.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
     // MARK: - TextField Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 1 {
