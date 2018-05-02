@@ -11,7 +11,7 @@ import UIKit
 
 
 class HouseMember {
-  var localData = LocalData.shared
+  //var localData = LocalData.shared
   var name: String
   var color: String
   var points: Int = 0
