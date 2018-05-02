@@ -160,6 +160,14 @@
                                         <rect key="frame" x="23" y="187" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kp-Ij-2MG">
+                                        <rect key="frame" x="20" y="8" width="53" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="&lt; voltar"/>
+                                        <connections>
+                                            <action selector="voltarAoAddAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b3Z-dO-YIW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.73272026909722221" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -183,6 +191,7 @@
                         <outlet property="popUpAddMembros" destination="v72-9z-9iX" id="gTp-2y-wVw"/>
                         <outlet property="popUpDPegarInfo" destination="Wgs-uA-sau" id="vHk-VM-xU5"/>
                         <outlet property="titulo" destination="uIB-Ao-6qT" id="iaq-Bi-UIY"/>
+                        <outlet property="voltarAoAdd" destination="7kp-Ij-2MG" id="Mm2-IJ-r7f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

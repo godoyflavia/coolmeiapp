@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var colorsDictionary:[String:UIColor] = [:]
     
+    var editando:Bool = false
+    
     
     @IBOutlet weak var imagemBotaoSelecionado: UIImageView!
 
@@ -42,11 +44,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let pessoa = membros[selectedIndex]
         adicionarPessoa(pessoa)
         inserirNomeOutlet.text! = pessoa.nome
+        editando = true
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             membros.remove(at: indexPath.row)
+            // para salvar o array novamente
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: membros)
             UserDefaults.standard.set(encodedData, forKey: "pessoa")
             tableView.reloadData()
@@ -88,6 +92,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // pop up pra cadastrar infos
+    @IBOutlet weak var voltarAoAdd: UIButton!
+    @IBAction func voltarAoAddAction(_ sender: Any) {
+        popUpDPegarInfo.isHidden = true
+        inserirNomeOutlet.text = ""
+        imagemBotaoSelecionado.isHidden = true
+    }
+    
+    
+    
     @IBOutlet weak var popUpDPegarInfo: UIView!
     @IBOutlet weak var nomeTitulo: UILabel!
     @IBOutlet weak var inserirNomeOutlet: UITextField!
@@ -139,6 +152,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         membros.append(Pessoa(nome: nomeGenerico, cor: corEscolhida, pontos: 0))
         membrosTableView.reloadData()
         print(corEscolhida)
+//        coresUsadas.append(self.corEscolhida)
         
         if membros.count >= 2 {
             irOutlet.isEnabled = true
@@ -150,21 +164,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         imagemBotaoSelecionado.isHidden = true
         
-        //Botao bloqueado se já foi escolhido
-        for cor in corEscolhida {
-            if cor == "1" {
-                escolherCor1Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-                escolherCor1Outlet.isEnabled = false
-            }
-            if cor == "2" {
-                escolherCor2Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-                escolherCor2Outlet.isEnabled = false
-            }
-            if cor == "3" {
-                escolherCor3Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-                escolherCor3Outlet.isEnabled = false
-            }
-        }
+//        //Botao bloqueado se já foi escolhido
+//        for cor in corEscolhida {
+//            if cor == "1" {
+//                escolherCor1Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+//                escolherCor1Outlet.isEnabled = false
+//            }
+//            if cor == "2" {
+//                escolherCor2Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+//                escolherCor2Outlet.isEnabled = false
+//            }
+//            if cor == "3" {
+//                escolherCor3Outlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+//                escolherCor3Outlet.isEnabled = false
+//            }
+//        }
+        
         
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: membros)
         UserDefaults.standard.set(encodedData, forKey: "pessoa")
@@ -183,15 +198,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        
         popUpDPegarInfo.isHidden = true
         irOutlet.isEnabled = false
+        okOutlet.isEnabled = false
         
         membrosTableView.delegate = self
         membrosTableView.dataSource = self
         inserirNomeOutlet.delegate = self
         
-        okOutlet.isEnabled = false
-
+        
+        // MARK: - UserDefaults
         if let decoded  = UserDefaults.standard.object(forKey: "pessoa") as? Data {
             let pessoas = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Pessoa]
             membros = pessoas
