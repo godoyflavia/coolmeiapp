@@ -331,7 +331,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! customTableViewCell
+        let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
         cell.memberName.text = localData.houseMembers[indexPath.row].name
         cell.memberColor.backgroundColor = colorsDictionary[localData.houseMembers[indexPath.row].color]
         return cell

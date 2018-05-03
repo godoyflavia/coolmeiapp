@@ -8,7 +8,7 @@
 
 import UIKit
 
-class customTableViewCell: UITableViewCell {
+class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var memberColor: UIView!
     @IBOutlet weak var memberName: UILabel!
