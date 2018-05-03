@@ -13,6 +13,25 @@ class ViewController: UIViewController {
     
     var localData = LocalData.shared
     
+    
+    var blurEffectView = UIVisualEffectView()
+    func openBlur() {
+        view.addSubview(blurEffectView)
+        blurEffectView.alpha = 0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blurEffectView.alpha = 1
+            })
+    }
+    
+    func closeBlur() {
+        blurEffectView.alpha = 1
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blurEffectView.alpha = 0
+        }, completion: {(finished: Bool) in
+            self.blurEffectView.removeFromSuperview()
+        })
+    }
+    
     var nowEditing = false
     
     var usedColors:[String] = []
@@ -46,6 +65,7 @@ class ViewController: UIViewController {
     @IBAction func go(_ sender: Any) {
         secondPopUpView.isHidden = true
         firstPopUpView.isHidden = true
+        closeBlur()
     }
     
     //MARK: Second popup (collect member's information)
@@ -150,6 +170,7 @@ class ViewController: UIViewController {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
         UserDefaults.standard.set(encodedData, forKey: "person")
         firstPopUpMembersTableView.reloadData()
+        goOutlet.isEnabled = false
         
         // usedColors.append(self.chosenColor)
         
@@ -182,7 +203,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Blur config for popups
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         // First popup
+        openBlur()
         view.addSubview(firstPopUpView)
         firstPopUpView.center = view.center
         firstPopUpView.layer.cornerRadius = cornerRadius
@@ -200,6 +228,7 @@ class ViewController: UIViewController {
         secondPopUpView.layer.cornerRadius = cornerRadius
         secondPopUpView.layer.shadowColor = shadowColor.cgColor
         secondPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+        imageSelectedColor.isHidden = true
         
         // Rounded buttons and colors for Second Popup
         chooseColor1Outlet.layer.cornerRadius = 0.5 * chooseColor1Outlet.bounds.size.width
@@ -345,6 +374,7 @@ extension ViewController: UITableViewDataSource {
         let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
         cell.memberName.text = localData.houseMembers[indexPath.row].name
         cell.memberColor.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
+        cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
         return cell
     }
 }
