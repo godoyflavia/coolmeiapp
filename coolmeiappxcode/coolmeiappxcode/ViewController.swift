@@ -171,6 +171,7 @@ class ViewController: UIViewController {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
         UserDefaults.standard.set(encodedData, forKey: "person")
         firstPopUpMembersTableView.reloadData()
+        goOutlet.isEnabled = false
         
         // usedColors.append(self.chosenColor)
         
