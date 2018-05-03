@@ -14,7 +14,7 @@ import UIKit
 class DomesticTask {
   var name: String
   var iconColor: UIImage
-  var iconGreyScale: UIImage
+  // var iconGreyScale: UIImage
   var value: Int = 0
   var isTaken: Bool = false // por default começam sem dono
   var whoWillDo: String = ""// futuramente ser do tipo "HouseMember" (a classe das pessoas da casa) e ser inicializado com um HouseMember "nobody"
@@ -22,10 +22,10 @@ class DomesticTask {
 
   // init padrão pras tarefas
   
-  init(name: String, iconColor:UIImage, iconGreyScale:UIImage, value1to5:Int) {
+  init(name: String, iconColor:UIImage, value1to5:Int) {
     self.name = name
     self.iconColor = iconColor
-    self.iconGreyScale = iconGreyScale
+    // self.iconGreyScale = iconGreyScale
     self.value = value1to5
   }
   
