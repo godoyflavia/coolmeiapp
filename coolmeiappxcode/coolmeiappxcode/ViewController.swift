@@ -56,25 +56,56 @@ class ViewController: UIViewController {
     @IBAction func goBackToFirst(_ sender: Any) {
         secondPopUpView.isHidden = true
         insertNameTxtField.text = ""
-        
+        imageSelectedColor.isHidden = true
     }
     
     @IBOutlet weak var imageSelectedColor: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBAction func insertName(_ sender: Any) {
+        self.genericName = insertNameTxtField.text!
+        nameWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
+    }
     @IBOutlet weak var insertNameTxtField: UITextField!
     @IBOutlet weak var colorLabel: UILabel!
     
     // colors' buttons
     @IBOutlet weak var chooseColor1Outlet: UIButton!
     @IBAction func chooseColor1(_ sender: Any) {
+        self.chosenColor = "1"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 17, y: 268, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
     }
     
     @IBOutlet weak var chooseColor2Outlet: UIButton!
     @IBAction func chooseColor2(_ sender: Any) {
+        self.chosenColor = "2"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 116, y: 268, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
     }
     
     @IBOutlet weak var chooseColor3Outlet: UIButton!
     @IBAction func chooseColor3(_ sender: Any) {
+        self.chosenColor = "3"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 218, y: 268, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
     }
     
     @IBOutlet weak var chooseColor4Outlet: UIButton!

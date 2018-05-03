@@ -103,6 +103,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         imagemBotaoSelecionado.isHidden = true
     }
     
+    // ok /\
     
     
     @IBOutlet weak var popUpDPegarInfo: UIView!
