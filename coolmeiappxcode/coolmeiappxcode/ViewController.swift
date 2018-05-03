@@ -82,9 +82,13 @@ class ViewController: UIViewController {
     // ok button
     @IBOutlet weak var nameAndColorOkOutlet: UIButton!
     
+    
+    
     //MARK: Third popup (collect member's information)
     @IBOutlet var thirdPopUpView: UIView!
     @IBOutlet weak var titlePopUpLabel: UILabel!
+    @IBOutlet weak var membersTableView: UITableView!
+    
     
     
     //MARK: collection da view tela principal
@@ -282,13 +286,18 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
-        cell.memberName.text = localData.houseMembers[indexPath.row].name
-        cell.memberColor.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
-        cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
-        return cell
+//        if tableView == firstPopUpMembersTableView {
+        
+            let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
+            cell.memberName.text = localData.houseMembers[indexPath.row].name
+            cell.memberColor.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
+            cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
+            return cell
+//        } else {
+//            let cell = membersTableView.dequeueReusableCell(withIdentifier: <#T##String#>)
+//            cell.
+        }
     }
-}
 
 //MARK: TableView Delegate
 

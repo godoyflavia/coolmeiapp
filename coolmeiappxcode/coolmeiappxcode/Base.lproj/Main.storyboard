@@ -136,6 +136,7 @@
                         <outlet property="goOutlet" destination="YLR-TV-UUo" id="xrC-9G-U7X"/>
                         <outlet property="imageSelectedColor" destination="WXZ-t8-8Th" id="PSm-Rj-oKU"/>
                         <outlet property="insertNameTxtField" destination="YUe-f1-wyy" id="cQF-Kc-5YW"/>
+                        <outlet property="membersTableView" destination="ocz-aO-mDT" id="ge0-kQ-CBq"/>
                         <outlet property="nameAndColorOkOutlet" destination="CRb-eJ-Szl" id="VeV-R2-HlT"/>
                         <outlet property="nameLabel" destination="3TI-Pq-jx2" id="29R-2e-PMG"/>
                         <outlet property="secondPopUpView" destination="gsb-IO-Te8" id="VHa-6r-kMZ"/>
@@ -152,12 +153,51 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ocz-aO-mDT">
-                            <rect key="frame" x="38" y="134" width="224" height="253"/>
+                            <rect key="frame" x="38" y="139" width="224" height="253"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <prototypes>
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rZG-pP-TgH" customClass="ViewMembersTableCell" customModule="coolmeiappxcode" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="28" width="224" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rZG-pP-TgH" id="42c-zm-f6H">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mjf-kq-Do8">
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prt-5l-0FW">
+                                                <rect key="frame" x="61" y="12" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jNd-iD-fa6">
+                                                <rect key="frame" x="193" y="11" width="22" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emk-ye-pZ8">
+                                                <rect key="frame" x="174" y="11" width="11" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </tableViewCellContentView>
+                                    <connections>
+                                        <outlet property="memberColorImageView" destination="Mjf-kq-Do8" id="f6f-w2-Tp6"/>
+                                        <outlet property="memberName" destination="prt-5l-0FW" id="YHO-eK-mFJ"/>
+                                        <outlet property="memberPoints" destination="emk-ye-pZ8" id="0m9-6G-e2G"/>
+                                    </connections>
+                                </tableViewCell>
+                            </prototypes>
                         </tableView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="membros da casa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h27-BS-QM5">
-                            <rect key="frame" x="82" y="91" width="136" height="21"/>
+                            <rect key="frame" x="82" y="87" width="136" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.3082046141" green="0.26469380819999999" blue="0.45544495559999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
