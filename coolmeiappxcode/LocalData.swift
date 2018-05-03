@@ -10,11 +10,10 @@ import Foundation
 import UIKit
 
 // esse struct é nosso banco de dados local
-struct LocalData {
+class LocalData {
   
   // se precisar de objetos pra "ninguem"
   var nobody = HouseMember(name: "nobody", color: "1")
-  
   
   //MARK: arrays Banco de Dados
   // array pra alimentar as table views dos moradores
@@ -31,8 +30,7 @@ struct LocalData {
   // usada pra assessar esses arrays do lado de fora do struct
   //MARK:
   static let shared = LocalData()
-  
-  
+  private init() {}
 }
   
 

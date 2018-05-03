@@ -152,6 +152,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    // ok /\
+    
     @IBOutlet weak var okOutlet: UIButton!
     @IBAction func ok(_ sender: Any) { // *** limpar o textfield
         membros.append(Pessoa(nome: nomeGenerico, cor: corEscolhida, pontos: 0))

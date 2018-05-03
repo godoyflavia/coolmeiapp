@@ -110,23 +110,59 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var chooseColor4Outlet: UIButton!
     @IBAction func chooseColor4(_ sender: Any) {
+        self.chosenColor = "4"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 17, y: 338, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
     }
     
     @IBOutlet weak var chooseColor5Outlet: UIButton!
     @IBAction func chooseColor5(_ sender: Any) {
+        self.chosenColor = "5"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 116, y: 338, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
     }
     
     @IBOutlet weak var chooseColor6Outlet: UIButton!
     @IBAction func chooseColor6(_ sender: Any) {
+        self.chosenColor = "6"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 218, y: 338, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
     }
     
     // ok button
     @IBOutlet weak var nameAndColorOkOutlet: UIButton!
     @IBAction func nameAndColorOk(_ sender: Any) {
-        
+        localData.houseMembers.append(HouseMember(name: genericName, color: chosenColor))
+        firstPopUpMembersTableView.reloadData()
+        imageSelectedColor.isHidden = true
+        secondPopUpView.isHidden = true
+        // usedColors.append(self.chosenColor)
         // Saving member
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
         UserDefaults.standard.set(encodedData, forKey: "person")
+        
+        if localData.houseMembers.count >= 2 {
+            goOutlet.isEnabled = true
+        }
+        
+        if localData.houseMembers.count == 6 {
+            addMemberOutlet.isEnabled = false
+        }
     }
     
     
@@ -149,6 +185,9 @@ class ViewController: UIViewController {
         firstPopUpView.layer.shadowColor = shadowColor.cgColor
         firstPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
         goOutlet.isEnabled = false
+        goOutlet.isHidden = false
+        addMemberOutlet.isHidden = false
+        addMemberOutlet.isEnabled = true
         
         // Second popup
         view.addSubview(secondPopUpView)

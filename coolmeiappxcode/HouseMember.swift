@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class HouseMember {
+class HouseMember: NSObject, NSCoding {
   //var localData = LocalData.shared
   var name: String
   var color: String
@@ -22,6 +22,17 @@ class HouseMember {
     self.name = name
     self.color = color
   }
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let color = aDecoder.decodeObject(forKey: "color") as! String
+        self.init(name: name, color: color)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(color, forKey: "color")
+    }
   
   
   //MARK:
@@ -62,16 +73,16 @@ class HouseMember {
 //MARK: Equatable
 // conformando a classe HouseMembers com o protocolo Equatable
 // objetivo: poder usar comparar os objetos da classe usando == e !=
-extension HouseMember: Equatable {
-  
-  // função puxada pelo protocolo, que ensina o código a comparar os HouseMember's
-  static func == (lhs: HouseMember, rhs: HouseMember) -> Bool {
-    if lhs.name == rhs.name {
-      return true
-    } else {
-      return false
-    }
-  }
-  
-}
+//extension HouseMember: Equatable {
+//  
+//  // função puxada pelo protocolo, que ensina o código a comparar os HouseMember's
+//  static func == (lhs: HouseMember, rhs: HouseMember) -> Bool {
+//    if lhs.name == rhs.name {
+//      return true
+//    } else {
+//      return false
+//    }
+//  }
+//  
+//}
 
