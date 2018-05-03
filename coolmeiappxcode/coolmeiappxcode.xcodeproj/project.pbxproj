@@ -16,11 +16,8 @@
 		57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */; };
 		57020E0F208F9FEA00D333AF /* coolmeiappxcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E0E208F9FEA00D333AF /* coolmeiappxcodeTests.swift */; };
 		57020E1A208F9FEA00D333AF /* coolmeiappxcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */; };
-		57020E28208FAC6600D333AF /* addMembersPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57020E27208FAC6600D333AF /* addMembersPopUp.xib */; };
-		57020E2A208FAE9200D333AF /* addMembersPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E29208FAE9200D333AF /* addMembersPopUp.swift */; };
 		5732D6CE2093C2D2009E7435 /* HouseMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CD2093C2D2009E7435 /* HouseMember.swift */; };
 		5732D6D02093C44C009E7435 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CF2093C44C009E7435 /* LocalData.swift */; };
-		57AEEAED209A4B64001C499D /* membersInfoPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57AEEAEC209A4B64001C499D /* membersInfoPopUp.xib */; };
 		57AEEAEF209A54DC001C499D /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AEEAEE209A54DC001C499D /* customTableViewCell.swift */; };
 		63DDC7281624AD4A6612AE66 /* Pods_coolmeiappxcodeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0A1EBE3AB8DBBEB99A2F25 /* Pods_coolmeiappxcodeUITests.framework */; };
 		80307B178DDED610F0CAF380 /* Pods_coolmeiappxcodeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A8E930E6FBFE79493A7FC0 /* Pods_coolmeiappxcodeTests.framework */; };
@@ -64,11 +61,8 @@
 		57020E15208F9FEA00D333AF /* coolmeiappxcodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coolmeiappxcodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coolmeiappxcodeUITests.swift; sourceTree = "<group>"; };
 		57020E1B208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57020E27208FAC6600D333AF /* addMembersPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addMembersPopUp.xib; sourceTree = "<group>"; };
-		57020E29208FAE9200D333AF /* addMembersPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addMembersPopUp.swift; sourceTree = "<group>"; };
 		5732D6CD2093C2D2009E7435 /* HouseMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseMember.swift; sourceTree = "<group>"; };
 		5732D6CF2093C44C009E7435 /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
-		57AEEAEC209A4B64001C499D /* membersInfoPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = membersInfoPopUp.xib; sourceTree = "<group>"; };
 		57AEEAEE209A54DC001C499D /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
 		60A5EC8E6C68C6FBB509DCC3 /* Pods-coolmeiappxcodeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeTests/Pods-coolmeiappxcodeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B4212040830374AFA018D69 /* Pods-coolmeiappxcodeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeUITests/Pods-coolmeiappxcodeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -191,9 +185,6 @@
 		EFD41DBF208FD2E90076C40C /* Pop Ups Iniciais */ = {
 			isa = PBXGroup;
 			children = (
-				57020E27208FAC6600D333AF /* addMembersPopUp.xib */,
-				57AEEAEC209A4B64001C499D /* membersInfoPopUp.xib */,
-				57020E29208FAE9200D333AF /* addMembersPopUp.swift */,
 				57AEEAEE209A54DC001C499D /* customTableViewCell.swift */,
 			);
 			name = "Pop Ups Iniciais";
@@ -336,10 +327,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57AEEAED209A4B64001C499D /* membersInfoPopUp.xib in Resources */,
 				57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */,
 				57020E01208F9FEA00D333AF /* Assets.xcassets in Resources */,
-				57020E28208FAC6600D333AF /* addMembersPopUp.xib in Resources */,
 				57020DFC208F9FE900D333AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +434,6 @@
 				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
 				5732D6CE2093C2D2009E7435 /* HouseMember.swift in Sources */,
 				EFD41DC4208FD3E80076C40C /* DomesticTask.swift in Sources */,
-				57020E2A208FAE9200D333AF /* addMembersPopUp.swift in Sources */,
 				57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */,
 				5732D6D02093C44C009E7435 /* LocalData.swift in Sources */,
 				57AEEAEF209A54DC001C499D /* customTableViewCell.swift in Sources */,
