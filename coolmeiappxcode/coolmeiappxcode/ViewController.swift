@@ -12,7 +12,16 @@ import PBJHexagon
 class ViewController: UIViewController {
     
     var localData = LocalData.shared
+    
     var colorsDictionary:[String:UIColor] = [:]
+    
+    var nowEditing = false
+    
+    var usedColors:[String] = []
+    var chosenColor = ""
+    var genericName = ""
+    var nameWasChosen = false
+    var colorWasChosen = false
     
     //MARK: outlets do cabeçalho
     @IBOutlet weak var familiaButton: UIButton! // dar um refactor depois pra um nome melhor
@@ -33,17 +42,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstPopUpMembersTableView: UITableView!
     @IBOutlet weak var addMemberOutlet: UIButton!
     @IBAction func addMember(_ sender: Any) {
+        secondPopUpView.isHidden = false
     }
     @IBOutlet weak var goOutlet: UIButton!
     @IBAction func go(_ sender: Any) {
+        secondPopUpView.isHidden = true
+        firstPopUpView.isHidden = true
     }
     
     //MARK: Second popup (collect member's information)
     @IBOutlet weak var secondPopUpView: UIView!
     @IBOutlet weak var goBackToFirstOutlet: UIButton!
     @IBAction func goBackToFirst(_ sender: Any) {
+        secondPopUpView.isHidden = true
+        insertNameTxtField.text = ""
+        
     }
     
+    @IBOutlet weak var imageSelectedColor: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var insertNameTxtField: UITextField!
     @IBOutlet weak var colorLabel: UILabel!
@@ -76,6 +92,10 @@ class ViewController: UIViewController {
     // ok button
     @IBOutlet weak var nameAndColorOkOutlet: UIButton!
     @IBAction func nameAndColorOk(_ sender: Any) {
+        
+        // Saving member
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
+        UserDefaults.standard.set(encodedData, forKey: "person")
     }
     
     
@@ -83,7 +103,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
     
     //MARK: Pop Ups (11)
-    @IBOutlet weak var PopUpAddMembros: addMembersPopUp!
+    //@IBOutlet weak var PopUpAddMembros: addMembersPopUp!
     
     
     //MARK: viewDidLoad()
@@ -135,10 +155,15 @@ class ViewController: UIViewController {
         colorsDictionary["6"] = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         colorsDictionary["deactivated"] = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
-        // tap gesture for dismissing Keyboard
+        // Tap gesture for dismissing Keyboard
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
         
+        // Decoding
+        if let decoded  = UserDefaults.standard.object(forKey: "person") as? Data {
+            let people = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [HouseMember]
+            localData.houseMembers = people
+        }
         
         //do progress view
         timeToEndOfDayProgressView.layer.cornerRadius = 6 // metade da altura
@@ -246,7 +271,26 @@ extension ViewController: UICollectionViewDelegate {
 //MARK: TableView Delegate
 
 extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedIndex = indexPath.row
+        let selectedPerson = localData.houseMembers[selectedIndex]
+        addMember(selectedPerson)
+        insertNameTxtField.text! = selectedPerson.name
+        nowEditing = true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            localData.houseMembers.remove(at: indexPath.row)
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
+            UserDefaults.standard.set(encodedData, forKey: "person")
+            tableView.reloadData()
+        }
+    }
 }
 
 //MARK: TableView DataSource
@@ -268,8 +312,13 @@ extension ViewController: UITextViewDelegate {
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 1 {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
 }
-
 
 
 
