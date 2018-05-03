@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var colorWasChosen = false
     
     //MARK: outlets do cabeçalho
-    @IBOutlet weak var familiaButton: UIButton! // dar um refactor depois pra um nome melhor
+    @IBOutlet weak var familyButton: UIButton!
     @IBOutlet weak var timeToEndOfDayProgressView: UIProgressView!
     @IBOutlet weak var timeToEndOfDayLabel: UILabel!
     @IBOutlet weak var toTheEndOfDayText: UILabel!
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var insertNameTxtField: UITextField!
     @IBOutlet weak var colorLabel: UILabel!
     
-    // colors' buttons
+    // colors buttons
     @IBOutlet weak var chooseColor1Outlet: UIButton!
     @IBOutlet weak var chooseColor2Outlet: UIButton!
     @IBOutlet weak var chooseColor3Outlet: UIButton!
@@ -82,11 +82,17 @@ class ViewController: UIViewController {
     // ok button
     @IBOutlet weak var nameAndColorOkOutlet: UIButton!
     
+    //MARK: Third popup (collect member's information)
+    @IBOutlet var thirdPopUpView: UIView!
+    @IBOutlet weak var titlePopUpLabel: UILabel!
+    
+    
     //MARK: collection da view tela principal
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
     
-    //MARK: Pop Ups (11)
+    //MARK: Pop Ups (12)
     //@IBOutlet weak var PopUpAddMembros: addMembersPopUp!
+    
     
     
     //MARK: viewDidLoad()
@@ -139,7 +145,7 @@ class ViewController: UIViewController {
         
         chooseColor6Outlet.layer.cornerRadius = 0.5 * chooseColor6Outlet.bounds.size.width
         chooseColor6Outlet.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-    
+        
         
         // Decoding
         if let decoded  = UserDefaults.standard.object(forKey: "person") as? Data {
@@ -191,6 +197,17 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func seeFamily(_ sender: UIButton) {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
 }
 
 //MARK: DataSource da CollectionVIew
