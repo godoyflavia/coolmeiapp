@@ -251,11 +251,11 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <prototypes>
-                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customTableViewCell" rowHeight="75" id="wo4-pQ-iHe" customClass="CustomTableViewCell" customModule="coolmeiappxcode" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="28" width="300" height="75"/>
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customTableViewCell" rowHeight="80" id="wo4-pQ-iHe" customClass="CustomTableViewCell" customModule="coolmeiappxcode" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="28" width="300" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wo4-pQ-iHe" id="rCs-XR-Egg">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="74.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="79.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wma-Bh-Yqi">

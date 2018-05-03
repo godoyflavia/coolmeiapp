@@ -148,13 +148,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameAndColorOkOutlet: UIButton!
     @IBAction func nameAndColorOk(_ sender: Any) {
         localData.houseMembers.append(HouseMember(name: genericName, color: chosenColor))
-        firstPopUpMembersTableView.reloadData()
-        imageSelectedColor.isHidden = true
-        secondPopUpView.isHidden = true
-        // usedColors.append(self.chosenColor)
         // Saving member
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
         UserDefaults.standard.set(encodedData, forKey: "person")
+        firstPopUpMembersTableView.reloadData()
+        
+        // usedColors.append(self.chosenColor)
         
         if localData.houseMembers.count >= 2 {
             goOutlet.isEnabled = true
@@ -163,6 +162,13 @@ class ViewController: UIViewController {
         if localData.houseMembers.count == 6 {
             addMemberOutlet.isEnabled = false
         }
+        
+        nameAndColorOkOutlet.isEnabled = false
+        colorWasChosen = false
+        nameWasChosen = false
+        insertNameTxtField.text = ""
+        imageSelectedColor.isHidden = true
+        secondPopUpView.isHidden = true
     }
     
     
@@ -225,10 +231,6 @@ class ViewController: UIViewController {
         colorsDictionary["6"] = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         colorsDictionary["deactivated"] = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
-        // Tap gesture for dismissing Keyboard
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
-        
         // Decoding
         if let decoded  = UserDefaults.standard.object(forKey: "person") as? Data {
             let people = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [HouseMember]
@@ -255,6 +257,10 @@ class ViewController: UIViewController {
         //textfield
         self.insertNameTxtField.delegate = self as? UITextFieldDelegate
         
+        // Tap gesture for dismissing Keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        
         //MARK: flow layout
         let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
         //flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
@@ -268,6 +274,7 @@ class ViewController: UIViewController {
         // colocar pra não abrir sempre depois
         // se vc veio aqui tentando descobrir pq o pop-up nao aparece
         // eh pq ele tem q ficar em cima de tudo no storyboard == ser o último dos arquivinhos
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -338,11 +345,25 @@ extension ViewController: UICollectionViewDelegate {
     
 }
 
+//MARK: TableView DataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return localData.houseMembers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
+        cell.memberName.text = localData.houseMembers[indexPath.row].name
+        cell.memberColor.backgroundColor = colorsDictionary[localData.houseMembers[indexPath.row].color]
+        return cell
+    }
+}
+
 //MARK: TableView Delegate
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 80
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -363,19 +384,6 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-//MARK: TableView DataSource
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return localData.houseMembers.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
-        cell.memberName.text = localData.houseMembers[indexPath.row].name
-        cell.memberColor.backgroundColor = colorsDictionary[localData.houseMembers[indexPath.row].color]
-        return cell
-    }
-}
 
 //MARK: TextField
 extension ViewController: UITextViewDelegate {
