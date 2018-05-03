@@ -284,7 +284,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t87-Ja-Ufv">
                             <rect key="frame" x="26" y="376" width="58" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="+" image="hexagon"/>
+                            <state key="normal" title="+" image="add-task"/>
                             <connections>
                                 <action selector="addMember:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rCz-vb-qxU"/>
                             </connections>
@@ -299,7 +299,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLR-TV-UUo">
                             <rect key="frame" x="211" y="377" width="57" height="53"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="ir" image="hexagon-black"/>
+                            <state key="normal" title="ir" image="hexagon-black-vert"/>
                             <connections>
                                 <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3EA-eU-O4H"/>
                             </connections>
@@ -313,8 +313,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hexagon" width="128" height="128"/>
-        <image name="hexagon-black" width="128" height="128"/>
+        <image name="add-task" width="82" height="82"/>
         <image name="hexagon-black-horiz" width="82" height="82"/>
         <image name="hexagon-black-vert" width="82" height="82"/>
         <image name="selectedColor" width="64" height="64"/>

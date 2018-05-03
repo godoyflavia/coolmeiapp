@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     
     var localData = LocalData.shared
     
-    var colorsDictionary:[String:UIColor] = [:]
-    
     var nowEditing = false
     
     var usedColors:[String] = []
@@ -221,15 +219,7 @@ class ViewController: UIViewController {
         
         chooseColor6Outlet.layer.cornerRadius = 0.5 * chooseColor6Outlet.bounds.size.width
         chooseColor6Outlet.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        
-        // colors dictionary
-        colorsDictionary["1"] = #colorLiteral(red: 0.9215686275, green: 0.431372549, blue: 0.5019607843, alpha: 1)
-        colorsDictionary["2"] = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
-        colorsDictionary["3"] = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        colorsDictionary["4"] = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
-        colorsDictionary["5"] = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-        colorsDictionary["6"] = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        colorsDictionary["deactivated"] = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    
         
         // Decoding
         if let decoded  = UserDefaults.standard.object(forKey: "person") as? Data {
@@ -259,7 +249,7 @@ class ViewController: UIViewController {
         
         // Tap gesture for dismissing Keyboard
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
+        secondPopUpView.addGestureRecognizer(tapGesture)
         
         //MARK: flow layout
         let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
@@ -354,7 +344,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
         cell.memberName.text = localData.houseMembers[indexPath.row].name
-        cell.memberColor.backgroundColor = colorsDictionary[localData.houseMembers[indexPath.row].color]
+        cell.memberColor.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
         return cell
     }
 }
