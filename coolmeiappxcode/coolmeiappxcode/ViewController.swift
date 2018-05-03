@@ -355,7 +355,10 @@ extension ViewController: UICollectionViewDelegate {
             // abrir popUp de verificar tarefas
             print("ui, verifiquei!")
         } else if cell.taskIcon.image == UIImage(named: "share.png") {
-            // fazer o negocio la de share com os apps (Anna)
+            // sharing activities
+            let activityVC = UIActivityViewController(activityItems: ["veja como eu dividi as tarefas!"], applicationActivities: nil)
+            activityVC.popoverPresentationController?.sourceView = self.view
+            self.present(activityVC, animated:  true, completion: nil)
             print("ui, compartilhei!")
         }
         

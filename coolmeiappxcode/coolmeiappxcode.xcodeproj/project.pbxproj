@@ -601,9 +601,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUVGK4GFGB;
+				DEVELOPMENT_TEAM = 7KT4V85K95;
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -618,9 +618,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUVGK4GFGB;
+				DEVELOPMENT_TEAM = 7KT4V85K95;
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
