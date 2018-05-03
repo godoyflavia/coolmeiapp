@@ -15,6 +15,19 @@ class ViewController: UIViewController {
     
     var colorsDictionary:[String:UIColor] = [:]
     
+    var blufEffectView = UIVisualEffectView()
+    func openBlur() {
+        view.addSubview(blufEffectView)
+        blufEffectView.alpha = 0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blufEffectView.alpha = 1
+            })
+    }
+    
+    func closeBlur() {
+        blufEffectView.alpha = 1
+    }
+    
     var nowEditing = false
     
     var usedColors:[String] = []
@@ -184,6 +197,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Blur config for popups
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         // First popup
         view.addSubview(firstPopUpView)
         firstPopUpView.center = view.center
@@ -202,6 +221,7 @@ class ViewController: UIViewController {
         secondPopUpView.layer.cornerRadius = cornerRadius
         secondPopUpView.layer.shadowColor = shadowColor.cgColor
         secondPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+        imageSelectedColor.isHidden = true
         
         // Rounded buttons and colors for Second Popup
         chooseColor1Outlet.layer.cornerRadius = 0.5 * chooseColor1Outlet.bounds.size.width
@@ -354,6 +374,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
         cell.memberName.text = localData.houseMembers[indexPath.row].name
+        cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
         cell.memberColor.backgroundColor = colorsDictionary[localData.houseMembers[indexPath.row].color]
         return cell
     }
