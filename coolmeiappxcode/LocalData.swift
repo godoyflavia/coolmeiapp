@@ -19,8 +19,25 @@ class LocalData {
   // array pra alimentar as table views dos moradores
   var houseMembers: [HouseMember] = []
 
-  // array pra alimentar as collection views das tarefas
-  var domesticTasks: [DomesticTask] = []
+  // array pra alimentar as collection views das tarefas escolhidas por Rita
+  var chosenDomesticTasks: [DomesticTask] = []
+   
+   //
+    var allDomesticTasks: [DomesticTask] = [
+        DomesticTask(name: "lavar prato", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
+        DomesticTask(name: "tirar a mesa", iconColor: UIImage(named: "hexagon.png")!, value1to5: 1),
+        DomesticTask(name: "passear com o cachorro", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
+        DomesticTask(name: "checar validades", iconColor: UIImage(named: "hexagon.png")!, value1to5: 1),
+        DomesticTask(name: "pagar as contas", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
+        DomesticTask(name: "fazer o almoço", iconColor: UIImage(named: "hexagon.png")!, value1to5: 3),
+        DomesticTask(name: "fazer o jantar", iconColor: UIImage(named: "hexagon.png")!, value1to5: 3),
+        DomesticTask(name: "dobrar as roupas", iconColor: UIImage(named: "hexagon.png")!, value1to5: 1),
+        DomesticTask(name: "lavar roupa", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
+        DomesticTask(name: "enxugar os pratos", iconColor: UIImage(named: "hexagon.png")!, value1to5: 1),
+        DomesticTask(name: "passar pano", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
+        DomesticTask(name: "fazer a feira", iconColor: UIImage(named: "hexagon.png")!, value1to5: 4),
+        DomesticTask(name: "varrer a casa", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2)
+    ]
     
     
   // cores dos moradores
