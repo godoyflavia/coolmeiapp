@@ -210,8 +210,8 @@ class ViewController: UIViewController {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // First popup
-        view.addSubview(firstPopUpView)
         openBlur()
+        view.addSubview(firstPopUpView)
         firstPopUpView.center = view.center
         firstPopUpView.layer.cornerRadius = cornerRadius
         firstPopUpView.layer.shadowColor = shadowColor.cgColor
