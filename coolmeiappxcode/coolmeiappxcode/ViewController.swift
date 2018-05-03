@@ -13,27 +13,9 @@ class ViewController: UIViewController {
     
     var localData = LocalData.shared
     
-    
+    // Variables
     var blurEffectView = UIVisualEffectView()
-    func openBlur() {
-        view.addSubview(blurEffectView)
-        blurEffectView.alpha = 0
-        UIView.animate(withDuration: 0.5, animations: {
-            self.blurEffectView.alpha = 1
-            })
-    }
-    
-    func closeBlur() {
-        blurEffectView.alpha = 1
-        UIView.animate(withDuration: 0.5, animations: {
-            self.blurEffectView.alpha = 0
-        }, completion: {(finished: Bool) in
-            self.blurEffectView.removeFromSuperview()
-        })
-    }
-    
     var nowEditing = false
-    
     var usedColors:[String] = []
     var chosenColor = ""
     var genericName = ""
@@ -91,105 +73,14 @@ class ViewController: UIViewController {
     
     // colors' buttons
     @IBOutlet weak var chooseColor1Outlet: UIButton!
-    @IBAction func chooseColor1(_ sender: Any) {
-        self.chosenColor = "1"
-        usedColors.append(self.chosenColor)
-        imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 17, y: 268, width: 50, height: 50)
-        colorWasChosen = true
-        if nameWasChosen && colorWasChosen {
-            nameAndColorOkOutlet.isEnabled = true
-        }
-    }
-    
     @IBOutlet weak var chooseColor2Outlet: UIButton!
-    @IBAction func chooseColor2(_ sender: Any) {
-        self.chosenColor = "2"
-        usedColors.append(self.chosenColor)
-        imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 116, y: 268, width: 50, height: 50)
-        colorWasChosen = true
-        if nameWasChosen && colorWasChosen {
-            nameAndColorOkOutlet.isEnabled = true
-        }
-    }
-    
     @IBOutlet weak var chooseColor3Outlet: UIButton!
-    @IBAction func chooseColor3(_ sender: Any) {
-        self.chosenColor = "3"
-        usedColors.append(self.chosenColor)
-        imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 218, y: 268, width: 50, height: 50)
-        colorWasChosen = true
-        if nameWasChosen && colorWasChosen {
-            nameAndColorOkOutlet.isEnabled = true
-        }
-    }
-    
     @IBOutlet weak var chooseColor4Outlet: UIButton!
-    @IBAction func chooseColor4(_ sender: Any) {
-        self.chosenColor = "4"
-        usedColors.append(self.chosenColor)
-        imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 17, y: 338, width: 50, height: 50)
-        colorWasChosen = true
-        if nameWasChosen && colorWasChosen {
-            nameAndColorOkOutlet.isEnabled = true
-        }
-    }
-    
     @IBOutlet weak var chooseColor5Outlet: UIButton!
-    @IBAction func chooseColor5(_ sender: Any) {
-        self.chosenColor = "5"
-        usedColors.append(self.chosenColor)
-        imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 116, y: 338, width: 50, height: 50)
-        colorWasChosen = true
-        if nameWasChosen && colorWasChosen {
-            nameAndColorOkOutlet.isEnabled = true
-        }
-    }
-    
     @IBOutlet weak var chooseColor6Outlet: UIButton!
-    @IBAction func chooseColor6(_ sender: Any) {
-        self.chosenColor = "6"
-        usedColors.append(self.chosenColor)
-        imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 218, y: 338, width: 50, height: 50)
-        colorWasChosen = true
-        if nameWasChosen && colorWasChosen {
-            nameAndColorOkOutlet.isEnabled = true
-        }
-    }
     
     // ok button
     @IBOutlet weak var nameAndColorOkOutlet: UIButton!
-    @IBAction func nameAndColorOk(_ sender: Any) {
-        localData.houseMembers.append(HouseMember(name: genericName, color: chosenColor))
-        // Saving member
-        let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
-        UserDefaults.standard.set(encodedData, forKey: "person")
-        firstPopUpMembersTableView.reloadData()
-        goOutlet.isEnabled = false
-        
-        // usedColors.append(self.chosenColor)
-        
-        if localData.houseMembers.count >= 2 {
-            goOutlet.isEnabled = true
-        }
-        
-        if localData.houseMembers.count == 6 {
-            addMemberOutlet.isEnabled = false
-        }
-        
-        nameAndColorOkOutlet.isEnabled = false
-        colorWasChosen = false
-        nameWasChosen = false
-        insertNameTxtField.text = ""
-        imageSelectedColor.isHidden = true
-        secondPopUpView.isHidden = true
-    }
-    
     
     //MARK: collection da view tela principal
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
@@ -421,6 +312,121 @@ extension ViewController: UITextViewDelegate {
     }
 }
 
+//MARK: Blur functions to all PopUps
+extension ViewController {
+    func openBlur() {
+        view.addSubview(blurEffectView)
+        blurEffectView.alpha = 0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blurEffectView.alpha = 1
+        })
+    }
+    
+    func closeBlur() {
+        blurEffectView.alpha = 1
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blurEffectView.alpha = 0
+        }, completion: {(finished: Bool) in
+            self.blurEffectView.removeFromSuperview()
+        })
+    }
+}
+
+//MARK: Choosing colors functions
+extension ViewController {
+    // First Button - Pink
+    @IBAction func chooseColor1(_ sender: Any) {
+        self.chosenColor = "1"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 17, y: 268, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
+    }
+    // Second Button - Salmon
+    @IBAction func chooseColor2(_ sender: Any) {
+        self.chosenColor = "2"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 116, y: 268, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
+    }
+    // Third Button - Purple
+    @IBAction func chooseColor3(_ sender: Any) {
+        self.chosenColor = "3"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 218, y: 268, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
+    }
+    // Fourth Button - Dark Blue
+    @IBAction func chooseColor4(_ sender: Any) {
+        self.chosenColor = "4"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 17, y: 338, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
+    }
+    // Fifth Button - Green
+    @IBAction func chooseColor5(_ sender: Any) {
+        self.chosenColor = "5"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 116, y: 338, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
+    }
+    // Sixth Button - Light Blue
+    @IBAction func chooseColor6(_ sender: Any) {
+        self.chosenColor = "6"
+        usedColors.append(self.chosenColor)
+        imageSelectedColor.isHidden = false
+        imageSelectedColor.frame = CGRect(x: 218, y: 338, width: 50, height: 50)
+        colorWasChosen = true
+        if nameWasChosen && colorWasChosen {
+            nameAndColorOkOutlet.isEnabled = true
+        }
+    }
+    // Choosing name and color
+    @IBAction func nameAndColorOk(_ sender: Any) {
+        localData.houseMembers.append(HouseMember(name: genericName, color: chosenColor))
+        // Saving member
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
+        UserDefaults.standard.set(encodedData, forKey: "person")
+        firstPopUpMembersTableView.reloadData()
+        goOutlet.isEnabled = false
+        
+        // usedColors.append(self.chosenColor)
+        
+        if localData.houseMembers.count >= 2 {
+            goOutlet.isEnabled = true
+        }
+        
+        if localData.houseMembers.count == 6 {
+            addMemberOutlet.isEnabled = false
+        }
+        
+        nameAndColorOkOutlet.isEnabled = false
+        colorWasChosen = false
+        nameWasChosen = false
+        insertNameTxtField.text = ""
+        imageSelectedColor.isHidden = true
+        secondPopUpView.isHidden = true
+    }
+}
 
 
 
