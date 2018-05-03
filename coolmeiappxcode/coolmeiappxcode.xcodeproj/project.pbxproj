@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54E36132D02F5032CBC285AE /* Pods_coolmeiappxcode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44027F85C2625AD350E1572 /* Pods_coolmeiappxcode.framework */; };
 		57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF6208F9FE900D333AF /* AppDelegate.swift */; };
 		57020DF9208F9FE900D333AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF8208F9FE900D333AF /* ViewController.swift */; };
 		57020DFC208F9FE900D333AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57020DFA208F9FE900D333AF /* Main.storyboard */; };
@@ -15,9 +16,13 @@
 		57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */; };
 		57020E0F208F9FEA00D333AF /* coolmeiappxcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E0E208F9FEA00D333AF /* coolmeiappxcodeTests.swift */; };
 		57020E1A208F9FEA00D333AF /* coolmeiappxcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */; };
-		57020E28208FAC6600D333AF /* PopUpAddMembros.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57020E27208FAC6600D333AF /* PopUpAddMembros.xib */; };
-		57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020E29208FAE9200D333AF /* PopUpAddMembros.swift */; };
-		EFD41DC4208FD3E80076C40C /* Class DomesticTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD41DC3208FD3E80076C40C /* Class DomesticTask.swift */; };
+		5732D6CE2093C2D2009E7435 /* HouseMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CD2093C2D2009E7435 /* HouseMember.swift */; };
+		5732D6D02093C44C009E7435 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732D6CF2093C44C009E7435 /* LocalData.swift */; };
+		57AEEAEF209A54DC001C499D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AEEAEE209A54DC001C499D /* CustomTableViewCell.swift */; };
+		63DDC7281624AD4A6612AE66 /* Pods_coolmeiappxcodeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0A1EBE3AB8DBBEB99A2F25 /* Pods_coolmeiappxcodeUITests.framework */; };
+		80307B178DDED610F0CAF380 /* Pods_coolmeiappxcodeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A8E930E6FBFE79493A7FC0 /* Pods_coolmeiappxcodeTests.framework */; };
+		EF53739320950B11006CD886 /* DomesticTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53739220950B11006CD886 /* DomesticTasksCell.swift */; };
+		EFD41DC4208FD3E80076C40C /* DomesticTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD41DC3208FD3E80076C40C /* DomesticTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		136D250F30CB3CFACEF87328 /* Pods-coolmeiappxcodeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeTests/Pods-coolmeiappxcodeTests.release.xcconfig"; sourceTree = "<group>"; };
+		254285780CF81F9A03C6E410 /* Pods-coolmeiappxcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcode/Pods-coolmeiappxcode.release.xcconfig"; sourceTree = "<group>"; };
+		2B20BA1760DE3A57112741A3 /* Pods-coolmeiappxcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcode/Pods-coolmeiappxcode.debug.xcconfig"; sourceTree = "<group>"; };
+		4C0A1EBE3AB8DBBEB99A2F25 /* Pods_coolmeiappxcodeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coolmeiappxcodeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57020DF3208F9FE900D333AF /* coolmeiappxcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coolmeiappxcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57020DF6208F9FE900D333AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57020DF8208F9FE900D333AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,9 +61,16 @@
 		57020E15208F9FEA00D333AF /* coolmeiappxcodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coolmeiappxcodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57020E19208F9FEA00D333AF /* coolmeiappxcodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coolmeiappxcodeUITests.swift; sourceTree = "<group>"; };
 		57020E1B208F9FEA00D333AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57020E27208FAC6600D333AF /* PopUpAddMembros.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpAddMembros.xib; sourceTree = "<group>"; };
-		57020E29208FAE9200D333AF /* PopUpAddMembros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddMembros.swift; sourceTree = "<group>"; };
-		EFD41DC3208FD3E80076C40C /* Class DomesticTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class DomesticTask.swift"; sourceTree = "<group>"; };
+		5732D6CD2093C2D2009E7435 /* HouseMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseMember.swift; sourceTree = "<group>"; };
+		5732D6CF2093C44C009E7435 /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
+		57AEEAEE209A54DC001C499D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		60A5EC8E6C68C6FBB509DCC3 /* Pods-coolmeiappxcodeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeTests/Pods-coolmeiappxcodeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6B4212040830374AFA018D69 /* Pods-coolmeiappxcodeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeUITests/Pods-coolmeiappxcodeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D44027F85C2625AD350E1572 /* Pods_coolmeiappxcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coolmeiappxcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8A8E930E6FBFE79493A7FC0 /* Pods_coolmeiappxcodeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coolmeiappxcodeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE2E6D89447685326704771 /* Pods-coolmeiappxcodeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeUITests/Pods-coolmeiappxcodeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EF53739220950B11006CD886 /* DomesticTasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticTasksCell.swift; sourceTree = "<group>"; };
+		EFD41DC3208FD3E80076C40C /* DomesticTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E36132D02F5032CBC285AE /* Pods_coolmeiappxcode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80307B178DDED610F0CAF380 /* Pods_coolmeiappxcodeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DDC7281624AD4A6612AE66 /* Pods_coolmeiappxcodeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,11 +107,12 @@
 				EFD41DC2208FD3540076C40C /* Subclasses novas */,
 				EFD41DC1208FD33A0076C40C /* Classes novas */,
 				EFD41DC0208FD3150076C40C /* Banco de Dados (local) */,
-				EFD41DBF208FD2E90076C40C /* Pop Ups Iniciais */,
 				57020DF5208F9FE900D333AF /* coolmeiappxcode */,
 				57020E0D208F9FEA00D333AF /* coolmeiappxcodeTests */,
 				57020E18208F9FEA00D333AF /* coolmeiappxcodeUITests */,
 				57020DF4208F9FE900D333AF /* Products */,
+				DAF454FF9271A08C9D350B8E /* Pods */,
+				B15C11EBCD03F32359E83B24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,19 +158,33 @@
 			path = coolmeiappxcodeUITests;
 			sourceTree = "<group>";
 		};
-		EFD41DBF208FD2E90076C40C /* Pop Ups Iniciais */ = {
+		B15C11EBCD03F32359E83B24 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				57020E27208FAC6600D333AF /* PopUpAddMembros.xib */,
-				57020E29208FAE9200D333AF /* PopUpAddMembros.swift */,
+				D44027F85C2625AD350E1572 /* Pods_coolmeiappxcode.framework */,
+				E8A8E930E6FBFE79493A7FC0 /* Pods_coolmeiappxcodeTests.framework */,
+				4C0A1EBE3AB8DBBEB99A2F25 /* Pods_coolmeiappxcodeUITests.framework */,
 			);
-			name = "Pop Ups Iniciais";
-			path = coolmeiappxcode;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAF454FF9271A08C9D350B8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B20BA1760DE3A57112741A3 /* Pods-coolmeiappxcode.debug.xcconfig */,
+				254285780CF81F9A03C6E410 /* Pods-coolmeiappxcode.release.xcconfig */,
+				60A5EC8E6C68C6FBB509DCC3 /* Pods-coolmeiappxcodeTests.debug.xcconfig */,
+				136D250F30CB3CFACEF87328 /* Pods-coolmeiappxcodeTests.release.xcconfig */,
+				6B4212040830374AFA018D69 /* Pods-coolmeiappxcodeUITests.debug.xcconfig */,
+				EDE2E6D89447685326704771 /* Pods-coolmeiappxcodeUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		EFD41DC0208FD3150076C40C /* Banco de Dados (local) */ = {
 			isa = PBXGroup;
 			children = (
+				5732D6CF2093C44C009E7435 /* LocalData.swift */,
 			);
 			name = "Banco de Dados (local)";
 			sourceTree = "<group>";
@@ -158,7 +192,8 @@
 		EFD41DC1208FD33A0076C40C /* Classes novas */ = {
 			isa = PBXGroup;
 			children = (
-				EFD41DC3208FD3E80076C40C /* Class DomesticTask.swift */,
+				EFD41DC3208FD3E80076C40C /* DomesticTask.swift */,
+				5732D6CD2093C2D2009E7435 /* HouseMember.swift */,
 			);
 			name = "Classes novas";
 			sourceTree = "<group>";
@@ -166,6 +201,8 @@
 		EFD41DC2208FD3540076C40C /* Subclasses novas */ = {
 			isa = PBXGroup;
 			children = (
+				EF53739220950B11006CD886 /* DomesticTasksCell.swift */,
+				57AEEAEE209A54DC001C499D /* CustomTableViewCell.swift */,
 			);
 			name = "Subclasses novas";
 			sourceTree = "<group>";
@@ -177,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57020E1E208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcode" */;
 			buildPhases = (
+				9FC51C8F587A3286EB501CB9 /* [CP] Check Pods Manifest.lock */,
 				57020DEF208F9FE900D333AF /* Sources */,
 				57020DF0208F9FE900D333AF /* Frameworks */,
 				57020DF1208F9FE900D333AF /* Resources */,
+				F5D6959EE69908C8281C3D02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,6 +233,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57020E21208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcodeTests" */;
 			buildPhases = (
+				0AFA7DB92380123E4FF227A9 /* [CP] Check Pods Manifest.lock */,
 				57020E06208F9FEA00D333AF /* Sources */,
 				57020E07208F9FEA00D333AF /* Frameworks */,
 				57020E08208F9FEA00D333AF /* Resources */,
@@ -212,6 +252,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57020E24208F9FEA00D333AF /* Build configuration list for PBXNativeTarget "coolmeiappxcodeUITests" */;
 			buildPhases = (
+				1BAA8AF906C8CADFD94D3197 /* [CP] Check Pods Manifest.lock */,
 				57020E11208F9FEA00D333AF /* Sources */,
 				57020E12208F9FEA00D333AF /* Frameworks */,
 				57020E13208F9FEA00D333AF /* Resources */,
@@ -279,7 +320,6 @@
 			files = (
 				57020E04208F9FEA00D333AF /* LaunchScreen.storyboard in Resources */,
 				57020E01208F9FEA00D333AF /* Assets.xcassets in Resources */,
-				57020E28208FAC6600D333AF /* PopUpAddMembros.xib in Resources */,
 				57020DFC208F9FE900D333AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,16 +340,94 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AFA7DB92380123E4FF227A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-coolmeiappxcodeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1BAA8AF906C8CADFD94D3197 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-coolmeiappxcodeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FC51C8F587A3286EB501CB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-coolmeiappxcode-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5D6959EE69908C8281C3D02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-coolmeiappxcode/Pods-coolmeiappxcode-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PBJHexagon/PBJHexagon.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PBJHexagon.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-coolmeiappxcode/Pods-coolmeiappxcode-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		57020DEF208F9FE900D333AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF53739320950B11006CD886 /* DomesticTasksCell.swift in Sources */,
 				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,
 				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
-				EFD41DC4208FD3E80076C40C /* Class DomesticTask.swift in Sources */,
-				57020E2A208FAE9200D333AF /* PopUpAddMembros.swift in Sources */,
+				5732D6CE2093C2D2009E7435 /* HouseMember.swift in Sources */,
+				EFD41DC4208FD3E80076C40C /* DomesticTask.swift in Sources */,
 				57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */,
+				5732D6D02093C44C009E7435 /* LocalData.swift in Sources */,
+				57AEEAEF209A54DC001C499D /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,12 +597,13 @@
 		};
 		57020E1F208F9FEA00D333AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B20BA1760DE3A57112741A3 /* Pods-coolmeiappxcode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7KT4V85K95;
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -495,12 +614,13 @@
 		};
 		57020E20208F9FEA00D333AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 254285780CF81F9A03C6E410 /* Pods-coolmeiappxcode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7KT4V85K95;
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.coolmeiappxcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,6 +631,7 @@
 		};
 		57020E22208F9FEA00D333AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60A5EC8E6C68C6FBB509DCC3 /* Pods-coolmeiappxcodeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +649,7 @@
 		};
 		57020E23208F9FEA00D333AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 136D250F30CB3CFACEF87328 /* Pods-coolmeiappxcodeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -545,6 +667,7 @@
 		};
 		57020E25208F9FEA00D333AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B4212040830374AFA018D69 /* Pods-coolmeiappxcodeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -561,6 +684,7 @@
 		};
 		57020E26208F9FEA00D333AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDE2E6D89447685326704771 /* Pods-coolmeiappxcodeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,6 @@
+framework module Pods_coolmeiappxcodeTests {
+  umbrella header "Pods-coolmeiappxcodeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
