@@ -15,17 +15,22 @@ class ViewController: UIViewController {
     
     var colorsDictionary:[String:UIColor] = [:]
     
-    var blufEffectView = UIVisualEffectView()
+    var blurEffectView = UIVisualEffectView()
     func openBlur() {
-        view.addSubview(blufEffectView)
-        blufEffectView.alpha = 0
+        view.addSubview(blurEffectView)
+        blurEffectView.alpha = 0
         UIView.animate(withDuration: 0.5, animations: {
-            self.blufEffectView.alpha = 1
+            self.blurEffectView.alpha = 1
             })
     }
     
     func closeBlur() {
-        blufEffectView.alpha = 1
+        blurEffectView.alpha = 1
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blurEffectView.alpha = 0
+        }, completion: {(finished: Bool) in
+            self.blurEffectView.removeFromSuperview()
+        })
     }
     
     var nowEditing = false
@@ -61,6 +66,7 @@ class ViewController: UIViewController {
     @IBAction func go(_ sender: Any) {
         secondPopUpView.isHidden = true
         firstPopUpView.isHidden = true
+        closeBlur()
     }
     
     //MARK: Second popup (collect member's information)
@@ -205,6 +211,7 @@ class ViewController: UIViewController {
         
         // First popup
         view.addSubview(firstPopUpView)
+        openBlur()
         firstPopUpView.center = view.center
         firstPopUpView.layer.cornerRadius = cornerRadius
         firstPopUpView.layer.shadowColor = shadowColor.cgColor
