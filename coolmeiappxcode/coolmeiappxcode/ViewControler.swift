@@ -340,7 +340,7 @@ extension ViewController: UICollectionViewDelegate {
                 let taskName = localData.chosenDomesticTasks[indexPath.row].name
                 whoWillDoThatLabel.text = "quem vai \(taskName)?"
                 
-                print("ui, vou delegar")
+                print("ui, deleguei")
             }
             
         } else if collectionView == tasksToChoseCollection {

@@ -37,13 +37,13 @@ class LocalData {
         DomesticTask(name: "lavar roupa", iconColor: UIImage(named: "lavar-roupa.png")!, value1to5: 2),
         DomesticTask(name: "estender as roupas", iconColor: UIImage(named: "estender-roupa.png")!, value1to5: 1),
         DomesticTask(name: "enxugar os pratos", iconColor: UIImage(named: "enxugar-prato.png")!, value1to5: 1),
-        DomesticTask(name: "guardar os pratos", iconColor: UIImage(named: "fazer-cafe.png")!, value1to5: 1),
+        DomesticTask(name: "guardar os pratos", iconColor: UIImage(named: "guardar-prato.png")!, value1to5: 1),
         DomesticTask(name: "passar pano", iconColor: UIImage(named: "passar-pano.png")!, value1to5: 2),
         DomesticTask(name: "aspirar a casa", iconColor: UIImage(named: "aspirar.png")!, value1to5: 2),
         DomesticTask(name: "fazer a feira", iconColor: UIImage(named: "fazer-feira.png")!, value1to5: 4),
         DomesticTask(name: "varrer a casa", iconColor: UIImage(named: "varrer.png")!, value1to5: 2),
         DomesticTask(name: "levar os filhos", iconColor: UIImage(named: "levar-filhos.png")!, value1to5: 3),
-        DomesticTask(name: "buscar os filhos", iconColor: UIImage(named: "fazer-cafe.png")!, value1to5: 3)
+        DomesticTask(name: "buscar os filhos", iconColor: UIImage(named: "buscar-filhos.png")!, value1to5: 3)
         
     ]
     
