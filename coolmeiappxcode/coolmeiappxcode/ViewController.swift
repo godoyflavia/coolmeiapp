@@ -45,6 +45,7 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var goOutlet: UIButton!
     @IBAction func go(_ sender: Any) {
+        thirdPopUpView.isHidden = true
         secondPopUpView.isHidden = true
         firstPopUpView.isHidden = true
         closeBlur()
@@ -131,6 +132,14 @@ class ViewController: UIViewController {
         secondPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
         imageSelectedColor.isHidden = true
         
+        // Third popup
+        view.addSubview(secondPopUpView)
+        thirdPopUpView.isHidden = true
+        thirdPopUpView.center = view.center
+        thirdPopUpView.layer.cornerRadius = cornerRadius
+        thirdPopUpView.layer.shadowColor = shadowColor.cgColor
+        thirdPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+        
         // Rounded buttons and colors for Second Popup
         chooseColor1Outlet.layer.cornerRadius = 0.5 * chooseColor1Outlet.bounds.size.width
         chooseColor1Outlet.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.431372549, blue: 0.5019607843, alpha: 1)
@@ -174,6 +183,9 @@ class ViewController: UIViewController {
         self.firstPopUpMembersTableView.dataSource = self
         self.firstPopUpMembersTableView.delegate = self
         
+        self.membersTableView.dataSource = self
+        self.membersTableView.delegate = self
+        
         //textfield
         self.insertNameTxtField.delegate = self as? UITextFieldDelegate
         
@@ -202,16 +214,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: Button see family
     @IBAction func seeFamily(_ sender: UIButton) {
-        
+        openBlur()
+        view.addSubview(thirdPopUpView)
+        thirdPopUpView.isHidden = false
     }
-    
-    
-    
-    
-    
-    
-    
 }
 
 //MARK: DataSource da CollectionVIew
@@ -286,18 +294,27 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if tableView == firstPopUpMembersTableView {
-        
+        if tableView == firstPopUpMembersTableView {
+            
             let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
             cell.memberName.text = localData.houseMembers[indexPath.row].name
             cell.memberColor.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
             cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
+            
             return cell
-//        } else {
-//            let cell = membersTableView.dequeueReusableCell(withIdentifier: <#T##String#>)
-//            cell.
+            
+        } else {
+            
+            let cell = membersTableView.dequeueReusableCell(withIdentifier: "2customTableViewCell") as! ViewMembersTableCell
+            cell.memberName.text = localData.houseMembers[indexPath.row].name
+            cell.memberColorImageView.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
+            cell.memberColorImageView.layer.cornerRadius = 0.5 * cell.memberColorImageView.bounds.size.width
+            cell.memberPoints.text = String(localData.houseMembers[indexPath.row].points)
+            
+            return cell
         }
     }
+}
 
 //MARK: TableView Delegate
 
@@ -308,6 +325,7 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedIndex = indexPath.row
+//        tableView.cellForRow(at: [indexPath.row])?.layer.backgroundColor = #colorLiteral(red: 0.3098039216, green: 0.262745098, blue: 0.4549019608, alpha: 0.25)
         let selectedPerson = localData.houseMembers[selectedIndex]
         addMember(selectedPerson)
         insertNameTxtField.text! = selectedPerson.name
