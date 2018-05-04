@@ -1,5 +1,5 @@
 //
-//  AddTaskCollectionCell.swift
+//  ChoseTaskCollectionCell.swift
 //  coolmeiappxcode
 //
 //  Created by Thyago Lacerda on 03/05/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTaskCollectionCell: UICollectionViewCell {
+class ChoseTaskCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var taskIconImageView: UIImageView!
     

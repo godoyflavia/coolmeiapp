@@ -50,7 +50,11 @@ class LocalData {
                                              "deactivated" : #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     ]
   
-  
+    // array que vai receber os itens selecionados na collectionView do popUp choseTodayTasksPopUpView
+    // no botão ok, ele é adicionado ao array da tela principal
+    var tasksBeingChosen: [DomesticTask] = []
+    
+    
   //em vez de ser uma variável do objeto a ser criado, é uma variável do proprio tipo LocalData
   // acessar com LocalData.shared.houseMembers
   // tipo a classe mediadora de flávia (singleton) (single ailton)

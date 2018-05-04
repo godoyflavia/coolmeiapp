@@ -87,10 +87,7 @@ class ViewController: UIViewController {
     
     //MARK: Fourth popup outlet (chose day tasks)
     @IBOutlet weak var choseTodayTasksPopUpView: UIView!
-    
-    @IBAction func addTasksButton(_ sender: Any) {
-    }
-    
+    @IBOutlet weak var tasksToChoseCollection: UICollectionView!
     
     
     //MARK: collection da view tela principal
@@ -168,6 +165,7 @@ class ViewController: UIViewController {
         timeToEndOfDayProgressView.clipsToBounds = true
         timeToEndOfDayProgressView.layer.sublayers![1].cornerRadius = 6
         timeToEndOfDayProgressView.subviews[1].clipsToBounds = true
+        timeToEndOfDayProgressView.progress = 0.1
         // self.timeToEndOfDayProgressView.transform = timeToEndOfDayProgressView.transform.scaledBy(x: 1, y: 4)
         // o auto-layout vai se aplicar ao tamanho original dela (height = 3)
         
@@ -175,6 +173,9 @@ class ViewController: UIViewController {
         //da collection view
         self.domesticTasksCollection.dataSource = self
         self.domesticTasksCollection.delegate = self
+        
+        self.tasksToChoseCollection.dataSource = self
+        // self.tasksToChoseCollection.delegate = self
         
         //da tableview
         self.firstPopUpMembersTableView.dataSource = self
@@ -195,58 +196,66 @@ class ViewController: UIViewController {
         //flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
         //flowLayout.minimumInteritemSpacing = 3
         flowLayout.itemSize = CGSize(width: 80, height: 80)
-        // flowLayout.itemsPerRow - nao existe
-        //flowLayout.itemsPerRow = 4
         self.domesticTasksCollection.setCollectionViewLayout(flowLayout, animated: false)
         
-        // abre o pop-up de add membros na 1a vez que o app é aberto
-        // colocar pra não abrir sempre depois
-        // se vc veio aqui tentando descobrir pq o pop-up nao aparece
-        // eh pq ele tem q ficar em cima de tudo no storyboard == ser o último dos arquivinhos
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: Button see family
-    @IBAction func seeFamily(_ sender: UIButton) {
-        openBlur()
-        view.addSubview(viewMembersPopUpView)
-        viewMembersPopUpView.isHidden = false
-    }
+    }  // fim do longo viewDidLoad()
+  
 }
+
 
 //MARK: DataSource da CollectionVIew
 extension ViewController: UICollectionViewDataSource {
     
+    // Number of Items
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 27 // na prática só mostra 22 (3 células invisíveis)
+        
+        var numberOfcells = 0
+        
+        if collectionView == domesticTasksCollection {
+            numberOfcells = 27 // na prática só mostra 22 (3 células invisíveis)
+        } else if collectionView == tasksToChoseCollection {
+            numberOfcells = localData.allDomesticTasks.count
+        }
+        
+        return numberOfcells
     }
     
+    // Cell for Item
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell: DomesticTasksCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTasksCell
+        if collectionView == domesticTasksCollection {
+            
+            let cell: DomesticTasksCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTasksCell
+            
+            if indexPath.row % 8 == 3 || indexPath.row == 25 {
+                // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
+                // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
+                // nada acontece feijoada
+            } else if indexPath.row == 9 {
+                // o caso 9 é pra mostrar o botão de add
+                cell.taskIcon.image = UIImage(named: "add-task.png")
+            } else if indexPath.row == 24 {
+                // share (ultima celula)
+                cell.taskIcon.image = UIImage(named: "share.png")
+            } else if indexPath.row == 26 {
+                // verificar atividades
+                cell.taskIcon.image = UIImage(named: "verify-tasks.png")
+            } else {
+                cell.taskIcon.image = UIImage(named: "hexagon.png")
+            }
+            
+            return cell
+            
+        } else { // if collectionView == tasksToChoseCollection
         
-        if indexPath.row % 8 == 3 || indexPath.row == 25 {
-            // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
-            // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
-            // nada acontece feijoada
-        } else if indexPath.row == 9 {
-            // o caso 9 é pra mostrar o botão de add
-            cell.taskIcon.image = UIImage(named: "add-task.png")
-        } else if indexPath.row == 24 {
-            // share (ultima celula)
-            cell.taskIcon.image = UIImage(named: "share.png")
-        } else if indexPath.row == 26 {
-            // verificar atividades
-            cell.taskIcon.image = UIImage(named: "verify-tasks.png")
-        } else {
-            cell.taskIcon.image = UIImage(named: "hexagon.png")
+            let cell: ChoseTaskCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "newTaskCell", for: indexPath) as! ChoseTaskCollectionCell
+            cell.taskIconImageView.image = localData.allDomesticTasks[indexPath.row].iconColor
+            cell.taskNameLabel.text = localData.allDomesticTasks[indexPath.row].name
+            cell.taskValueLabel.text = String(localData.allDomesticTasks[indexPath.row].value)
+            // cell.isOpaque = true
+            return cell
         }
-        return cell
+        
     }
     
 }
@@ -267,7 +276,9 @@ extension ViewController: UICollectionViewDelegate {
             cell.taskIcon.image = UIImage(named: "hexagon.png")
         } else if cell.taskIcon.image == UIImage(named: "add-task.png") {
             // abrir popUp de add tarefa!!
-            // AQUI CARAIO
+            openBlur()
+            view.addSubview(choseTodayTasksPopUpView)
+            choseTodayTasksPopUpView.isHidden = false
             print("ui, adicionei!")
         } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {
             // abrir popUp de verificar tarefas
@@ -318,7 +329,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -471,6 +482,41 @@ extension ViewController {
     }
 }
 
+
+
+// MARK: Third - PopUp Familia
+extension ViewController {
+    
+    //MARK: abrir
+    @IBAction func seeFamily(_ sender: UIButton) {
+        openBlur()
+        view.addSubview(viewMembersPopUpView)
+        viewMembersPopUpView.isHidden = false
+    }
+}
+
+
+//MARK: Fourth - popUp add tasks
+extension ViewController {
+    
+    // voltar
+    @IBAction func goBackFromChooseTasks(_ sender: Any) {
+        choseTodayTasksPopUpView.isHidden = true
+        closeBlur()
+    }
+    
+    
+    // fechar e add
+    @IBAction func addTasksButton(_ sender: Any) {
+        localData.chosenDomesticTasks = localData.chosenDomesticTasks + localData.tasksBeingChosen
+        // appends
+        domesticTasksCollection.reloadData() // chama o data source de novo // BUG
+        
+        choseTodayTasksPopUpView.isHidden = true
+        closeBlur()
+    }
+    
+}
 
 
 //MARK: Pop Ups Formatação (func)
