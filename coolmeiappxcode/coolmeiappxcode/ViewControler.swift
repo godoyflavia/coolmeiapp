@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     var nameWasChosen = false
     var colorWasChosen = false
     
+    var memberColorChosen: UIColor!
+    
     //MARK: outlets do cabeçalho
     @IBOutlet weak var familyButton: UIButton!
     @IBOutlet weak var timeToEndOfDayProgressView: UIProgressView!
@@ -200,6 +202,11 @@ class ViewController: UIViewController {
         self.membersTableView.dataSource = self
         self.membersTableView.delegate = self
         
+        self.membersToChoseTableView.dataSource = self
+        self.membersToChoseTableView.delegate = self
+        
+
+        
         //textfield
         self.insertNameTxtField.delegate = self as? UITextFieldDelegate
         
@@ -253,7 +260,11 @@ extension ViewController: UICollectionViewDataSource {
                 cell.taskIcon.image = UIImage(named: "add-task.png")
             } else if indexPath.row == 24 {
                 // share (ultima celula)
-                cell.taskIcon.image = UIImage(named: "share.png")
+                // if localData.chosenDomesticTasks.count == 0 {
+                    // cell.taskIcon.image = UIImage(named: "share-not-enabled.png")
+                // } else {
+                    cell.taskIcon.image = UIImage(named: "share.png")
+                // }
             } else if indexPath.row == 26 {
                 // verificar atividades
                 cell.taskIcon.image = UIImage(named: "verify-tasks.png")
@@ -261,7 +272,8 @@ extension ViewController: UICollectionViewDataSource {
                 if indexPath.row < localData.chosenDomesticTasks.count {
                 cell.taskIcon.image = localData.chosenDomesticTasks[indexPath.row].icon
                 } else {
-                    cell.taskIcon.image = UIImage(named: "hexagon.png")
+                    // celulas invisiveis
+                    // cell.taskIcon.image = UIImage(named: "hexagon.png")
                 }
             }
             
@@ -292,6 +304,7 @@ extension ViewController: UICollectionViewDelegate {
                 as! DomesticTaskCollectionCell
             
             // não atinge as células invisíveis (pq não tem else sem condição)
+            // ops agr atinge kkkk nao toque nelas!! // resolvido!!!
             if cell.taskIcon.image == UIImage(named: "hexagon.png") {
                 cell.taskIcon.image = UIImage(named: "hexagon-black-vert.png")
             } else if cell.taskIcon.image == UIImage(named: "hexagon-black-vert.png") {
@@ -311,6 +324,9 @@ extension ViewController: UICollectionViewDelegate {
                 activityVC.popoverPresentationController?.sourceView = self.view
                 self.present(activityVC, animated:  true, completion: nil)
                 print("ui, compartilhei!")
+            } else if cell.taskIcon.image == nil {
+                // nada acontece, celulas invisiveis pfvr nao crashem!!
+                print("vc recebeu a maldição da celula invisivel, toque no seu amiguinho mais próximo pra repassar")
             } else { //pra as células com atividades ja adicionadas
                 // abre o popUp de escolher quem vai fazer
                 openBlur()
@@ -337,13 +353,16 @@ extension ViewController: UICollectionViewDelegate {
                 value1to5: Int(cell.taskValueLabel.text!)!
             )
             
+            //MARK: BUG CONTAINS (?)
+            // essa merda de contains que ficou uma bosta
+            // provavelmente o bug ta aqui
             if localData.tasksBeingChosen.contains(where: { $0 == taskTaped }) {
                localData.tasksBeingChosen.remove(at: indexPath.row)
             } else { // se não contêm
                 localData.tasksBeingChosen.append(taskTaped)
             }
         
-        //domesticTasksCollection.reloadData() - quando chama reloadData() ele relê o cellForItemAt e refaz as células por ele, ignorando qualquer mudança posterior
+        // domesticTasksCollection.reloadData() //- quando chama reloadData() ele relê o cellForItemAt e refaz as células por ele, ignorando qualquer mudança posterior
         }
     }
     
@@ -369,7 +388,7 @@ extension ViewController: UITableViewDataSource {
             
             return cell
             
-        } else if tableView == membersTableView {
+        } else if tableView == membersTableView { // popUp de ver a familia
             
             let cell = membersTableView.dequeueReusableCell(withIdentifier: "2customTableViewCell") as! ViewMembersTableCell
             cell.memberName.text = localData.houseMembers[indexPath.row].name
@@ -379,9 +398,12 @@ extension ViewController: UITableViewDataSource {
             
             return cell
             
-        } else { // if tableView == membersToChoseTableView
+        } else { // if tableView == membersToChoseTableView // pop up de delegar tarefas
             
-            let cell: ChoseMemberToDoTableCell = tableView.de
+            let cell: ChoseMemberToDoTableCell = tableView.dequeueReusableCell(withIdentifier: "membersToChose") as! ChoseMemberToDoTableCell
+            cell.memberNameLabel.text = localData.houseMembers[indexPath.row].name
+            cell.memberColorView.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
+            cell.memberColorView.layer.cornerRadius = 0.5 * cell.memberColorView.bounds.size.width
             
             return cell
         }
@@ -391,6 +413,8 @@ extension ViewController: UITableViewDataSource {
 //MARK: TableView Delegate
 
 extension ViewController: UITableViewDelegate {
+    
+    // pega em todas
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -590,6 +614,7 @@ extension ViewController {
     
     // fechar e delegar
     @IBAction func delegateTaskButton(_ sender: Any) {
+        
         
         // delegar aqui
         
