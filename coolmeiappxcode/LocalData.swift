@@ -24,19 +24,27 @@ class LocalData {
    
    //
     var allDomesticTasks: [DomesticTask] = [
-        DomesticTask(name: "lavar prato", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
-        DomesticTask(name: "tirar a mesa", iconColor: UIImage(named: "hexagon.png")!, value1to5: 1),
-        DomesticTask(name: "passear com o cachorro", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
-        DomesticTask(name: "checar validades", iconColor: UIImage(named: "hexagon.png")!, value1to5: 1),
-        DomesticTask(name: "pagar as contas", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
-        DomesticTask(name: "fazer o almoço", iconColor: UIImage(named: "hexagon.png")!, value1to5: 3),
-        DomesticTask(name: "fazer o jantar", iconColor: UIImage(named: "hexagon.png")!, value1to5: 3),
-        DomesticTask(name: "dobrar as roupas", iconColor: UIImage(named: "hexagon.png")!, value1to5: 1),
-        DomesticTask(name: "lavar roupa", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
-        DomesticTask(name: "enxugar os pratos", iconColor: UIImage(named: "hexagon.png")!, value1to5: 1),
-        DomesticTask(name: "passar pano", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2),
-        DomesticTask(name: "fazer a feira", iconColor: UIImage(named: "hexagon.png")!, value1to5: 4),
-        DomesticTask(name: "varrer a casa", iconColor: UIImage(named: "hexagon.png")!, value1to5: 2)
+        DomesticTask(name: "lavar prato", iconColor: UIImage(named: "lavar-pratos.png")!, value1to5: 2),
+        DomesticTask(name: "botar a mesa", iconColor: UIImage(named: "botar-mesa.png")!, value1to5: 1),
+        DomesticTask(name: "tirar a mesa", iconColor: UIImage(named: "tirar-mesa.png")!, value1to5: 1),
+        DomesticTask(name: "passear com o cachorro", iconColor: UIImage(named: "passear-pet.png")!, value1to5: 2),
+        DomesticTask(name: "checar validades", iconColor: UIImage(named: "checar-validades.png")!, value1to5: 1),
+        DomesticTask(name: "pagar as contas", iconColor: UIImage(named: "pagar-contas.png")!, value1to5: 2),
+        DomesticTask(name: "fazer o almoço", iconColor: UIImage(named: "fazer-almoco.png")!, value1to5: 3),
+        DomesticTask(name: "fazer o jantar", iconColor: UIImage(named: "fazer-jantar.png")!, value1to5: 3),
+        DomesticTask(name: "fazer café da manhã", iconColor: UIImage(named: "fazer-cafe.png")!, value1to5: 2),
+        DomesticTask(name: "dobrar as roupas", iconColor: UIImage(named: "dobrar-roupa.png")!, value1to5: 1),
+        DomesticTask(name: "lavar roupa", iconColor: UIImage(named: "lavar-roupa.png")!, value1to5: 2),
+        DomesticTask(name: "estender as roupas", iconColor: UIImage(named: "estender-roupa.png")!, value1to5: 1),
+        DomesticTask(name: "enxugar os pratos", iconColor: UIImage(named: "enxugar-prato.png")!, value1to5: 1),
+        DomesticTask(name: "guardar os pratos", iconColor: UIImage(named: "fazer-cafe.png")!, value1to5: 1),
+        DomesticTask(name: "passar pano", iconColor: UIImage(named: "passar-pano.png")!, value1to5: 2),
+        DomesticTask(name: "aspirar a casa", iconColor: UIImage(named: "aspirar.png")!, value1to5: 2),
+        DomesticTask(name: "fazer a feira", iconColor: UIImage(named: "fazer-feira.png")!, value1to5: 4),
+        DomesticTask(name: "varrer a casa", iconColor: UIImage(named: "varrer.png")!, value1to5: 2),
+        DomesticTask(name: "levar os filhos", iconColor: UIImage(named: "levar-filhos.png")!, value1to5: 3),
+        DomesticTask(name: "buscar os filhos", iconColor: UIImage(named: "fazer-cafe.png")!, value1to5: 3)
+        
     ]
     
     

@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     
     var localData = LocalData.shared
     
+    // gambiarra do desespero: esconder celulas sos
+    @IBOutlet weak var gambiarraIndex3: UIView!
+    @IBOutlet weak var gambiarraIndex11: UIView!
+    @IBOutlet weak var gambiarraIndex19: UIView!
+    
     // Variables
     var blurEffectView = UIVisualEffectView()
     var nowEditing = false
@@ -99,6 +104,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // gambiarra esconder celula sos
+        gambiarraIndex3.layer.cornerRadius = 0.5 * gambiarraIndex3.bounds.size.width
+        gambiarraIndex11.layer.cornerRadius = 0.5 * gambiarraIndex11.bounds.size.width
+        gambiarraIndex19.layer.cornerRadius = 0.5 * gambiarraIndex19.bounds.size.width
+        
+        
         //Blur config for popups
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -175,7 +186,7 @@ class ViewController: UIViewController {
         self.domesticTasksCollection.delegate = self
         
         self.tasksToChoseCollection.dataSource = self
-        // self.tasksToChoseCollection.delegate = self
+        self.tasksToChoseCollection.delegate = self
         
         //da tableview
         self.firstPopUpMembersTableView.dataSource = self
@@ -212,6 +223,7 @@ extension ViewController: UICollectionViewDataSource {
         var numberOfcells = 0
         
         if collectionView == domesticTasksCollection {
+            //numberOfcells = localData.chosenDomesticTasks.count
             numberOfcells = 27 // na prática só mostra 22 (3 células invisíveis)
         } else if collectionView == tasksToChoseCollection {
             numberOfcells = localData.allDomesticTasks.count
@@ -241,7 +253,11 @@ extension ViewController: UICollectionViewDataSource {
                 // verificar atividades
                 cell.taskIcon.image = UIImage(named: "verify-tasks.png")
             } else {
-                cell.taskIcon.image = UIImage(named: "hexagon.png")
+                if indexPath.row < localData.chosenDomesticTasks.count {
+                cell.taskIcon.image = localData.chosenDomesticTasks[indexPath.row].iconColor
+                } else {
+                    cell.taskIcon.image = UIImage(named: "hexagon.png")
+                }
             }
             
             return cell
@@ -266,32 +282,49 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let cell: DomesticTasksCell = collectionView.cellForItem(at: indexPath)
-            as! DomesticTasksCell
-        
-        // não atinge as células invisíveis (pq não tem else sem condição)
-        if cell.taskIcon.image == UIImage(named: "hexagon.png") {
-            cell.taskIcon.image = UIImage(named: "hexagon-black-vert.png")
-        } else if cell.taskIcon.image == UIImage(named: "hexagon-black-vert.png") {
-            cell.taskIcon.image = UIImage(named: "hexagon.png")
-        } else if cell.taskIcon.image == UIImage(named: "add-task.png") {
-            // abrir popUp de add tarefa!!
-            openBlur()
-            view.addSubview(choseTodayTasksPopUpView)
-            choseTodayTasksPopUpView.isHidden = false
-            print("ui, adicionei!")
-        } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {
-            // abrir popUp de verificar tarefas
-            print("ui, verifiquei!")
-        } else if cell.taskIcon.image == UIImage(named: "share.png") {
-            // sharing activities
-            let activityVC = UIActivityViewController(activityItems: ["veja como eu dividi as tarefas!"], applicationActivities: nil)
-            activityVC.popoverPresentationController?.sourceView = self.view
-            self.present(activityVC, animated:  true, completion: nil)
-            print("ui, compartilhei!")
-        }
+        if collectionView == domesticTasksCollection {
+            let cell: DomesticTasksCell = collectionView.cellForItem(at: indexPath)
+                as! DomesticTasksCell
+            
+            // não atinge as células invisíveis (pq não tem else sem condição)
+            if cell.taskIcon.image == UIImage(named: "hexagon.png") {
+                cell.taskIcon.image = UIImage(named: "hexagon-black-vert.png")
+            } else if cell.taskIcon.image == UIImage(named: "hexagon-black-vert.png") {
+                cell.taskIcon.image = UIImage(named: "hexagon.png")
+            } else if cell.taskIcon.image == UIImage(named: "add-task.png") {
+                // abrir popUp de add tarefa!!
+                openBlur()
+                view.addSubview(choseTodayTasksPopUpView)
+                choseTodayTasksPopUpView.isHidden = false
+                print("ui, adicionei!")
+            } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {
+                // abrir popUp de verificar tarefas
+                print("ui, verifiquei!")
+            } else if cell.taskIcon.image == UIImage(named: "share.png") {
+                // sharing activities
+                let activityVC = UIActivityViewController(activityItems: ["veja como eu dividi as tarefas!"], applicationActivities: nil)
+                activityVC.popoverPresentationController?.sourceView = self.view
+                self.present(activityVC, animated:  true, completion: nil)
+                print("ui, compartilhei!")
+            }
+        } else if collectionView == tasksToChoseCollection {
+            
+            let cell: ChoseTaskCollectionCell = collectionView.cellForItem(at: indexPath) as! ChoseTaskCollectionCell
+            
+            let taskTaped = DomesticTask(
+                name: cell.taskNameLabel.text!,
+                iconColor: cell.taskIconImageView.image!,
+                value1to5: Int(cell.taskValueLabel.text!)!
+            )
+            
+            if localData.tasksBeingChosen.contains(where: { $0 == taskTaped }) {
+               localData.tasksBeingChosen.remove(at: indexPath.row)
+            } else { // se não contêm
+                localData.tasksBeingChosen.append(taskTaped)
+            }
         
         //domesticTasksCollection.reloadData() - quando chama reloadData() ele relê o cellForItemAt e refaz as células por ele, ignorando qualquer mudança posterior
+        }
     }
     
 }
@@ -312,7 +345,7 @@ extension ViewController: UITableViewDataSource {
             
             return cell
             
-        } else {
+        } else { // if tableView == membersTableView
             
             let cell = membersTableView.dequeueReusableCell(withIdentifier: "2customTableViewCell") as! ViewMembersTableCell
             cell.memberName.text = localData.houseMembers[indexPath.row].name
@@ -511,7 +544,7 @@ extension ViewController {
         localData.chosenDomesticTasks = localData.chosenDomesticTasks + localData.tasksBeingChosen
         // appends
         domesticTasksCollection.reloadData() // chama o data source de novo // BUG
-        
+        localData.tasksBeingChosen = [] // zera esse array pra próxima leva
         choseTodayTasksPopUpView.isHidden = true
         closeBlur()
     }
@@ -529,7 +562,7 @@ extension ViewController {
         let shadowOffsetWidth:CGFloat = 0.0
         let shadowOffsetHeight:CGFloat = 5
         let shadowColor:UIColor = UIColor.black
-        let shadowOpacity:Float = 0.5
+        // let shadowOpacity:Float = 0.5
         
         view.addSubview(popUp)
         popUp.center = view.center

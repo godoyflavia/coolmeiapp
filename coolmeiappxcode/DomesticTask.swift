@@ -40,3 +40,14 @@ class DomesticTask {
 
 // var nobody: HouseMember
 
+extension DomesticTask: Equatable {
+    
+    static func ==(lhs: DomesticTask, rhs: DomesticTask) -> Bool {
+        if lhs.name == rhs.name {
+            return true
+        } else {
+            return false
+        }
+    }    
+    
+}
