@@ -351,11 +351,15 @@ extension ViewController: UICollectionViewDelegate {
 
 //MARK: TableView DataSource
 extension ViewController: UITableViewDataSource {
+    
+    // igual pra todas > todas as table views são pra house members
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return localData.houseMembers.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if tableView == firstPopUpMembersTableView {
             
             let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
@@ -365,13 +369,19 @@ extension ViewController: UITableViewDataSource {
             
             return cell
             
-        } else { // if tableView == membersTableView
+        } else if tableView == membersTableView {
             
             let cell = membersTableView.dequeueReusableCell(withIdentifier: "2customTableViewCell") as! ViewMembersTableCell
             cell.memberName.text = localData.houseMembers[indexPath.row].name
             cell.memberColorImageView.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
             cell.memberColorImageView.layer.cornerRadius = 0.5 * cell.memberColorImageView.bounds.size.width
             cell.memberPoints.text = String(localData.houseMembers[indexPath.row].points)
+            
+            return cell
+            
+        } else { // if tableView == membersToChoseTableView
+            
+            let cell: ChoseMemberToDoTableCell = tableView.de
             
             return cell
         }

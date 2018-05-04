@@ -8,6 +8,7 @@
 
 import UIKit
 
+// do popUp de escolher as tarefas do dia
 class ChoseTaskCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var taskIconImageView: UIImageView!

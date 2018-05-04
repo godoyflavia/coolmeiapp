@@ -8,6 +8,7 @@
 
 import UIKit
 
+// do popUp de ver a família
 class ViewMembersTableCell: UITableViewCell {
     
     @IBOutlet weak var memberColorImageView: UIImageView!

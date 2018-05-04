@@ -1,5 +1,5 @@
 //
-//  ChoseMemberToDoCollectionCell.swift
+//  ChoseMemberToDoTableCell.swift
 //  coolmeiappxcode
 //
 //  Created by Thyago Lacerda on 04/05/18.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ChoseMemberToDoCollectionCell: UITableViewCell {
+// do popUp de delegar tarefas
+class ChoseMemberToDoTableCell: UITableViewCell {
     
     @IBOutlet weak var memberColorView: UIView!
     

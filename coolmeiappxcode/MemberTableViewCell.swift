@@ -8,6 +8,7 @@
 
 import UIKit
 
+// do popUp inicial de add membros
 class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var memberColor: UIView!

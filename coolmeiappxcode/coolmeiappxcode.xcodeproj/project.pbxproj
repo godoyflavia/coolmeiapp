@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		54E36132D02F5032CBC285AE /* Pods_coolmeiappxcode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44027F85C2625AD350E1572 /* Pods_coolmeiappxcode.framework */; };
 		57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF6208F9FE900D333AF /* AppDelegate.swift */; };
-		57020DF9208F9FE900D333AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF8208F9FE900D333AF /* ViewController.swift */; };
+		57020DF9208F9FE900D333AF /* ViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF8208F9FE900D333AF /* ViewControler.swift */; };
 		57020DFC208F9FE900D333AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57020DFA208F9FE900D333AF /* Main.storyboard */; };
 		57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57020DFD208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld */; };
 		57020E01208F9FEA00D333AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57020E00208F9FEA00D333AF /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 		EF0E3579209BAC4A00503A74 /* ChoseTaskCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0E3578209BAC4A00503A74 /* ChoseTaskCollectionCell.swift */; };
 		EF53739320950B11006CD886 /* DomesticTaskCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53739220950B11006CD886 /* DomesticTaskCollectionCell.swift */; };
 		EFD41DC4208FD3E80076C40C /* DomesticTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD41DC3208FD3E80076C40C /* DomesticTask.swift */; };
-		EFF9094C209C844300277F38 /* ChoseMemberToDoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9094B209C844300277F38 /* ChoseMemberToDoCollectionCell.swift */; };
+		EFF9094C209C844300277F38 /* ChoseMemberToDoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9094B209C844300277F38 /* ChoseMemberToDoTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		4C0A1EBE3AB8DBBEB99A2F25 /* Pods_coolmeiappxcodeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coolmeiappxcodeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57020DF3208F9FE900D333AF /* coolmeiappxcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coolmeiappxcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57020DF6208F9FE900D333AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57020DF8208F9FE900D333AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		57020DF8208F9FE900D333AF /* ViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControler.swift; sourceTree = "<group>"; };
 		57020DFB208F9FE900D333AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57020DFE208F9FE900D333AF /* coolmeiappxcode.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coolmeiappxcode.xcdatamodel; sourceTree = "<group>"; };
 		57020E00208F9FEA00D333AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		EF0E3578209BAC4A00503A74 /* ChoseTaskCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseTaskCollectionCell.swift; sourceTree = "<group>"; };
 		EF53739220950B11006CD886 /* DomesticTaskCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticTaskCollectionCell.swift; sourceTree = "<group>"; };
 		EFD41DC3208FD3E80076C40C /* DomesticTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticTask.swift; sourceTree = "<group>"; };
-		EFF9094B209C844300277F38 /* ChoseMemberToDoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseMemberToDoCollectionCell.swift; sourceTree = "<group>"; };
+		EFF9094B209C844300277F38 /* ChoseMemberToDoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseMemberToDoTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				57020DF6208F9FE900D333AF /* AppDelegate.swift */,
-				57020DF8208F9FE900D333AF /* ViewController.swift */,
+				57020DF8208F9FE900D333AF /* ViewControler.swift */,
 				57020DFA208F9FE900D333AF /* Main.storyboard */,
 				57020E00208F9FEA00D333AF /* Assets.xcassets */,
 				57020E02208F9FEA00D333AF /* LaunchScreen.storyboard */,
@@ -210,7 +210,7 @@
 				EF53739220950B11006CD886 /* DomesticTaskCollectionCell.swift */,
 				EF0E3578209BAC4A00503A74 /* ChoseTaskCollectionCell.swift */,
 				57AEEAEE209A54DC001C499D /* MemberTableViewCell.swift */,
-				EFF9094B209C844300277F38 /* ChoseMemberToDoCollectionCell.swift */,
+				EFF9094B209C844300277F38 /* ChoseMemberToDoTableCell.swift */,
 				578D5CAA209BC53E00CA7FD7 /* ViewMembersTableCell.swift */,
 			);
 			name = "Subclasses novas";
@@ -429,10 +429,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFF9094C209C844300277F38 /* ChoseMemberToDoCollectionCell.swift in Sources */,
+				EFF9094C209C844300277F38 /* ChoseMemberToDoTableCell.swift in Sources */,
 				EF53739320950B11006CD886 /* DomesticTaskCollectionCell.swift in Sources */,
 				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,
-				57020DF9208F9FE900D333AF /* ViewController.swift in Sources */,
+				57020DF9208F9FE900D333AF /* ViewControler.swift in Sources */,
 				5732D6CE2093C2D2009E7435 /* HouseMember.swift in Sources */,
 				EFD41DC4208FD3E80076C40C /* DomesticTask.swift in Sources */,
 				578D5CAB209BC53E00CA7FD7 /* ViewMembersTableCell.swift in Sources */,

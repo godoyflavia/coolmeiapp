@@ -8,6 +8,7 @@
 
 import UIKit
 
+// da tela inicial
 class DomesticTaskCollectionCell: UICollectionViewCell {
  
   @IBOutlet weak var taskIcon: UIImageView!
