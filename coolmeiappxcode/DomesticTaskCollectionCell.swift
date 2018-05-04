@@ -12,6 +12,6 @@ class DomesticTaskCollectionCell: UICollectionViewCell {
  
   @IBOutlet weak var taskIcon: UIImageView!
   
-  @IBOutlet weak var memberColor: UIImageView!
+  @IBOutlet weak var memberColor: UIView!
   
 }

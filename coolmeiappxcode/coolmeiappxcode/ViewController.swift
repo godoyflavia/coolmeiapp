@@ -97,6 +97,8 @@ class ViewController: UIViewController {
     
     //MARK: Fifth PopUp (delegate tasks)
     @IBOutlet weak var delegateTasksPopUpView: UIView!
+    @IBOutlet weak var iconTaskClickedImageView: UIImageView!
+    @IBOutlet weak var valueTaskClikedLabel: UILabel!
     @IBOutlet weak var whoWillDoThatLabel: UILabel!
     @IBOutlet weak var membersToChoseTableView: UITableView!
     
@@ -310,10 +312,19 @@ extension ViewController: UICollectionViewDelegate {
                 self.present(activityVC, animated:  true, completion: nil)
                 print("ui, compartilhei!")
             } else { //pra as células com atividades ja adicionadas
+                // abre o popUp de escolher quem vai fazer
                 openBlur()
                 view.addSubview(delegateTasksPopUpView)
                 formatPopUp(delegateTasksPopUpView, isHidden: false)
-                // delegateTasksPopUpView.isHidden = false
+                
+                // alimentar o header do popUp (se aproveitando do indexPath)
+                iconTaskClickedImageView.image = localData.chosenDomesticTasks[indexPath.row].icon
+                valueTaskClikedLabel.text = String(localData.chosenDomesticTasks[indexPath.row].value)
+                
+                let taskName = localData.chosenDomesticTasks[indexPath.row].name
+                whoWillDoThatLabel.text = "quem vai \(taskName)?"
+                
+                print("ui, vou delegar")
             }
             
         } else if collectionView == tasksToChoseCollection {
@@ -590,7 +601,7 @@ extension ViewController {
         let shadowOffsetWidth:CGFloat = 0.0
         let shadowOffsetHeight:CGFloat = 5
         let shadowColor:UIColor = UIColor.black
-        // let shadowOpacity:Float = 0.5
+        // let shadowOpacity:Float = 0.5  // sem uso
         
         view.addSubview(popUp)
         popUp.center = view.center

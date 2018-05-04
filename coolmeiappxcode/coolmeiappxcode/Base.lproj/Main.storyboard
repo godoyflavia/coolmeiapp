@@ -89,10 +89,11 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-UC-a3k" userLabel="taks icon">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZR-NK-lla" userLabel="member color">
-                                                    <rect key="frame" x="20" y="0.0" width="30" height="30"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9n-FY-NYn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
+                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -102,7 +103,7 @@
                                             <constraint firstItem="5e2-UC-a3k" firstAttribute="centerX" secondItem="yOR-0o-mBa" secondAttribute="centerX" id="mXG-cd-xml"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="memberColor" destination="KZR-NK-lla" id="c0C-YS-7na"/>
+                                            <outlet property="memberColor" destination="b9n-FY-NYn" id="Ecg-kk-bqe"/>
                                             <outlet property="taskIcon" destination="5e2-UC-a3k" id="Z1Q-dk-LAt"/>
                                         </connections>
                                     </collectionViewCell>
@@ -156,6 +157,7 @@
                         <outlet property="gambiarraIndex3" destination="Lht-Y3-nJR" id="hOO-0E-Hi2"/>
                         <outlet property="goBackToFirstOutlet" destination="1Xe-VT-avV" id="pLZ-OG-f2g"/>
                         <outlet property="goOutlet" destination="YLR-TV-UUo" id="xrC-9G-U7X"/>
+                        <outlet property="iconTaskClickedImageView" destination="JIe-Lj-v5C" id="xYh-uE-dnR"/>
                         <outlet property="imageSelectedColor" destination="WXZ-t8-8Th" id="PSm-Rj-oKU"/>
                         <outlet property="insertNameTxtField" destination="YUe-f1-wyy" id="cQF-Kc-5YW"/>
                         <outlet property="membersTableView" destination="ocz-aO-mDT" id="ge0-kQ-CBq"/>
@@ -167,6 +169,7 @@
                         <outlet property="timeToEndOfDayProgressView" destination="hI9-Wb-ZH4" id="6wf-sm-mHI"/>
                         <outlet property="titlePopUpLabel" destination="h27-BS-QM5" id="HTT-cj-dOW"/>
                         <outlet property="toTheEndOfDayText" destination="gca-Sd-bae" id="emS-Lu-Wid"/>
+                        <outlet property="valueTaskClikedLabel" destination="8h1-l2-r3e" id="oW9-l2-c1e"/>
                         <outlet property="viewMembersPopUpView" destination="ddk-Jr-bJX" id="Ikc-Wm-tvd"/>
                         <outlet property="whoWillDoThatLabel" destination="FhT-F3-vns" id="ofK-j0-MC3"/>
                     </connections>
