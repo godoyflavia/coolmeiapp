@@ -28,34 +28,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeToEndOfDayLabel: UILabel!
     @IBOutlet weak var toTheEndOfDayText: UILabel!
     
-    // Popups configs
-    var cornerRadius:CGFloat = 8.5
-    var shadowOffsetWidth:CGFloat = 0.0
-    var shadowOffsetHeight:CGFloat = 5
-    var shadowColor:UIColor = UIColor.black
-    var shadowOpacity:Float = 0.5
     
     //MARK: First popup (add members or go)
-    @IBOutlet var firstPopUpView: UIView!
+    @IBOutlet var addMembersPopUpView: UIView!
     @IBOutlet weak var firstPopUptITitle: UILabel!
     @IBOutlet weak var firstPopUpMembersTableView: UITableView!
     @IBOutlet weak var addMemberOutlet: UIButton!
     @IBAction func addMember(_ sender: Any) {
-        secondPopUpView.isHidden = false
+        collectMemberInfoPopUpView.isHidden = false
     }
     @IBOutlet weak var goOutlet: UIButton!
     @IBAction func go(_ sender: Any) {
-        thirdPopUpView.isHidden = true
-        secondPopUpView.isHidden = true
-        firstPopUpView.isHidden = true
+        viewMembersPopUpView.isHidden = true
+        collectMemberInfoPopUpView.isHidden = true
+        addMembersPopUpView.isHidden = true
         closeBlur()
     }
     
     //MARK: Second popup (collect member's information)
-    @IBOutlet weak var secondPopUpView: UIView!
+    @IBOutlet weak var collectMemberInfoPopUpView: UIView!
     @IBOutlet weak var goBackToFirstOutlet: UIButton!
     @IBAction func goBackToFirst(_ sender: Any) {
-        secondPopUpView.isHidden = true
+        collectMemberInfoPopUpView.isHidden = true
         insertNameTxtField.text = ""
         imageSelectedColor.isHidden = true
     }
@@ -86,19 +80,22 @@ class ViewController: UIViewController {
     
     
     //MARK: Third popup (collect member's information)
-    @IBOutlet var thirdPopUpView: UIView!
+    @IBOutlet var viewMembersPopUpView: UIView!
     @IBOutlet weak var titlePopUpLabel: UILabel!
     @IBOutlet weak var membersTableView: UITableView!
+    
+    
+    //MARK: Fourth popup outlet (chose day tasks)
+    @IBOutlet weak var choseTodayTasksPopUpView: UIView!
+    
+    @IBAction func addTasksButton(_ sender: Any) {
+    }
     
     
     
     //MARK: collection da view tela principal
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
-    
-    //MARK: Pop Ups (12)
-    //@IBOutlet weak var PopUpAddMembros: addMembersPopUp!
-    
-    
+
     
     //MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -118,36 +115,33 @@ class ViewController: UIViewController {
             localData.houseMembers = people
         }
         
-        // First popup
+        // First: addMembersPopUpView
         if localData.houseMembers.count == 0 {
+            // comente essa linha acima pra testar os 2 1os popups
             openBlur()
-            view.addSubview(firstPopUpView)
-            firstPopUpView.center = view.center
-            firstPopUpView.layer.cornerRadius = cornerRadius
-            firstPopUpView.layer.shadowColor = shadowColor.cgColor
-            firstPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+            view.addSubview(addMembersPopUpView)
+            formatPopUp(addMembersPopUpView, isHidden: false) //////
             goOutlet.isEnabled = false
             goOutlet.isHidden = false
             addMemberOutlet.isHidden = false
             addMemberOutlet.isEnabled = true
         
-            // Second popup
-            view.addSubview(secondPopUpView)
-            secondPopUpView.isHidden = true
-            secondPopUpView.center = view.center
-            secondPopUpView.layer.cornerRadius = cornerRadius
-            secondPopUpView.layer.shadowColor = shadowColor.cgColor
-            secondPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+            // Second: choseColorPopUpView
+            view.addSubview(collectMemberInfoPopUpView)
+            formatPopUp(collectMemberInfoPopUpView, isHidden: true) /////
             imageSelectedColor.isHidden = true
-        }
+        } // e essa tbm
         
-        // Third popup
-        view.addSubview(thirdPopUpView)
-        thirdPopUpView.isHidden = true
-        thirdPopUpView.center = view.center
-        thirdPopUpView.layer.cornerRadius = cornerRadius
-        thirdPopUpView.layer.shadowColor = shadowColor.cgColor
-        thirdPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+        
+        // Third: viewMembersPopUpView
+        view.addSubview(viewMembersPopUpView)
+        formatPopUp(viewMembersPopUpView, isHidden: true) //////
+        
+        
+        // Fourth: choseTodayTasksPopUpView
+        view.addSubview(choseTodayTasksPopUpView)
+        formatPopUp(choseTodayTasksPopUpView, isHidden: true) //////
+        
         
         // Rounded buttons and colors for Second Popup
         chooseColor1Outlet.layer.cornerRadius = 0.5 * chooseColor1Outlet.bounds.size.width
@@ -194,7 +188,7 @@ class ViewController: UIViewController {
         
         // Tap gesture for dismissing Keyboard
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        secondPopUpView.addGestureRecognizer(tapGesture)
+        collectMemberInfoPopUpView.addGestureRecognizer(tapGesture)
         
         //MARK: flow layout
         let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
@@ -220,8 +214,8 @@ class ViewController: UIViewController {
     //MARK: Button see family
     @IBAction func seeFamily(_ sender: UIButton) {
         openBlur()
-        view.addSubview(thirdPopUpView)
-        thirdPopUpView.isHidden = false
+        view.addSubview(viewMembersPopUpView)
+        viewMembersPopUpView.isHidden = false
     }
 }
 
@@ -244,11 +238,11 @@ extension ViewController: UICollectionViewDataSource {
             // o caso 9 é pra mostrar o botão de add
             cell.taskIcon.image = UIImage(named: "add-task.png")
         } else if indexPath.row == 24 {
-            // verificar atividades
-            cell.taskIcon.image = UIImage(named: "verify-tasks.png")
-        } else if indexPath.row == 26 {
             // share (ultima celula)
             cell.taskIcon.image = UIImage(named: "share.png")
+        } else if indexPath.row == 26 {
+            // verificar atividades
+            cell.taskIcon.image = UIImage(named: "verify-tasks.png")
         } else {
             cell.taskIcon.image = UIImage(named: "hexagon.png")
         }
@@ -273,6 +267,7 @@ extension ViewController: UICollectionViewDelegate {
             cell.taskIcon.image = UIImage(named: "hexagon.png")
         } else if cell.taskIcon.image == UIImage(named: "add-task.png") {
             // abrir popUp de add tarefa!!
+            // AQUI CARAIO
             print("ui, adicionei!")
         } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {
             // abrir popUp de verificar tarefas
@@ -472,12 +467,37 @@ extension ViewController {
         nameWasChosen = false
         insertNameTxtField.text = ""
         imageSelectedColor.isHidden = true
-        secondPopUpView.isHidden = true
+        collectMemberInfoPopUpView.isHidden = true
     }
 }
 
 
 
+//MARK: Pop Ups Formatação (func)
+extension ViewController {
+    
+    // funçãozinha pra evitar a repetição de código nos nossos mil pop ups
+    func formatPopUp(_ popUp: UIView, isHidden: Bool) {
+        
+        let cornerRadius:CGFloat = 8.5
+        let shadowOffsetWidth:CGFloat = 0.0
+        let shadowOffsetHeight:CGFloat = 5
+        let shadowColor:UIColor = UIColor.black
+        let shadowOpacity:Float = 0.5
+        
+        view.addSubview(popUp)
+        popUp.center = view.center
+        popUp.layer.cornerRadius = cornerRadius
+        popUp.layer.shadowColor = shadowColor.cgColor
+        popUp.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+        
+        if isHidden {
+            popUp.isHidden = true
+        } else {
+            popUp.isHidden = false
+        }
+    }
+}
 
 
 
