@@ -13,7 +13,7 @@ import UIKit
 // Rita não pode adicionar novas
 class DomesticTask {
   var name: String
-  var iconColor: UIImage
+  var icon: UIImage
   // var iconGreyScale: UIImage
   var value: Int = 0
   var isTaken: Bool = false // por default começam sem dono
@@ -24,7 +24,7 @@ class DomesticTask {
   
   init(name: String, iconColor:UIImage, value1to5:Int) {
     self.name = name
-    self.iconColor = iconColor
+    self.icon = iconColor
     // self.iconGreyScale = iconGreyScale
     self.value = value1to5
   }

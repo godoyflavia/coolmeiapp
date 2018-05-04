@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var gambiarraIndex11: UIView!
     @IBOutlet weak var gambiarraIndex19: UIView!
     
+    
     // Variables
     var blurEffectView = UIVisualEffectView()
     var nowEditing = false
@@ -96,8 +97,9 @@ class ViewController: UIViewController {
     
     //MARK: Fifth PopUp (delegate tasks)
     @IBOutlet weak var delegateTasksPopUpView: UIView!
-    // collection view do pop
- 
+    @IBOutlet weak var whoWillDoThatLabel: UILabel!
+    @IBOutlet weak var membersToChoseTableView: UITableView!
+    
     
     //MARK: collection da view tela principal
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
@@ -145,14 +147,11 @@ class ViewController: UIViewController {
         } // e essa tbm
         
         
-        // Third: viewMembersPopUpView
-        view.addSubview(viewMembersPopUpView)
-        formatPopUp(viewMembersPopUpView, isHidden: true) //////
-        
-        
-        // Fourth: choseTodayTasksPopUpView
-        view.addSubview(choseTodayTasksPopUpView)
-        formatPopUp(choseTodayTasksPopUpView, isHidden: true) //////
+        // os outros popUps não precisam estar aqui!
+        // só precisam ser carregados quando o botão/comando que abre eles for clicado
+        // la nesse lugar é só colocar
+        // view.addSubview(popUp)
+        // formatPopUp(popUp, isHidden: false) // função q eu fiz la em baixo que ja tem todas as formatações
         
         
         // Rounded buttons and colors for Second Popup
@@ -258,7 +257,7 @@ extension ViewController: UICollectionViewDataSource {
                 cell.taskIcon.image = UIImage(named: "verify-tasks.png")
             } else {
                 if indexPath.row < localData.chosenDomesticTasks.count {
-                cell.taskIcon.image = localData.chosenDomesticTasks[indexPath.row].iconColor
+                cell.taskIcon.image = localData.chosenDomesticTasks[indexPath.row].icon
                 } else {
                     cell.taskIcon.image = UIImage(named: "hexagon.png")
                 }
@@ -269,7 +268,7 @@ extension ViewController: UICollectionViewDataSource {
         } else { // if collectionView == tasksToChoseCollection
         
             let cell: ChoseTaskCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "newTaskCell", for: indexPath) as! ChoseTaskCollectionCell
-            cell.taskIconImageView.image = localData.allDomesticTasks[indexPath.row].iconColor
+            cell.taskIconImageView.image = localData.allDomesticTasks[indexPath.row].icon
             cell.taskNameLabel.text = localData.allDomesticTasks[indexPath.row].name
             cell.taskValueLabel.text = String(localData.allDomesticTasks[indexPath.row].value)
             // cell.isOpaque = true
@@ -299,7 +298,7 @@ extension ViewController: UICollectionViewDelegate {
                 // abrir popUp de add tarefa!!
                 openBlur()
                 view.addSubview(choseTodayTasksPopUpView)
-                choseTodayTasksPopUpView.isHidden = false
+                formatPopUp(choseTodayTasksPopUpView, isHidden: false)
                 print("ui, adicionei!")
             } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {
                 // abrir popUp de verificar tarefas
@@ -310,7 +309,13 @@ extension ViewController: UICollectionViewDelegate {
                 activityVC.popoverPresentationController?.sourceView = self.view
                 self.present(activityVC, animated:  true, completion: nil)
                 print("ui, compartilhei!")
+            } else { //pra as células com atividades ja adicionadas
+                openBlur()
+                view.addSubview(delegateTasksPopUpView)
+                formatPopUp(delegateTasksPopUpView, isHidden: false)
+                // delegateTasksPopUpView.isHidden = false
             }
+            
         } else if collectionView == tasksToChoseCollection {
             
             let cell: ChoseTaskCollectionCell = collectionView.cellForItem(at: indexPath) as! ChoseTaskCollectionCell
@@ -528,7 +533,7 @@ extension ViewController {
     @IBAction func seeFamily(_ sender: UIButton) {
         openBlur()
         view.addSubview(viewMembersPopUpView)
-        viewMembersPopUpView.isHidden = false
+        formatPopUp(viewMembersPopUpView, isHidden: false)
     }
 }
 
@@ -542,7 +547,6 @@ extension ViewController {
         closeBlur()
     }
     
-    
     // fechar e add
     @IBAction func addTasksButton(_ sender: Any) {
         localData.chosenDomesticTasks = localData.chosenDomesticTasks + localData.tasksBeingChosen
@@ -552,8 +556,28 @@ extension ViewController {
         choseTodayTasksPopUpView.isHidden = true
         closeBlur()
     }
+}
+
+//MARK: Fifth - popUp delegate tasks
+extension ViewController {
+    
+    // voltar
+    @IBAction func goBackFromDelegatePopUp(_ sender: Any) {
+        delegateTasksPopUpView.isHidden = true
+        closeBlur()
+    }
+    
+    // fechar e delegar
+    @IBAction func delegateTaskButton(_ sender: Any) {
+        
+        // delegar aqui
+        
+        delegateTasksPopUpView.isHidden = true
+        closeBlur()
+    }
     
 }
+
 
 
 //MARK: Pop Ups Formatação (func)
