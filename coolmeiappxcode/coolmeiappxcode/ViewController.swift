@@ -111,29 +111,38 @@ class ViewController: UIViewController {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        // First popup
-        openBlur()
-        view.addSubview(firstPopUpView)
-        firstPopUpView.center = view.center
-        firstPopUpView.layer.cornerRadius = cornerRadius
-        firstPopUpView.layer.shadowColor = shadowColor.cgColor
-        firstPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
-        goOutlet.isEnabled = false
-        goOutlet.isHidden = false
-        addMemberOutlet.isHidden = false
-        addMemberOutlet.isEnabled = true
+        // Decoding
+        // precisa vir antes de tudo, se não não atinge a abertura dos popUps
+        if let decoded  = UserDefaults.standard.object(forKey: "person") as? Data {
+            let people = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [HouseMember]
+            localData.houseMembers = people
+        }
         
-        // Second popup
-        view.addSubview(secondPopUpView)
-        secondPopUpView.isHidden = true
-        secondPopUpView.center = view.center
-        secondPopUpView.layer.cornerRadius = cornerRadius
-        secondPopUpView.layer.shadowColor = shadowColor.cgColor
-        secondPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
-        imageSelectedColor.isHidden = true
+        // First popup
+        if localData.houseMembers.count == 0 {
+            openBlur()
+            view.addSubview(firstPopUpView)
+            firstPopUpView.center = view.center
+            firstPopUpView.layer.cornerRadius = cornerRadius
+            firstPopUpView.layer.shadowColor = shadowColor.cgColor
+            firstPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+            goOutlet.isEnabled = false
+            goOutlet.isHidden = false
+            addMemberOutlet.isHidden = false
+            addMemberOutlet.isEnabled = true
+        
+            // Second popup
+            view.addSubview(secondPopUpView)
+            secondPopUpView.isHidden = true
+            secondPopUpView.center = view.center
+            secondPopUpView.layer.cornerRadius = cornerRadius
+            secondPopUpView.layer.shadowColor = shadowColor.cgColor
+            secondPopUpView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
+            imageSelectedColor.isHidden = true
+        }
         
         // Third popup
-        view.addSubview(secondPopUpView)
+        view.addSubview(thirdPopUpView)
         thirdPopUpView.isHidden = true
         thirdPopUpView.center = view.center
         thirdPopUpView.layer.cornerRadius = cornerRadius
@@ -159,12 +168,6 @@ class ViewController: UIViewController {
         chooseColor6Outlet.layer.cornerRadius = 0.5 * chooseColor6Outlet.bounds.size.width
         chooseColor6Outlet.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         
-        
-        // Decoding
-        if let decoded  = UserDefaults.standard.object(forKey: "person") as? Data {
-            let people = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [HouseMember]
-            localData.houseMembers = people
-        }
         
         //do progress view
         timeToEndOfDayProgressView.layer.cornerRadius = 6 // metade da altura
@@ -446,11 +449,12 @@ extension ViewController {
     }
     // Choosing name and color
     @IBAction func nameAndColorOk(_ sender: Any) {
-        localData.houseMembers.append(HouseMember(name: genericName, color: chosenColor))
+        localData.houseMembers.append(HouseMember(name: insertNameTxtField.text!, color: chosenColor))
         // Saving member
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
         UserDefaults.standard.set(encodedData, forKey: "person")
         firstPopUpMembersTableView.reloadData()
+        membersTableView.reloadData()
         goOutlet.isEnabled = false
         
         // usedColors.append(self.chosenColor)
