@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -215,7 +215,7 @@
                         <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLR-TV-UUo">
                             <rect key="frame" x="211" y="377" width="57" height="53"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="ir" image="hexagon-black-vert"/>
+                            <state key="normal" title="ir" image="ok"/>
                             <connections>
                                 <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3EA-eU-O4H"/>
                             </connections>
@@ -330,9 +330,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-eJ-Szl">
-                            <rect key="frame" x="105" y="370" width="64" height="60"/>
+                            <rect key="frame" x="108" y="370" width="61" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="ok" image="hexagon-black-vert"/>
+                            <state key="normal" title="ok" image="ok"/>
                             <connections>
                                 <action selector="nameAndColorOk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aCo-sC-YCj"/>
                             </connections>
@@ -420,7 +420,7 @@
                         <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijO-Zm-mAe">
                             <rect key="frame" x="120" y="375" width="56" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button" image="hexagon-black-vert"/>
+                            <state key="normal" title="Button" image="ok"/>
                             <connections>
                                 <action selector="delegateTaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6tC-jl-TMT"/>
                             </connections>
@@ -515,7 +515,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAO-Sq-nZi" userLabel="add tasks Button">
                             <rect key="frame" x="123" y="379" width="54" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="ok" image="hexagon-black-vert">
+                            <state key="normal" title="ok" image="ok">
                                 <color key="titleColor" red="0.99215686270000003" green="0.84705882349999995" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
@@ -615,10 +615,10 @@
     <resources>
         <image name="add-task" width="141" height="158"/>
         <image name="hexagon" width="128" height="128"/>
-        <image name="hexagon-black-vert" width="82" height="82"/>
         <image name="hive" width="1025" height="1025"/>
         <image name="honney-drop-border" width="33" height="57"/>
         <image name="honney-drop-no-border" width="27" height="49"/>
+        <image name="ok" width="141" height="159"/>
         <image name="selectedColor" width="64" height="64"/>
     </resources>
 </document>
