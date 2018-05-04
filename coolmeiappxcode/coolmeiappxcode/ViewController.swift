@@ -94,6 +94,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var choseTodayTasksPopUpView: UIView!
     @IBOutlet weak var tasksToChoseCollection: UICollectionView!
     
+    //MARK: Fifth PopUp (delegate tasks)
+    @IBOutlet weak var delegateTasksPopUpView: UIView!
+    // collection view do pop
+ 
     
     //MARK: collection da view tela principal
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
