@@ -24,7 +24,7 @@ class LocalData {
    
    //
     var allDomesticTasks: [DomesticTask] = [
-        DomesticTask(name: "lavar prato", iconColor: UIImage(named: "lavar-pratos.png")!, value1to5: 2),
+        DomesticTask(name: "lavar os pratos", iconColor: UIImage(named: "lavar-pratos.png")!, value1to5: 2),
         DomesticTask(name: "botar a mesa", iconColor: UIImage(named: "botar-mesa.png")!, value1to5: 1),
         DomesticTask(name: "tirar a mesa", iconColor: UIImage(named: "tirar-mesa.png")!, value1to5: 1),
         DomesticTask(name: "passear com o cachorro", iconColor: UIImage(named: "passear-pet.png")!, value1to5: 2),

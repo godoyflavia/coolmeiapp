@@ -79,7 +79,7 @@
                                 </constraints>
                                 <collectionViewLayout key="collectionViewLayout" id="39N-9j-U2w" customClass="PBJHexagonFlowLayout"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taskCell" id="yOR-0o-mBa" customClass="DomesticTasksCell" customModule="coolmeiappxcode" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taskCell" id="yOR-0o-mBa" customClass="DomesticTaskCollectionCell" customModule="coolmeiappxcode" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -410,7 +410,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="escolha as tarefas de hoje" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7a-AM-oK1">
-                            <rect key="frame" x="16" y="65" width="268" height="20.5"/>
+                            <rect key="frame" x="16" y="60" width="268" height="20.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="268" id="t7X-Og-L7k"/>
                             </constraints>
@@ -504,11 +504,11 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="s7a-AM-oK1" firstAttribute="centerX" secondItem="rfs-23-RdR" secondAttribute="centerX" id="bmH-FP-Mca"/>
-                        <constraint firstItem="s7a-AM-oK1" firstAttribute="top" secondItem="5hN-uW-Zva" secondAttribute="bottom" constant="15" id="cdw-gJ-9MG"/>
+                        <constraint firstItem="s7a-AM-oK1" firstAttribute="top" secondItem="5hN-uW-Zva" secondAttribute="bottom" constant="10" id="cdw-gJ-9MG"/>
                         <constraint firstItem="5hN-uW-Zva" firstAttribute="leading" secondItem="rfs-23-RdR" secondAttribute="leading" constant="16" id="jcW-GQ-SJO"/>
                         <constraint firstItem="DPo-eG-AU6" firstAttribute="centerX" secondItem="rfs-23-RdR" secondAttribute="centerX" id="oTn-pU-gig"/>
                         <constraint firstItem="5hN-uW-Zva" firstAttribute="top" secondItem="rfs-23-RdR" secondAttribute="top" constant="20" id="v76-gJ-YYd"/>
-                        <constraint firstItem="DPo-eG-AU6" firstAttribute="top" secondItem="s7a-AM-oK1" secondAttribute="bottom" constant="15" id="vpK-lg-W8H"/>
+                        <constraint firstItem="DPo-eG-AU6" firstAttribute="top" secondItem="s7a-AM-oK1" secondAttribute="bottom" constant="20" id="vpK-lg-W8H"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="rfs-23-RdR"/>
                 </view>

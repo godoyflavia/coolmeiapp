@@ -1,5 +1,5 @@
 //
-//  DomesticTasksCell.swift
+//  DomesticTaskCollectionCell.swift
 //  coolmeiappxcode
 //
 //  Created by Camila Simões on 28/04/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DomesticTasksCell: UICollectionViewCell {
+class DomesticTaskCollectionCell: UICollectionViewCell {
  
   @IBOutlet weak var taskIcon: UIImageView!
   

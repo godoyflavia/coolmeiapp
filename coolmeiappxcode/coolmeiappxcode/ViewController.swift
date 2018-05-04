@@ -237,7 +237,7 @@ extension ViewController: UICollectionViewDataSource {
         
         if collectionView == domesticTasksCollection {
             
-            let cell: DomesticTasksCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTasksCell
+            let cell: DomesticTaskCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTaskCollectionCell
             
             if indexPath.row % 8 == 3 || indexPath.row == 25 {
                 // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
@@ -283,8 +283,8 @@ extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == domesticTasksCollection {
-            let cell: DomesticTasksCell = collectionView.cellForItem(at: indexPath)
-                as! DomesticTasksCell
+            let cell: DomesticTaskCollectionCell = collectionView.cellForItem(at: indexPath)
+                as! DomesticTaskCollectionCell
             
             // não atinge as células invisíveis (pq não tem else sem condição)
             if cell.taskIcon.image == UIImage(named: "hexagon.png") {
