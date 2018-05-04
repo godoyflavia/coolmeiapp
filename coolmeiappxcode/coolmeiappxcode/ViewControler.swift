@@ -183,7 +183,7 @@ class ViewController: UIViewController {
         timeToEndOfDayProgressView.clipsToBounds = true
         timeToEndOfDayProgressView.layer.sublayers![1].cornerRadius = 6
         timeToEndOfDayProgressView.subviews[1].clipsToBounds = true
-        timeToEndOfDayProgressView.progress = 0.1
+        timeToEndOfDayProgressView.progress = 0.8
         // self.timeToEndOfDayProgressView.transform = timeToEndOfDayProgressView.transform.scaledBy(x: 1, y: 4)
         // o auto-layout vai se aplicar ao tamanho original dela (height = 3)
         
@@ -347,10 +347,14 @@ extension ViewController: UICollectionViewDelegate {
             
             let cell: ChoseTaskCollectionCell = collectionView.cellForItem(at: indexPath) as! ChoseTaskCollectionCell
             
+            cell.layer.cornerRadius = 5
+            cell.layer.backgroundColor = #colorLiteral(red: 1, green: 0.862745098, blue: 0.4705882353, alpha: 0.2223447086)
+            
             let taskTaped = DomesticTask(
                 name: cell.taskNameLabel.text!,
                 iconColor: cell.taskIconImageView.image!,
                 value1to5: Int(cell.taskValueLabel.text!)!
+            
             )
             
             //MARK: BUG CONTAINS (?)
