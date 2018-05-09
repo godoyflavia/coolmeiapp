@@ -93,7 +93,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var membersTableView: UITableView!
     
     
-    //MARK: Fourth popup outlet (chose day tasks)
+    //MARK: Fourth popup outlet (choose day's tasks)
     @IBOutlet weak var choseTodayTasksPopUpView: UIView!
     @IBOutlet weak var tasksToChoseCollection: UICollectionView!
     
@@ -131,6 +131,10 @@ class ViewController: UIViewController {
         if let decoded  = UserDefaults.standard.object(forKey: "person") as? Data {
             let people = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [HouseMember]
             localData.houseMembers = people
+        }
+        
+        if let decoded = UserDefaults.standard.object(forKey: "chosenTask") as? Data {
+            let tasks = NSKeyedArchiver.
         }
         
         // First: addMembersPopUpView
