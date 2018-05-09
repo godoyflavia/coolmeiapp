@@ -24,26 +24,26 @@ class LocalData {
    
    //
     var allDomesticTasks: [DomesticTask] = [
-        DomesticTask(name: "lavar os pratos", iconColor: UIImage(named: "lavar-pratos.png")!, value1to5: 2),
-        DomesticTask(name: "botar a mesa", iconColor: UIImage(named: "botar-mesa.png")!, value1to5: 1),
-        DomesticTask(name: "tirar a mesa", iconColor: UIImage(named: "tirar-mesa.png")!, value1to5: 1),
-        DomesticTask(name: "passear com o cachorro", iconColor: UIImage(named: "passear-pet.png")!, value1to5: 2),
-        DomesticTask(name: "checar validades", iconColor: UIImage(named: "checar-validades.png")!, value1to5: 1),
-        DomesticTask(name: "pagar as contas", iconColor: UIImage(named: "pagar-contas.png")!, value1to5: 2),
-        DomesticTask(name: "fazer o almoço", iconColor: UIImage(named: "fazer-almoco.png")!, value1to5: 3),
-        DomesticTask(name: "fazer o jantar", iconColor: UIImage(named: "fazer-jantar.png")!, value1to5: 3),
-        DomesticTask(name: "fazer café da manhã", iconColor: UIImage(named: "fazer-cafe.png")!, value1to5: 2),
-        DomesticTask(name: "dobrar as roupas", iconColor: UIImage(named: "dobrar-roupa.png")!, value1to5: 1),
-        DomesticTask(name: "lavar roupa", iconColor: UIImage(named: "lavar-roupa.png")!, value1to5: 2),
-        DomesticTask(name: "estender as roupas", iconColor: UIImage(named: "estender-roupa.png")!, value1to5: 1),
-        DomesticTask(name: "enxugar os pratos", iconColor: UIImage(named: "enxugar-prato.png")!, value1to5: 1),
-        DomesticTask(name: "guardar os pratos", iconColor: UIImage(named: "guardar-prato.png")!, value1to5: 1),
-        DomesticTask(name: "passar pano", iconColor: UIImage(named: "passar-pano.png")!, value1to5: 2),
-        DomesticTask(name: "aspirar a casa", iconColor: UIImage(named: "aspirar.png")!, value1to5: 2),
-        DomesticTask(name: "fazer a feira", iconColor: UIImage(named: "fazer-feira.png")!, value1to5: 4),
-        DomesticTask(name: "varrer a casa", iconColor: UIImage(named: "varrer.png")!, value1to5: 2),
-        DomesticTask(name: "levar os filhos", iconColor: UIImage(named: "levar-filhos.png")!, value1to5: 3),
-        DomesticTask(name: "buscar os filhos", iconColor: UIImage(named: "buscar-filhos.png")!, value1to5: 3)
+        DomesticTask(name: "lavar os pratos", iconColor: "lavar-pratos.png", value1to5: 2),
+        DomesticTask(name: "botar a mesa", iconColor: "botar-mesa.png", value1to5: 1),
+        DomesticTask(name: "tirar a mesa", iconColor: "tirar-mesa.png", value1to5: 1),
+        DomesticTask(name: "passear com o cachorro", iconColor: "passear-pet.png", value1to5: 2),
+        DomesticTask(name: "checar validades", iconColor: "checar-validades.png", value1to5: 1),
+        DomesticTask(name: "pagar as contas", iconColor: "pagar-contas.png", value1to5: 2),
+        DomesticTask(name: "fazer o almoço", iconColor: "fazer-almoco.png", value1to5: 3),
+        DomesticTask(name: "fazer o jantar", iconColor: "fazer-jantar.png", value1to5: 3),
+        DomesticTask(name: "fazer café da manhã", iconColor: "fazer-cafe.png", value1to5: 2),
+        DomesticTask(name: "dobrar as roupas", iconColor: "dobrar-roupa.png", value1to5: 1),
+        DomesticTask(name: "lavar roupa", iconColor: "lavar-roupa.png", value1to5: 2),
+        DomesticTask(name: "estender as roupas", iconColor: "estender-roupa.png", value1to5: 1),
+        DomesticTask(name: "enxugar os pratos", iconColor: "enxugar-prato.png", value1to5: 1),
+        DomesticTask(name: "guardar os pratos", iconColor: "guardar-prato.png", value1to5: 1),
+        DomesticTask(name: "passar pano", iconColor:  "passar-pano.png", value1to5: 2),
+        DomesticTask(name: "aspirar a casa", iconColor: "aspirar.png", value1to5: 2),
+        DomesticTask(name: "fazer a feira", iconColor: "fazer-feira.png", value1to5: 4),
+        DomesticTask(name: "varrer a casa", iconColor: "varrer.png", value1to5: 2),
+        DomesticTask(name: "levar os filhos", iconColor: "levar-filhos.png", value1to5: 3),
+        DomesticTask(name: "buscar os filhos", iconColor: "buscar-filhos.png", value1to5: 3)
         
     ]
     
