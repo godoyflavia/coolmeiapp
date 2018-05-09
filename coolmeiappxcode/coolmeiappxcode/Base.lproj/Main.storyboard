@@ -157,6 +157,7 @@
                     <connections>
                         <outlet property="addMemberOutlet" destination="t87-Ja-Ufv" id="Y1s-kf-l2t"/>
                         <outlet property="addMembersPopUpView" destination="JYl-yT-1rD" id="Q2c-bI-QhQ"/>
+                        <outlet property="awardSuggestionLabel" destination="Cec-1Z-zPH" id="Rpj-Iv-upV"/>
                         <outlet property="chooseColor1Outlet" destination="19y-Xj-vk9" id="r8j-CK-bOf"/>
                         <outlet property="chooseColor2Outlet" destination="dXY-jg-SRJ" id="ErE-7B-M6J"/>
                         <outlet property="chooseColor3Outlet" destination="tx0-dQ-maf" id="b9l-Gm-xqe"/>
@@ -183,14 +184,21 @@
                         <outlet property="membersToChoseTableView" destination="XNE-T7-N4g" id="hsc-aB-XwR"/>
                         <outlet property="nameAndColorOkOutlet" destination="CRb-eJ-Szl" id="VeV-R2-HlT"/>
                         <outlet property="nameLabel" destination="3TI-Pq-jx2" id="29R-2e-PMG"/>
+                        <outlet property="pointsEarnedTableView" destination="zhm-1n-r9a" id="jdP-Dn-SJa"/>
+                        <outlet property="saysPointsEarnedPopUpView" destination="SzY-hT-CFh" id="cFd-4m-Dcv"/>
+                        <outlet property="saysWinnerPopUpView" destination="5yu-rg-EE3" id="z4V-f4-FYs"/>
+                        <outlet property="startNewDayPopUpView" destination="50I-54-8fc" id="pPg-BV-Y7Y"/>
                         <outlet property="tasksToChoseCollection" destination="DPo-eG-AU6" id="x7M-YB-P4T"/>
+                        <outlet property="tasksToValidateCollection" destination="udM-5e-4OG" id="ujF-Dq-ACb"/>
                         <outlet property="timeToEndOfDayLabel" destination="Tnh-hk-ThR" id="EaV-ns-9GF"/>
                         <outlet property="timeToEndOfDayProgressView" destination="hI9-Wb-ZH4" id="6wf-sm-mHI"/>
                         <outlet property="titlePopUpLabel" destination="h27-BS-QM5" id="HTT-cj-dOW"/>
                         <outlet property="toTheEndOfDayText" destination="gca-Sd-bae" id="emS-Lu-Wid"/>
+                        <outlet property="validateTasksPopUpView" destination="riv-Bu-fCd" id="syY-Em-y9S"/>
                         <outlet property="valueTaskClikedLabel" destination="8h1-l2-r3e" id="oW9-l2-c1e"/>
                         <outlet property="viewMembersPopUpView" destination="ddk-Jr-bJX" id="Ikc-Wm-tvd"/>
                         <outlet property="whoWillDoThatLabel" destination="FhT-F3-vns" id="ofK-j0-MC3"/>
+                        <outlet property="winnerNameLabel" destination="TtR-zc-Amp" id="RSW-Qk-Fmj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -353,7 +361,7 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="WXZ-t8-8Th">
-                            <rect key="frame" x="24" y="219" width="57" height="57"/>
+                            <rect key="frame" x="16" y="210" width="74" height="74"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -780,7 +788,7 @@
     <resources>
         <image name="abelhinha-30" width="346" height="382"/>
         <image name="add-task" width="141" height="158"/>
-        <image name="circle" width="512" height="512"/>
+        <image name="circle" width="411" height="411"/>
         <image name="hexagon" width="128" height="128"/>
         <image name="hexagon-black-vert" width="81" height="81"/>
         <image name="honney-drop-border" width="33" height="57"/>

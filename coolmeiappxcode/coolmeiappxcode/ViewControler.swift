@@ -87,31 +87,39 @@ class ViewController: UIViewController {
     
     
     
-    //MARK: Third popup (collect member's information)
+    //MARK: Third popup Outlets (collect member's information)
     @IBOutlet var viewMembersPopUpView: UIView!
     @IBOutlet weak var titlePopUpLabel: UILabel!
     @IBOutlet weak var membersTableView: UITableView!
     
-    
-    //MARK: Fourth popup outlet (choose day's tasks)
+    //MARK: Fourth popup outlets (choose day's tasks)
     @IBOutlet weak var choseTodayTasksPopUpView: UIView!
     @IBOutlet weak var tasksToChoseCollection: UICollectionView!
     
-    //MARK: Fifth PopUp (delegate tasks)
-    @IBOutlet weak var delegateTasksPopUpView: UIView!
+    //MARK: Fifth PopUp Outlets (delegate tasks)
+    @IBOutlet var delegateTasksPopUpView: UIView!
     @IBOutlet weak var iconTaskClickedImageView: UIImageView!
     @IBOutlet weak var valueTaskClikedLabel: UILabel!
     @IBOutlet weak var whoWillDoThatLabel: UILabel!
     @IBOutlet weak var membersToChoseTableView: UITableView!
     
-    //MARK: Sixth PopUp (validate tasks)
+    //MARK: Sixth PopUp Outlets (validate tasks)
+    @IBOutlet var validateTasksPopUpView: UIView!
+    @IBOutlet weak var tasksToValidateCollection: UICollectionView!
     
+    //MARK: Seventh PopUp Outlets (points earned)
+    @IBOutlet var saysPointsEarnedPopUpView: UIView!
+    @IBOutlet weak var pointsEarnedTableView: UITableView!
     
-    //MARK: Seventh PopUp (points earned)
+    //MARK: Eight popUp Outlets (winner)
+    @IBOutlet var saysWinnerPopUpView: UIView!
+    @IBOutlet weak var winnerNameLabel: UILabel!
+    @IBOutlet weak var awardSuggestionLabel: UILabel!
     
-    //MARK: Eight popUp (winner)
+    //MARK: Nineth PopUp Outlets (start new day)
+    @IBOutlet var startNewDayPopUpView: UIView!
     
-    //MARK: Nineth PopUp (start new day)
+
     
     //MARK: collection da view tela principal
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
@@ -506,7 +514,7 @@ extension ViewController {
         self.chosenColor = "1"
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 17, y: 218, width: 50, height: 50)
+        imageSelectedColor.frame = CGRect(x: 17, y: 218, width: 60, height: 60)
         imageSelectedColor.center = chooseColor1Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
@@ -518,7 +526,7 @@ extension ViewController {
         self.chosenColor = "2"
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 116, y: 218, width: 50, height: 50)
+        imageSelectedColor.frame = CGRect(x: 116, y: 218, width: 60, height: 60)
         imageSelectedColor.center = chooseColor2Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
@@ -530,7 +538,7 @@ extension ViewController {
         self.chosenColor = "3"
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 218, y: 218, width: 50, height: 50)
+        imageSelectedColor.frame = CGRect(x: 218, y: 218, width: 60, height: 60)
         imageSelectedColor.center = chooseColor3Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
@@ -542,7 +550,7 @@ extension ViewController {
         self.chosenColor = "4"
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 17, y: 288, width: 50, height: 50)
+        imageSelectedColor.frame = CGRect(x: 17, y: 288, width: 60, height: 60)
         imageSelectedColor.center = chooseColor4Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
@@ -554,7 +562,7 @@ extension ViewController {
         self.chosenColor = "5"
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 116, y: 288, width: 50, height: 50)
+        imageSelectedColor.frame = CGRect(x: 116, y: 288, width: 60, height: 60)
         imageSelectedColor.center = chooseColor5Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
@@ -566,7 +574,7 @@ extension ViewController {
         self.chosenColor = "6"
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
-        imageSelectedColor.frame = CGRect(x: 218, y: 288, width: 50, height: 50)
+        imageSelectedColor.frame = CGRect(x: 218, y: 288, width: 60, height: 60)
         imageSelectedColor.center = chooseColor6Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
