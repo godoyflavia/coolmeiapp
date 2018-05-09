@@ -274,7 +274,7 @@ extension ViewController: UICollectionViewDataSource {
                 cell.taskIcon.image = UIImage(named: "verify-tasks.png")
             } else {
                 if indexPath.row < localData.chosenDomesticTasks.count {
-                cell.taskIcon.image = localData.chosenDomesticTasks[indexPath.row].icon
+                    cell.taskIcon.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
                 } else {
                     // celulas invisiveis
                     // cell.taskIcon.image = UIImage(named: "hexagon.png")
@@ -286,7 +286,7 @@ extension ViewController: UICollectionViewDataSource {
         } else { // if collectionView == tasksToChoseCollection
         
             let cell: ChoseTaskCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "newTaskCell", for: indexPath) as! ChoseTaskCollectionCell
-            cell.taskIconImageView.image = localData.allDomesticTasks[indexPath.row].icon
+            cell.taskIconImageView.image = UIImage(named: localData.allDomesticTasks[indexPath.row].icon)
             cell.taskNameLabel.text = localData.allDomesticTasks[indexPath.row].name
             cell.taskValueLabel.text = String(localData.allDomesticTasks[indexPath.row].value)
             // cell.isOpaque = true
@@ -338,7 +338,7 @@ extension ViewController: UICollectionViewDelegate {
                 formatPopUp(delegateTasksPopUpView, isHidden: false)
                 
                 // alimentar o header do popUp (se aproveitando do indexPath)
-                iconTaskClickedImageView.image = localData.chosenDomesticTasks[indexPath.row].icon
+                iconTaskClickedImageView.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
                 valueTaskClikedLabel.text = String(localData.chosenDomesticTasks[indexPath.row].value)
                 
                 let taskName = localData.chosenDomesticTasks[indexPath.row].name
@@ -356,7 +356,7 @@ extension ViewController: UICollectionViewDelegate {
             
             let taskTaped = DomesticTask(
                 name: cell.taskNameLabel.text!,
-                iconColor: cell.taskIconImageView.image!,
+                iconColor: localData.allDomesticTasks[indexPath.row].icon,
                 value1to5: Int(cell.taskValueLabel.text!)!
             
             )

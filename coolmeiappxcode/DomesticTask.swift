@@ -11,9 +11,9 @@ import UIKit
 
 // as tarefas já vao estar criadas no nosso banco de dados local
 // Rita não pode adicionar novas
-class DomesticTask {
+class DomesticTask: NSObject, NSCoding {
   var name: String
-  var icon: UIImage
+  var icon: String
   // var iconGreyScale: UIImage
   var value: Int = 0
   var isTaken: Bool = false // por default começam sem dono
@@ -22,24 +22,25 @@ class DomesticTask {
 
   // init padrão pras tarefas
   
-  init(name: String, iconColor:UIImage, value1to5:Int) {
+  init(name: String, iconColor:String, value1to5:Int) {
     self.name = name
     self.icon = iconColor
     // self.iconGreyScale = iconGreyScale
     self.value = value1to5
   }
 
-//    required convenience init(coder aDecoder: NSCoder) {
-//        let name = aDecoder.decodeObject(forKey: "name") as! String
-//        let icon =
-//        self.init(name: name, icon: icon)
-//    }
-//
-//    func encode(with aCoder: NSCoder) {
-//        aCoder.encode(name, forKey: "name")
-//        aCoder.encode(icon, forKey: "icon")
-//    }
-//
+    required convenience init(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let icon = aDecoder.decodeObject(forKey: "icon") as! String
+        let value = aDecoder.decodeInteger(forKey: "value") as Int
+        self.init(name: name, iconColor: icon, value1to5: value)
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(icon, forKey: "icon")
+    }
+
   
     // essa função ficaria aqui ou dentro de HouseMember?
     //  func getPoints() {
@@ -52,14 +53,14 @@ class DomesticTask {
 
 // var nobody: HouseMember
 
-extension DomesticTask: Equatable {
-
-    static func ==(lhs: DomesticTask, rhs: DomesticTask) -> Bool {
-        if lhs.name == rhs.name {
-            return true
-        } else {
-            return false
-        }
-    }
-
-}
+//extension DomesticTask: Equatable {
+//
+//    static func ==(lhs: DomesticTask, rhs: DomesticTask) -> Bool {
+//        if lhs.name == rhs.name {
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
+//
+//}
