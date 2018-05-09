@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1849BE3B20A38059003EC8D3 /* ValidateTasksCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849BE3A20A38059003EC8D3 /* ValidateTasksCollectionCell.swift */; };
 		54E36132D02F5032CBC285AE /* Pods_coolmeiappxcode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44027F85C2625AD350E1572 /* Pods_coolmeiappxcode.framework */; };
 		57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF6208F9FE900D333AF /* AppDelegate.swift */; };
 		57020DF9208F9FE900D333AF /* ViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF8208F9FE900D333AF /* ViewControler.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		136D250F30CB3CFACEF87328 /* Pods-coolmeiappxcodeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeTests/Pods-coolmeiappxcodeTests.release.xcconfig"; sourceTree = "<group>"; };
+		1849BE3A20A38059003EC8D3 /* ValidateTasksCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTasksCollectionCell.swift; sourceTree = "<group>"; };
 		254285780CF81F9A03C6E410 /* Pods-coolmeiappxcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcode/Pods-coolmeiappxcode.release.xcconfig"; sourceTree = "<group>"; };
 		2B20BA1760DE3A57112741A3 /* Pods-coolmeiappxcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcode/Pods-coolmeiappxcode.debug.xcconfig"; sourceTree = "<group>"; };
 		4C0A1EBE3AB8DBBEB99A2F25 /* Pods_coolmeiappxcodeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coolmeiappxcodeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +213,7 @@
 				EF0E3578209BAC4A00503A74 /* ChoseTaskCollectionCell.swift */,
 				57AEEAEE209A54DC001C499D /* MemberTableViewCell.swift */,
 				EFF9094B209C844300277F38 /* ChoseMemberToDoTableCell.swift */,
+				1849BE3A20A38059003EC8D3 /* ValidateTasksCollectionCell.swift */,
 				578D5CAA209BC53E00CA7FD7 /* ViewMembersTableCell.swift */,
 			);
 			name = "Subclasses novas";
@@ -429,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1849BE3B20A38059003EC8D3 /* ValidateTasksCollectionCell.swift in Sources */,
 				EFF9094C209C844300277F38 /* ChoseMemberToDoTableCell.swift in Sources */,
 				EF53739320950B11006CD886 /* DomesticTaskCollectionCell.swift in Sources */,
 				57020DFF208F9FE900D333AF /* coolmeiappxcode.xcdatamodeld in Sources */,

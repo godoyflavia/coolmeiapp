@@ -104,6 +104,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var whoWillDoThatLabel: UILabel!
     @IBOutlet weak var membersToChoseTableView: UITableView!
     
+    //MARK: Sixth PopUp (validate tasks)
+    
+    
+    //MARK: Seventh PopUp (points earned)
+    
+    //MARK: Eight popUp (winner)
+    
+    //MARK: Nineth PopUp (start new day)
     
     //MARK: collection da view tela principal
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
@@ -192,14 +200,14 @@ class ViewController: UIViewController {
         // o auto-layout vai se aplicar ao tamanho original dela (height = 3)
         
         
-        //da collection view
+        //das collection views
         self.domesticTasksCollection.dataSource = self
         self.domesticTasksCollection.delegate = self
         
         self.tasksToChoseCollection.dataSource = self
         self.tasksToChoseCollection.delegate = self
         
-        //da tableview
+        //das tableviews
         self.firstPopUpMembersTableView.dataSource = self
         self.firstPopUpMembersTableView.delegate = self
         
