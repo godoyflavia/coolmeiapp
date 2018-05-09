@@ -11,7 +11,7 @@ import UIKit
 
 // as tarefas já vao estar criadas no nosso banco de dados local
 // Rita não pode adicionar novas
-class DomesticTask: NSObject, NSCoding {
+class DomesticTask {
   var name: String
   var icon: UIImage
   // var iconGreyScale: UIImage
@@ -29,17 +29,17 @@ class DomesticTask: NSObject, NSCoding {
     self.value = value1to5
   }
 
-    required convenience init(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObject(forKey: "name") as! String
-        let icon = 
-        self.init(name: name, icon: icon)
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: "name")
-        aCoder.encode(icon, forKey: "icon")
-    }
-    
+//    required convenience init(coder aDecoder: NSCoder) {
+//        let name = aDecoder.decodeObject(forKey: "name") as! String
+//        let icon =
+//        self.init(name: name, icon: icon)
+//    }
+//
+//    func encode(with aCoder: NSCoder) {
+//        aCoder.encode(name, forKey: "name")
+//        aCoder.encode(icon, forKey: "icon")
+//    }
+//
   
     // essa função ficaria aqui ou dentro de HouseMember?
     //  func getPoints() {
