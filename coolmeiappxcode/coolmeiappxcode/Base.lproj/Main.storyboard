@@ -361,7 +361,7 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="WXZ-t8-8Th">
-                            <rect key="frame" x="24" y="219" width="57" height="57"/>
+                            <rect key="frame" x="16" y="210" width="74" height="74"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -788,7 +788,7 @@
     <resources>
         <image name="abelhinha-30" width="346" height="382"/>
         <image name="add-task" width="141" height="158"/>
-        <image name="circle" width="512" height="512"/>
+        <image name="circle" width="411" height="411"/>
         <image name="hexagon" width="128" height="128"/>
         <image name="hexagon-black-vert" width="81" height="81"/>
         <image name="honney-drop-border" width="33" height="57"/>
