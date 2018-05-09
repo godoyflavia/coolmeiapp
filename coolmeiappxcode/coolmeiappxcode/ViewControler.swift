@@ -141,9 +141,10 @@ class ViewController: UIViewController {
             localData.houseMembers = people
         }
         
-//        if let decoded = UserDefaults.standard.object(forKey: "chosenTask") as? Data {
-//            let tasks = NSKeyedArchiver.
-//        }
+        if let decoded = UserDefaults.standard.object(forKey: "chosenTask") as? Data {
+            let chosenTasks = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [DomesticTask]
+            localData.chosenDomesticTasks = chosenTasks
+        }
         
         // First: addMembersPopUpView
         if localData.houseMembers.count == 0 {
@@ -281,6 +282,7 @@ extension ViewController: UICollectionViewDataSource {
                 // verificar atividades
                 cell.taskIcon.image = UIImage(named: "verify-tasks.png")
             } else {
+                
                 if indexPath.row < localData.chosenDomesticTasks.count {
                     cell.taskIcon.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
                 } else {
@@ -288,7 +290,7 @@ extension ViewController: UICollectionViewDataSource {
                     // cell.taskIcon.image = UIImage(named: "hexagon.png")
                 }
             }
-            
+            // Array<DomesticTask>
             return cell
             
         } else { // if collectionView == tasksToChoseCollection
@@ -392,7 +394,6 @@ extension ViewController: UITableViewDataSource {
         return localData.houseMembers.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == firstPopUpMembersTableView {
@@ -423,6 +424,7 @@ extension ViewController: UITableViewDataSource {
             
             return cell
         }
+        
     }
 }
 
@@ -436,12 +438,21 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedIndex = indexPath.row
-//        tableView.cellForRow(at: [indexPath.row])?.layer.backgroundColor = #colorLiteral(red: 0.3098039216, green: 0.262745098, blue: 0.4549019608, alpha: 0.25)
-        let selectedPerson = localData.houseMembers[selectedIndex]
-        addMember(selectedPerson)
-        insertNameTxtField.text! = selectedPerson.name
-        nowEditing = true
+        
+        if tableView == firstPopUpMembersTableView {
+            let selectedIndex = indexPath.row
+            //        tableView.cellForRow(at: [indexPath.row])?.layer.backgroundColor = #colorLiteral(red: 0.3098039216, green: 0.262745098, blue: 0.4549019608, alpha: 0.25)
+            let selectedPerson = localData.houseMembers[selectedIndex]
+            addMember(selectedPerson)
+            insertNameTxtField.text! = selectedPerson.name
+            nowEditing = true
+            
+        } else if tableView == membersToChoseTableView {
+            //ajeitar
+            let selectedIndex = indexPath.row
+            let selectedPerson = localData.houseMembers[selectedIndex]
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -617,6 +628,9 @@ extension ViewController {
     // fechar e add
     @IBAction func addTasksButton(_ sender: Any) {
         localData.chosenDomesticTasks = localData.chosenDomesticTasks + localData.tasksBeingChosen
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.chosenDomesticTasks)
+        UserDefaults.standard.set(encodedData, forKey: "chosenTask")
+        localData.chosenDomesticTasks = localData.chosenDomesticTasks as [DomesticTask]
         // appends
         domesticTasksCollection.reloadData() // chama o data source de novo // BUG
         localData.tasksBeingChosen = [] // zera esse array pra próxima leva

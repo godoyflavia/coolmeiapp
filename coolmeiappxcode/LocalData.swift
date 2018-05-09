@@ -45,7 +45,7 @@ class LocalData {
         DomesticTask(name: "levar os filhos", iconColor: "levar-filhos.png", value1to5: 3),
         DomesticTask(name: "buscar os filhos", iconColor: "buscar-filhos.png", value1to5: 3)
         
-    ]
+    ] as [DomesticTask]
     
     
   // cores dos moradores
