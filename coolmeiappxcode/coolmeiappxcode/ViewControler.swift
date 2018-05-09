@@ -133,9 +133,9 @@ class ViewController: UIViewController {
             localData.houseMembers = people
         }
         
-        if let decoded = UserDefaults.standard.object(forKey: "chosenTask") as? Data {
-            let tasks = NSKeyedArchiver.
-        }
+//        if let decoded = UserDefaults.standard.object(forKey: "chosenTask") as? Data {
+//            let tasks = NSKeyedArchiver.
+//        }
         
         // First: addMembersPopUpView
         if localData.houseMembers.count == 0 {
