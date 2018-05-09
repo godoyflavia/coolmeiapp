@@ -484,6 +484,7 @@ extension ViewController {
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
         imageSelectedColor.frame = CGRect(x: 17, y: 218, width: 50, height: 50)
+        imageSelectedColor.center = chooseColor1Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
             nameAndColorOkOutlet.isEnabled = true
@@ -495,6 +496,7 @@ extension ViewController {
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
         imageSelectedColor.frame = CGRect(x: 116, y: 218, width: 50, height: 50)
+        imageSelectedColor.center = chooseColor2Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
             nameAndColorOkOutlet.isEnabled = true
@@ -506,6 +508,7 @@ extension ViewController {
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
         imageSelectedColor.frame = CGRect(x: 218, y: 218, width: 50, height: 50)
+        imageSelectedColor.center = chooseColor3Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
             nameAndColorOkOutlet.isEnabled = true
@@ -517,6 +520,7 @@ extension ViewController {
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
         imageSelectedColor.frame = CGRect(x: 17, y: 288, width: 50, height: 50)
+        imageSelectedColor.center = chooseColor4Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
             nameAndColorOkOutlet.isEnabled = true
@@ -528,6 +532,7 @@ extension ViewController {
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
         imageSelectedColor.frame = CGRect(x: 116, y: 288, width: 50, height: 50)
+        imageSelectedColor.center = chooseColor5Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
             nameAndColorOkOutlet.isEnabled = true
@@ -539,6 +544,7 @@ extension ViewController {
         usedColors.append(self.chosenColor)
         imageSelectedColor.isHidden = false
         imageSelectedColor.frame = CGRect(x: 218, y: 288, width: 50, height: 50)
+        imageSelectedColor.center = chooseColor6Outlet.center
         colorWasChosen = true
         if nameWasChosen && colorWasChosen {
             nameAndColorOkOutlet.isEnabled = true
