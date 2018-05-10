@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     var genericName = ""
     var nameWasChosen = false
     var colorWasChosen = false
+    var okToDelegate = false
+    var selectedPersonColor = ""
     
     var memberColorChosen: UIColor!
     
@@ -305,6 +307,7 @@ extension ViewController: UICollectionViewDataSource {
                 
                 if indexPath.row < localData.chosenDomesticTasks.count {
                     cell.taskIcon.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
+                    
                 } else {
                     // celulas invisiveis
                     // cell.taskIcon.image = UIImage(named: "hexagon.png")
@@ -374,6 +377,7 @@ extension ViewController: UICollectionViewDelegate {
                 openBlur()
                 view.addSubview(delegateTasksPopUpView)
                 formatPopUp(delegateTasksPopUpView, isHidden: false)
+                cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
                 
                 // alimentar o header do popUp (se aproveitando do indexPath)
                 iconTaskClickedImageView.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
@@ -476,10 +480,9 @@ extension ViewController: UITableViewDelegate {
             nowEditing = true
             
         } else if tableView == membersToChoseTableView {
-            //ajeitar
             let selectedIndex = indexPath.row
-            let selectedPerson = localData.houseMembers[selectedIndex]
-            
+            selectedPersonColor = localData.houseMembers[selectedIndex].color
+
         }
     }
     
@@ -676,11 +679,11 @@ extension ViewController {
         closeBlur()
     }
     
-    // fechar e delegar
+    // fechar e delegar OK
     @IBAction func delegateTaskButton(_ sender: Any) {
         
         // delegar aqui
-        
+        print("ui, deleguei!")
         delegateTasksPopUpView.isHidden = true
         closeBlur()
     }
@@ -688,7 +691,7 @@ extension ViewController {
 
 
 
-//MARK: Sixth PopUp actions (validare tasks)
+//MARK: Sixth PopUp actions (validate tasks)
 extension ViewController {
     // voltar
     @IBAction func goBackFromValidadePopUp(_ sender: Any) {
