@@ -10,7 +10,9 @@ import UIKit
 
 class ValidateTasksCollectionCell: UICollectionViewCell {
    
+    @IBOutlet weak var taskToValidateIcon: UIImageView!
     
+    @IBOutlet weak var memberToValidateColor: UIView!
     
     
 }

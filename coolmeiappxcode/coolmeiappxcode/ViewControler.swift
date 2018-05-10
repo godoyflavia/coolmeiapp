@@ -12,12 +12,7 @@ import PBJHexagon
 class ViewController: UIViewController {
     
     var localData = LocalData.shared
-    
-    // gambiarra do desespero: esconder celulas sos
-    @IBOutlet weak var gambiarraIndex3: UIView!
-    @IBOutlet weak var gambiarraIndex11: UIView!
-    @IBOutlet weak var gambiarraIndex19: UIView!
-    
+
     
     // Variables
     var blurEffectView = UIVisualEffectView()
@@ -123,7 +118,7 @@ class ViewController: UIViewController {
     
 
     
-    
+   ///////////////////////////////////////////////////////////////////////////////////////////
 
     
     //MARK: viewDidLoad()
@@ -131,10 +126,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // gambiarra esconder celula sos
-        gambiarraIndex3.layer.cornerRadius = 0.5 * gambiarraIndex3.bounds.size.width
-        gambiarraIndex11.layer.cornerRadius = 0.5 * gambiarraIndex11.bounds.size.width
-        gambiarraIndex19.layer.cornerRadius = 0.5 * gambiarraIndex19.bounds.size.width
         
         
         //Blur config for popups
@@ -247,7 +238,9 @@ class ViewController: UIViewController {
         self.domesticTasksCollection.setCollectionViewLayout(flowLayout, animated: false)
         
         let validateFlowLayout: PBJHexagonFlowLayout = tasksToValidateCollection.collectionViewLayout as! PBJHexagonFlowLayout
-        validateFlowLayout.itemSize = CGSize(width: 80, height: 80)
+        validateFlowLayout.itemSize = CGSize(width: 60, height: 60)
+        flowLayout.minimumInteritemSpacing = 3
+        // flowLayout.
         self.tasksToValidateCollection.setCollectionViewLayout(validateFlowLayout, animated: false)
         
         
@@ -288,6 +281,7 @@ extension ViewController: UICollectionViewDataSource {
                 // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
                 // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
                 // nada acontece feijoada
+                cell.taskIcon.image = nil
             } else if indexPath.row == 9 {
                 // o caso 9 é pra mostrar o botão de add
                 cell.taskIcon.image = UIImage(named: "add-task.png")
@@ -326,9 +320,21 @@ extension ViewController: UICollectionViewDataSource {
             
             let cell: ValidateTasksCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "validate-cell", for: indexPath) as! ValidateTasksCollectionCell
             
+            if indexPath.row % 8 == 3 || indexPath.row == 25 {
+                // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
+                // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
+                // nada acontece feijoada
+                cell.taskToValidateIcon.image = nil
+            } else if indexPath.row == 9 {
+                // esse é o centro, com o botão de ok
+                cell.taskToValidateIcon.image = UIImage(named: "ok.png")
+            } else {
+                cell.taskToValidateIcon.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
+                cell.memberToValidateColor.layer.cornerRadius = 0.5 * cell.memberToValidateColor.bounds.size.width
+                // cell.memberToValidateColor.layer.backgroundColor = ??
+            }
             return cell
         }
-        
     }
 }
 
@@ -339,37 +345,37 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if collectionView == domesticTasksCollection {
+        if collectionView == domesticTasksCollection  {
             let cell: DomesticTaskCollectionCell = collectionView.cellForItem(at: indexPath)
                 as! DomesticTaskCollectionCell
             
             // não atinge as células invisíveis (pq não tem else sem condição)
             // ops agr atinge kkkk nao toque nelas!! // resolvido!!!
-            if cell.taskIcon.image == UIImage(named: "hexagon.png") {
-                cell.taskIcon.image = UIImage(named: "hexagon-black-vert.png")
-            } else if cell.taskIcon.image == UIImage(named: "hexagon-black-vert.png") {
-                cell.taskIcon.image = UIImage(named: "hexagon.png")
-            } else if cell.taskIcon.image == UIImage(named: "add-task.png") {
+            if cell.taskIcon.image == UIImage(named: "add-task.png") {  // ADD BUTTON
                 // abrir popUp de add tarefa!!
                 openBlur()
                 view.addSubview(choseTodayTasksPopUpView)
                 formatPopUp(choseTodayTasksPopUpView, isHidden: false)
                 print("ui, adicionei!")
-            } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {
+                
+            } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {   // VALIDATE BUTTON
                 // abrir popUp de validar tarefas
                 openBlur()
                 formatPopUp(validateTasksPopUpView, isHidden: false)
                 print("ui, verifiquei!")
-            } else if cell.taskIcon.image == UIImage(named: "share.png") {
+                
+            } else if cell.taskIcon.image == UIImage(named: "share.png") {   // SHARE BUTTON
                 // sharing activities
                 let activityVC = UIActivityViewController(activityItems: ["veja como eu dividi as tarefas!"], applicationActivities: nil)
                 activityVC.popoverPresentationController?.sourceView = self.view
                 self.present(activityVC, animated:  true, completion: nil)
                 print("ui, compartilhei!")
-            } else if cell.taskIcon.image == nil {
+                
+            } else if cell.taskIcon.image == nil {   // CELULA VAZIA
                 // nada acontece, celulas invisiveis pfvr nao crashem!!
                 print("vc recebeu a maldição da celula invisivel, toque no seu amiguinho mais próximo pra repassar")
-            } else { //pra as células com atividades ja adicionadas
+                
+            } else {   // ATIVIDADES DO DIA
                 // abre o popUp de escolher quem vai fazer
                 openBlur()
                 view.addSubview(delegateTasksPopUpView)
@@ -409,10 +415,39 @@ extension ViewController: UICollectionViewDelegate {
             }
         
         // domesticTasksCollection.reloadData() //- quando chama reloadData() ele relê o cellForItemAt e refaz as células por ele, ignorando qualquer mudança posterior
+            
+        } else if collectionView == tasksToValidateCollection {
+            
+            let cell: ValidateTasksCollectionCell = collectionView.cellForItem(at: indexPath) as! ValidateTasksCollectionCell
+            ///////
+            
+            if cell.taskToValidateIcon.image == UIImage(named: "ok.png") {  // VALIDATE BUTTON
+                // validar e fechar popUp
+                closeBlur()
+                validateTasksPopUpView.isHidden = true
+                
+            } else if cell.taskToValidateIcon.image == nil {   // CELULA VAZIA
+                // nada acontece, celulas invisiveis pfvr nao crashem!!
+                print("vc recebeu a maldição da celula invisivel, toque no seu amiguinho mais próximo pra repassar")
+                
+            } else {   // ATIVIDADES PRA VALIDAR
+                // abre o popUp de escolher quem vai fazer
+                
+                print(localData.chosenDomesticTasks[indexPath.row].name)
+            
+            }
+            
+            //////
+        
+            
         }
     }
     
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //MARK: TableView DataSource
 extension ViewController: UITableViewDataSource {
@@ -492,6 +527,9 @@ extension ViewController: UITableViewDelegate {
         }
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //MARK: TextField

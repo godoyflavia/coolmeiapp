@@ -122,21 +122,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lht-Y3-nJR">
-                                <rect key="frame" x="307" y="128" width="97" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ASR-V1-tcZ">
-                                <rect key="frame" x="307" y="272" width="97" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1l-LZ-phX">
-                                <rect key="frame" x="307" y="415" width="97" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.99215686274509807" green="0.84705882352941175" blue="0.39215686274509803" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -172,9 +157,6 @@
                         <outlet property="familyButton" destination="1eC-CY-g1x" id="HYJ-zw-0lR"/>
                         <outlet property="firstPopUpMembersTableView" destination="B9o-pp-tFa" id="JrK-n5-L2k"/>
                         <outlet property="firstPopUptITitle" destination="PrB-Ca-oFD" id="iYb-1O-YuJ"/>
-                        <outlet property="gambiarraIndex11" destination="ASR-V1-tcZ" id="Qqw-ol-Xpo"/>
-                        <outlet property="gambiarraIndex19" destination="i1l-LZ-phX" id="PQ1-Rj-Leg"/>
-                        <outlet property="gambiarraIndex3" destination="Lht-Y3-nJR" id="hOO-0E-Hi2"/>
                         <outlet property="goBackToFirstOutlet" destination="1Xe-VT-avV" id="pLZ-OG-f2g"/>
                         <outlet property="goOutlet" destination="YLR-TV-UUo" id="xrC-9G-U7X"/>
                         <outlet property="iconTaskClickedImageView" destination="JIe-Lj-v5C" id="xYh-uE-dnR"/>
@@ -764,18 +746,21 @@
                             <rect key="frame" x="30" y="89" width="240" height="312"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <collectionViewLayout key="collectionViewLayout" id="Uc6-dW-iYA" customClass="PBJHexagonFlowLayout"/>
+                            <collectionViewLayout key="collectionViewLayout" id="UTb-7g-MAD" customClass="PBJHexagonFlowLayout"/>
                             <cells>
-                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="validate-cell" id="7SF-OW-Kmk" customClass="ValidateTasksCollectionCell" customModule="coolmeiappxcode" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="validate-cell" id="7SF-OW-Kmk" customClass="ValidateTasksCollectionCell" customModule="coolmeiappxcode" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="53"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hexagon" translatesAutoresizingMaskIntoConstraints="NO" id="mwG-tG-bpU">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="hexagon" translatesAutoresizingMaskIntoConstraints="NO" id="mwG-tG-bpU">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="BbB-rL-C3j"/>
+                                                    <constraint firstAttribute="width" constant="40" id="blW-gu-Kff"/>
+                                                </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9GP-UF-ziC">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -783,6 +768,15 @@
                                             </view>
                                         </subviews>
                                     </view>
+                                    <constraints>
+                                        <constraint firstItem="mwG-tG-bpU" firstAttribute="width" secondItem="7SF-OW-Kmk" secondAttribute="width" id="ckD-Pu-ymj"/>
+                                        <constraint firstItem="mwG-tG-bpU" firstAttribute="height" secondItem="7SF-OW-Kmk" secondAttribute="height" id="mlK-zg-37g"/>
+                                    </constraints>
+                                    <size key="customSize" width="50" height="53"/>
+                                    <connections>
+                                        <outlet property="memberToValidateColor" destination="9GP-UF-ziC" id="v3K-Vg-D56"/>
+                                        <outlet property="taskToValidateIcon" destination="mwG-tG-bpU" id="vnV-pJ-x1x"/>
+                                    </connections>
                                 </collectionViewCell>
                             </cells>
                         </collectionView>
