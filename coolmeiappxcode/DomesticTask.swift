@@ -17,6 +17,7 @@ class DomesticTask: NSObject, NSCoding {
   // var iconGreyScale: UIImage
   var value: Int = 0
   var isTaken: Bool = false // por default começam sem dono
+  var taskMemberColor:String = ""
   var whoWillDo: String = ""// futuramente ser do tipo "HouseMember" (a classe das pessoas da casa) e ser inicializado com um HouseMember "nobody"
   var isDone: Bool = false
 
@@ -33,12 +34,15 @@ class DomesticTask: NSObject, NSCoding {
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let icon = aDecoder.decodeObject(forKey: "icon") as! String
         let value = aDecoder.decodeInteger(forKey: "value") as Int
+        let taskMemberColor = aDecoder.decodeObject(forKey: "taskMemberColor") as! String
         self.init(name: name, iconColor: icon, value1to5: value)
+        self.taskMemberColor = taskMemberColor
     }
 
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(icon, forKey: "icon")
+        aCoder.encode(taskMemberColor, forKey: "taskMemberColor")
     }
 
   

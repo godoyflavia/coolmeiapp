@@ -23,14 +23,14 @@ class ViewController: UIViewController {
     var nameWasChosen = false
     var colorWasChosen = false
     var okToDelegate = false
-    var selectedPersonColor = ""
+    var selectedAddedTask:IndexPath?
 
-    
     var memberColorChosen: UIColor!
     
     var seconds24h : Float = 86400.0
-    var seconds = 86400
+    var seconds : Float = 86400.0
     var timer = Timer()
+    
     
     //MARK: outlets da tela principal
     @IBOutlet weak var familyButton: UIButton!
@@ -149,6 +149,13 @@ class ViewController: UIViewController {
             let chosenTasks = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [DomesticTask]
             localData.chosenDomesticTasks = chosenTasks
         }
+        
+//        if let decoded = UserDefaults.standard.object(forKey: "cellMemberColor") as? Data {
+//            let cellMemberColors = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [DomesticTask]
+//            cellMemberColors[selectedAddedTask
+//
+//        }
+        
         
         // First: addMembersPopUpView
         if localData.houseMembers.count == 0 {
@@ -319,7 +326,14 @@ extension ViewController: UITableViewDelegate {
         
         if tableView == membersToChoseTableView {
             let selectedIndex = indexPath.row
-            selectedPersonColor.append(localData.houseMembers[selectedIndex].color)
+            let selectedPersonColor = localData.houseMembers[selectedIndex].color
+            let cell = domesticTasksCollection.cellForItem(at: selectedAddedTask!) as! DomesticTaskCollectionCell
+            cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
+            cell.memberColor.layer.borderWidth = 2
+            cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
+            
+            print("que")
             print(selectedPersonColor)
             
         }
@@ -465,11 +479,7 @@ extension ViewController: UICollectionViewDelegate {
             } else {   // ATIVIDADES DO DIA
                 // abre o popUp de escolher quem vai fazer
 //                cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor[indexPath.row]]
-                cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
-                cell.memberColor.layer.borderWidth = 2
-                cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
-                print("que")
+                selectedAddedTask = indexPath
                 openBlur()
                 view.addSubview(delegateTasksPopUpView)
                 formatPopUp(delegateTasksPopUpView, isHidden: false)
@@ -839,13 +849,15 @@ extension ViewController {
 //MARK: Progress View Tempo
 extension ViewController {
     
+    //como eu descubro quanto tempo se passou desde 5am????????
+    
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
         if seconds < 1 {
-            timer.invalidate()
+            seconds = seconds24h
             openBlur()
             formatPopUp(saysWinnerPopUpView, isHidden: false)
             //Mandar notificação de que o dia acabou
