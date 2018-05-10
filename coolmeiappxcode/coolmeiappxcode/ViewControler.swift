@@ -99,7 +99,7 @@ class ViewController: UIViewController {
     //MARK: Fifth PopUp Outlets (delegate tasks)
     @IBOutlet var delegateTasksPopUpView: UIView!
     @IBOutlet weak var iconTaskClickedImageView: UIImageView!
-    @IBOutlet weak var valueTaskClikedLabel: UILabel!
+    @IBOutlet weak var valueTaskClickedLabel: UILabel!
     @IBOutlet weak var whoWillDoThatLabel: UILabel!
     @IBOutlet weak var membersToChoseTableView: UITableView!
     
@@ -357,7 +357,7 @@ extension ViewController: UICollectionViewDelegate {
                 
                 // alimentar o header do popUp (se aproveitando do indexPath)
                 iconTaskClickedImageView.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
-                valueTaskClikedLabel.text = String(localData.chosenDomesticTasks[indexPath.row].value)
+                valueTaskClickedLabel.text = String(localData.chosenDomesticTasks[indexPath.row].value)
                 
                 let taskName = localData.chosenDomesticTasks[indexPath.row].name
                 whoWillDoThatLabel.text = "quem vai \(taskName)?"
