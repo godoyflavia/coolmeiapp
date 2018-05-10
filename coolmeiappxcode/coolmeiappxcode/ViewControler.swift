@@ -338,7 +338,9 @@ extension ViewController: UICollectionViewDelegate {
                 formatPopUp(choseTodayTasksPopUpView, isHidden: false)
                 print("ui, adicionei!")
             } else if cell.taskIcon.image == UIImage(named: "verify-tasks.png") {
-                // abrir popUp de verificar tarefas
+                // abrir popUp de validar tarefas
+                openBlur()
+                formatPopUp(validateTasksPopUpView, isHidden: false)
                 print("ui, verifiquei!")
             } else if cell.taskIcon.image == UIImage(named: "share.png") {
                 // sharing activities
@@ -681,6 +683,14 @@ extension ViewController {
 
 //MARK: Seventh PopUp actions (see points)
 extension ViewController {
+    
+     //abrir gambiarra
+    @IBAction func gotinhasPopUpGambiarra(_ sender: Any) {
+        validateTasksPopUpView.isHidden = true
+        // openBlur()
+        formatPopUp(saysPointsEarnedPopUpView, isHidden: false)
+    }
+    
     // ok
     @IBAction func confirmPointsEarnedButton(_ sender: Any) {
         saysPointsEarnedPopUpView.isHidden = true
@@ -691,6 +701,14 @@ extension ViewController {
 
 //MARK: Eight PopUp actions (see winner)
 extension ViewController {
+    
+    // abrir gambiarra
+    @IBAction func vencedorPopUpGambiarra(_ sender: Any) {
+        validateTasksPopUpView.isHidden = true
+        // openBlur()
+        formatPopUp(saysWinnerPopUpView, isHidden: false)
+    }
+    
     // share
     @IBAction func shareWinnerButton(_ sender: Any) {
         // copiado do outro
@@ -702,7 +720,8 @@ extension ViewController {
     // ok
     @IBAction func confirmWinnerButton(_ sender: Any) {
         saysWinnerPopUpView.isHidden = true
-        closeBlur()
+        // o blur continua
+        formatPopUp(startNewDayPopUpView, isHidden: false)
     }
 }
 
@@ -711,11 +730,16 @@ extension ViewController {
 extension ViewController {
     // sim
     @IBAction func keepTasksToNewDayButton(_ sender: Any) {
+        startNewDayPopUpView.isHidden = true
+        closeBlur()
     }
 
     // nao
     @IBAction func resetTasksToNewDayButton(_ sender: Any) {
+        // resetar o que precisar
         localData.chosenDomesticTasks = []
+        startNewDayPopUpView.isHidden = true
+        closeBlur()
     }
 }
     
