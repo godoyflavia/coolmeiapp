@@ -659,17 +659,67 @@ extension ViewController {
     // fechar e delegar
     @IBAction func delegateTaskButton(_ sender: Any) {
         
-        
         // delegar aqui
         
         delegateTasksPopUpView.isHidden = true
         closeBlur()
     }
-    
 }
 
 
 
+//MARK: Sixth PopUp actions (validare tasks)
+extension ViewController {
+    // voltar
+    @IBAction func goBackFromValidadePopUp(_ sender: Any) {
+        validateTasksPopUpView.isHidden = true
+        closeBlur()
+    }
+    // ok (na collection view)
+}
+
+
+//MARK: Seventh PopUp actions (see points)
+extension ViewController {
+    // ok
+    @IBAction func confirmPointsEarnedButton(_ sender: Any) {
+        saysPointsEarnedPopUpView.isHidden = true
+        closeBlur()
+    }
+}
+
+
+//MARK: Eight PopUp actions (see winner)
+extension ViewController {
+    // share
+    @IBAction func shareWinnerButton(_ sender: Any) {
+        // copiado do outro
+        let activityVC = UIActivityViewController(activityItems: ["Julia ganhou!!"], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated:  true, completion: nil)
+    }
+    
+    // ok
+    @IBAction func confirmWinnerButton(_ sender: Any) {
+        saysWinnerPopUpView.isHidden = true
+        closeBlur()
+    }
+}
+
+
+//MARK: Nineth PopUp actions (start new day)
+extension ViewController {
+    // sim
+    @IBAction func keepTasksToNewDayButton(_ sender: Any) {
+    }
+
+    // nao
+    @IBAction func resetTasksToNewDayButton(_ sender: Any) {
+        localData.chosenDomesticTasks = []
+    }
+}
+    
+    
 //MARK: Pop Ups Formatação (func)
 extension ViewController {
     
