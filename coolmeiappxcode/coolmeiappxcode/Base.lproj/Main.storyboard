@@ -103,11 +103,10 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-UC-a3k" userLabel="taks icon">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9n-FY-NYn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8J9-cK-7eK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -117,7 +116,7 @@
                                             <constraint firstItem="5e2-UC-a3k" firstAttribute="centerX" secondItem="yOR-0o-mBa" secondAttribute="centerX" id="mXG-cd-xml"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="memberColor" destination="b9n-FY-NYn" id="Ecg-kk-bqe"/>
+                                            <outlet property="memberColor" destination="8J9-cK-7eK" id="fDC-E7-zBO"/>
                                             <outlet property="taskIcon" destination="5e2-UC-a3k" id="Z1Q-dk-LAt"/>
                                         </connections>
                                     </collectionViewCell>
@@ -765,12 +764,7 @@
                             <rect key="frame" x="30" y="89" width="240" height="312"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eCA-Df-Fo1">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
+                            <collectionViewLayout key="collectionViewLayout" id="Uc6-dW-iYA" customClass="PBJHexagonFlowLayout"/>
                             <cells>
                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="validate-cell" id="7SF-OW-Kmk" customClass="ValidateTasksCollectionCell" customModule="coolmeiappxcode" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -784,7 +778,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9GP-UF-ziC">
-                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </view>
                                         </subviews>
@@ -938,7 +932,7 @@
                     <viewLayoutGuide key="safeArea" id="95x-sd-RdZ"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="135" y="132.04225352112675"/>
         </scene>
     </scenes>
     <resources>

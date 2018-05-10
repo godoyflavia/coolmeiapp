@@ -30,11 +30,13 @@ class ViewController: UIViewController {
     
     var memberColorChosen: UIColor!
     
-    //MARK: outlets do cabeçalho
+    //MARK: outlets da tela principal
     @IBOutlet weak var familyButton: UIButton!
     @IBOutlet weak var timeToEndOfDayProgressView: UIProgressView!
     @IBOutlet weak var timeToEndOfDayLabel: UILabel!
     @IBOutlet weak var toTheEndOfDayText: UILabel!
+    //collection da view tela principal
+    @IBOutlet weak var domesticTasksCollection: UICollectionView!
     
     
     //MARK: First popup (add members or go)
@@ -121,8 +123,7 @@ class ViewController: UIViewController {
     
 
     
-    //MARK: collection da view tela principal
-    @IBOutlet weak var domesticTasksCollection: UICollectionView!
+    
 
     
     //MARK: viewDidLoad()
@@ -216,6 +217,9 @@ class ViewController: UIViewController {
         self.tasksToChoseCollection.dataSource = self
         self.tasksToChoseCollection.delegate = self
         
+        self.tasksToValidateCollection.dataSource = self
+        self.tasksToValidateCollection.delegate = self
+        
         //das tableviews
         self.firstPopUpMembersTableView.dataSource = self
         self.firstPopUpMembersTableView.delegate = self
@@ -235,19 +239,25 @@ class ViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         collectMemberInfoPopUpView.addGestureRecognizer(tapGesture)
         
-        //MARK: flow layout
+        //MARK: flow layouts (tela principal e popUp validate)
         let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
         //flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
         //flowLayout.minimumInteritemSpacing = 3
         flowLayout.itemSize = CGSize(width: 80, height: 80)
         self.domesticTasksCollection.setCollectionViewLayout(flowLayout, animated: false)
         
+        let validateFlowLayout: PBJHexagonFlowLayout = tasksToValidateCollection.collectionViewLayout as! PBJHexagonFlowLayout
+        validateFlowLayout.itemSize = CGSize(width: 80, height: 80)
+        self.tasksToValidateCollection.setCollectionViewLayout(validateFlowLayout, animated: false)
+        
+        
     }  // fim do longo viewDidLoad()
   
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//MARK: DataSource da CollectionVIew
+//MARK: DataSource das CollectionViews
 extension ViewController: UICollectionViewDataSource {
     
     // Number of Items
@@ -260,6 +270,8 @@ extension ViewController: UICollectionViewDataSource {
             numberOfcells = 27 // na prática só mostra 22 (3 células invisíveis)
         } else if collectionView == tasksToChoseCollection {
             numberOfcells = localData.allDomesticTasks.count
+        } else if collectionView == tasksToValidateCollection {
+            numberOfcells = localData.chosenDomesticTasks.count
         }
         
         return numberOfcells
@@ -301,7 +313,7 @@ extension ViewController: UICollectionViewDataSource {
             // Array<DomesticTask>
             return cell
             
-        } else { // if collectionView == tasksToChoseCollection
+        } else if collectionView == tasksToChoseCollection {
         
             let cell: ChoseTaskCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "newTaskCell", for: indexPath) as! ChoseTaskCollectionCell
             cell.taskIconImageView.image = UIImage(named: localData.allDomesticTasks[indexPath.row].icon)
@@ -309,11 +321,17 @@ extension ViewController: UICollectionViewDataSource {
             cell.taskValueLabel.text = String(localData.allDomesticTasks[indexPath.row].value)
             // cell.isOpaque = true
             return cell
+        
+        } else { // if collectionView == tasksToValidateCollection
+            
+            let cell: ValidateTasksCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "validate-cell", for: indexPath) as! ValidateTasksCollectionCell
+            
+            return cell
         }
         
     }
-    
 }
+
 
 
 //MARK: Delegate da CollectionView
