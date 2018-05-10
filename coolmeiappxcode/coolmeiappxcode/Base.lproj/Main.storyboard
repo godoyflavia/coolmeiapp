@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCT-0l-Dcv" userLabel="header view">
                                 <rect key="frame" x="37.5" y="50" width="245" height="70"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="hI9-Wb-ZH4" userLabel="tempo">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="hI9-Wb-ZH4" userLabel="tempo">
                                         <rect key="frame" x="0.0" y="58" width="245" height="12"/>
                                         <color key="tintColor" red="0.99215686274509807" green="0.84705882352941175" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -45,11 +45,11 @@
                                                 <color key="textColor" red="0.27843137254901962" green="0.24313725490196078" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21h37min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnh-hk-ThR">
-                                                <rect key="frame" x="4" y="0.0" width="77" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tempotempotempo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnh-hk-ThR">
+                                                <rect key="frame" x="-72" y="0.0" width="153" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="bJP-sA-LIb"/>
-                                                    <constraint firstAttribute="width" constant="77" id="uKX-g8-u8v"/>
+                                                    <constraint firstAttribute="width" constant="153" id="uKX-g8-u8v"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="textColor" red="0.27843137254901962" green="0.24313725490196078" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

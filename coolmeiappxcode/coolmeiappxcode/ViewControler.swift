@@ -24,9 +24,13 @@ class ViewController: UIViewController {
     var colorWasChosen = false
     var okToDelegate = false
     var selectedPersonColor = ""
-    
+
     
     var memberColorChosen: UIColor!
+    
+    var seconds24h : Float = 86400.0
+    var seconds = 86400
+    var timer = Timer()
     
     //MARK: outlets da tela principal
     @IBOutlet weak var familyButton: UIButton!
@@ -127,9 +131,6 @@ class ViewController: UIViewController {
     //MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
         
         //Blur config for popups
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
@@ -199,8 +200,6 @@ class ViewController: UIViewController {
         timeToEndOfDayProgressView.clipsToBounds = true
         timeToEndOfDayProgressView.layer.sublayers![1].cornerRadius = 6
         timeToEndOfDayProgressView.subviews[1].clipsToBounds = true
-        timeToEndOfDayProgressView.progress = 0.8
-        // self.timeToEndOfDayProgressView.transform = timeToEndOfDayProgressView.transform.scaledBy(x: 1, y: 4)
         // o auto-layout vai se aplicar ao tamanho original dela (height = 3)
         
         
@@ -246,6 +245,8 @@ class ViewController: UIViewController {
         // flowLayout.
         self.tasksToValidateCollection.setCollectionViewLayout(validateFlowLayout, animated: false)
         
+        //para progress view rodar
+        runTimer()
         
     }  // fim do longo viewDidLoad()
   
@@ -832,6 +833,34 @@ extension ViewController {
         } else {
             popUp.isHidden = false
         }
+    }
+}
+
+//MARK: Progress View Tempo
+extension ViewController {
+    
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        if seconds < 1 {
+            timer.invalidate()
+            openBlur()
+            formatPopUp(saysWinnerPopUpView, isHidden: false)
+            //Mandar notificação de que o dia acabou
+        } else {
+            timeToEndOfDayProgressView.progress -= 1/seconds24h
+            seconds -= 1
+            timeToEndOfDayLabel.text = timeString(time: TimeInterval(seconds))
+        }
+    }
+    
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        //let seconds = Int(time) % 60
+        return String(format:"%02ih%02imin", hours, minutes)
     }
 }
 
