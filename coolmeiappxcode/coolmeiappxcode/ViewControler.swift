@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var nameWasChosen = false
     var colorWasChosen = false
     var okToDelegate = false
-    var selectedPersonColor = ""
+    var selectedAddedTask:IndexPath?
 
     var memberColorChosen: UIColor!
     
@@ -319,7 +319,13 @@ extension ViewController: UITableViewDelegate {
         
         if tableView == membersToChoseTableView {
             let selectedIndex = indexPath.row
-            selectedPersonColor.append(localData.houseMembers[selectedIndex].color)
+            let selectedPersonColor = localData.houseMembers[selectedIndex].color
+            let cell = domesticTasksCollection.cellForItem(at: selectedAddedTask!) as! DomesticTaskCollectionCell
+            cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
+            cell.memberColor.layer.borderWidth = 2
+            cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
+            print("que")
             print(selectedPersonColor)
             
         }
@@ -465,11 +471,7 @@ extension ViewController: UICollectionViewDelegate {
             } else {   // ATIVIDADES DO DIA
                 // abre o popUp de escolher quem vai fazer
 //                cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor[indexPath.row]]
-                cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
-                cell.memberColor.layer.borderWidth = 2
-                cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
-                print("que")
+                selectedAddedTask = indexPath
                 openBlur()
                 view.addSubview(delegateTasksPopUpView)
                 formatPopUp(delegateTasksPopUpView, isHidden: false)

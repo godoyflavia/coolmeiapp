@@ -21,6 +21,8 @@ class LocalData {
 
   // array pra alimentar as collection views das tarefas escolhidas por Rita
   var chosenDomesticTasks: [DomesticTask] = []
+
+
    
    //
     var allDomesticTasks: [DomesticTask] = [
