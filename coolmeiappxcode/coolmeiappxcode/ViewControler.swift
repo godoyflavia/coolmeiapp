@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     var okToDelegate = false
     var selectedPersonColor = ""
     
+    
     var memberColorChosen: UIColor!
     
     //MARK: outlets da tela principal
@@ -252,6 +253,88 @@ class ViewController: UIViewController {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//MARK: TableView DataSource
+extension ViewController: UITableViewDataSource {
+    
+    // igual pra todas > todas as table views são pra house members
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return localData.houseMembers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if tableView == firstPopUpMembersTableView {
+            
+            let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
+            cell.memberName.text = localData.houseMembers[indexPath.row].name
+            cell.memberColor.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
+            cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
+            
+            return cell
+            
+        } else if tableView == membersTableView { // popUp de ver a familia
+            
+            let cell = membersTableView.dequeueReusableCell(withIdentifier: "2customTableViewCell") as! ViewMembersTableCell
+            cell.memberName.text = localData.houseMembers[indexPath.row].name
+            cell.memberColorImageView.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
+            cell.memberColorImageView.layer.cornerRadius = 0.5 * cell.memberColorImageView.bounds.size.width
+            cell.memberPoints.text = String(localData.houseMembers[indexPath.row].points)
+            
+            return cell
+            
+        } else { // if tableView == membersToChoseTableView // pop up de delegar tarefas
+            
+            let cell: ChoseMemberToDoTableCell = tableView.dequeueReusableCell(withIdentifier: "membersToChose") as! ChoseMemberToDoTableCell
+            cell.memberNameLabel.text = localData.houseMembers[indexPath.row].name
+            cell.memberColorView.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
+            cell.memberColorView.layer.cornerRadius = 0.5 * cell.memberColorView.bounds.size.width
+            
+            return cell
+        }
+        
+    }
+}
+
+//MARK: TableView Delegate
+
+extension ViewController: UITableViewDelegate {
+    
+    // pega em todas
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView == firstPopUpMembersTableView {
+            let selectedIndex = indexPath.row
+            //        tableView.cellForRow(at: [indexPath.row])?.layer.backgroundColor = #colorLiteral(red: 0.3098039216, green: 0.262745098, blue: 0.4549019608, alpha: 0.25)
+            let selectedPerson = localData.houseMembers[selectedIndex]
+            addMember(selectedPerson)
+            insertNameTxtField.text! = selectedPerson.name
+            nowEditing = true
+            
+        }
+        
+        if tableView == membersToChoseTableView {
+            let selectedIndex = indexPath.row
+            selectedPersonColor.append(localData.houseMembers[selectedIndex].color)
+            print(selectedPersonColor)
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            localData.houseMembers.remove(at: indexPath.row)
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
+            UserDefaults.standard.set(encodedData, forKey: "person")
+            tableView.reloadData()
+        }
+    }
+}
+
+
 //MARK: DataSource das CollectionViews
 extension ViewController: UICollectionViewDataSource {
     
@@ -380,10 +463,15 @@ extension ViewController: UICollectionViewDelegate {
                 
             } else {   // ATIVIDADES DO DIA
                 // abre o popUp de escolher quem vai fazer
+//                cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor[indexPath.row]]
+                cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
+                cell.memberColor.layer.borderWidth = 2
+                cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
+                print("que")
                 openBlur()
                 view.addSubview(delegateTasksPopUpView)
                 formatPopUp(delegateTasksPopUpView, isHidden: false)
-                cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
                 
                 // alimentar o header do popUp (se aproveitando do indexPath)
                 iconTaskClickedImageView.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
@@ -450,89 +538,6 @@ extension ViewController: UICollectionViewDelegate {
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//MARK: TableView DataSource
-extension ViewController: UITableViewDataSource {
-    
-    // igual pra todas > todas as table views são pra house members
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return localData.houseMembers.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if tableView == firstPopUpMembersTableView {
-            
-            let cell = firstPopUpMembersTableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as! CustomTableViewCell
-            cell.memberName.text = localData.houseMembers[indexPath.row].name
-            cell.memberColor.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
-            cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
-            
-            return cell
-            
-        } else if tableView == membersTableView { // popUp de ver a familia
-            
-            let cell = membersTableView.dequeueReusableCell(withIdentifier: "2customTableViewCell") as! ViewMembersTableCell
-            cell.memberName.text = localData.houseMembers[indexPath.row].name
-            cell.memberColorImageView.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
-            cell.memberColorImageView.layer.cornerRadius = 0.5 * cell.memberColorImageView.bounds.size.width
-            cell.memberPoints.text = String(localData.houseMembers[indexPath.row].points)
-            
-            return cell
-            
-        } else { // if tableView == membersToChoseTableView // pop up de delegar tarefas
-            
-            let cell: ChoseMemberToDoTableCell = tableView.dequeueReusableCell(withIdentifier: "membersToChose") as! ChoseMemberToDoTableCell
-            cell.memberNameLabel.text = localData.houseMembers[indexPath.row].name
-            cell.memberColorView.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
-            cell.memberColorView.layer.cornerRadius = 0.5 * cell.memberColorView.bounds.size.width
-            
-            return cell
-        }
-        
-    }
-}
-
-//MARK: TableView Delegate
-
-extension ViewController: UITableViewDelegate {
-    
-    // pega em todas
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if tableView == firstPopUpMembersTableView {
-            let selectedIndex = indexPath.row
-            //        tableView.cellForRow(at: [indexPath.row])?.layer.backgroundColor = #colorLiteral(red: 0.3098039216, green: 0.262745098, blue: 0.4549019608, alpha: 0.25)
-            let selectedPerson = localData.houseMembers[selectedIndex]
-            addMember(selectedPerson)
-            insertNameTxtField.text! = selectedPerson.name
-            nowEditing = true
-            
-        } else if tableView == membersToChoseTableView {
-            let selectedIndex = indexPath.row
-            selectedPersonColor = localData.houseMembers[selectedIndex].color
-
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete {
-            localData.houseMembers.remove(at: indexPath.row)
-            let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
-            UserDefaults.standard.set(encodedData, forKey: "person")
-            tableView.reloadData()
-        }
-    }
-}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //MARK: TextField
@@ -721,6 +726,7 @@ extension ViewController {
     @IBAction func delegateTaskButton(_ sender: Any) {
         
         // delegar aqui
+//        colorCounter = colorCounter + 1
         print("ui, deleguei!")
         delegateTasksPopUpView.isHidden = true
         closeBlur()
