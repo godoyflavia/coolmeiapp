@@ -25,12 +25,12 @@ class ViewController: UIViewController {
     var okToDelegate = false
     var selectedPersonColor = ""
 
-    
     var memberColorChosen: UIColor!
     
     var seconds24h : Float = 86400.0
-    var seconds = 86400
+    var seconds : Float = 86400.0
     var timer = Timer()
+    
     
     //MARK: outlets da tela principal
     @IBOutlet weak var familyButton: UIButton!
@@ -839,13 +839,15 @@ extension ViewController {
 //MARK: Progress View Tempo
 extension ViewController {
     
+    //como eu descubro quanto tempo se passou desde 5am????????
+    
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
         if seconds < 1 {
-            timer.invalidate()
+            seconds = seconds24h
             openBlur()
             formatPopUp(saysWinnerPopUpView, isHidden: false)
             //Mandar notificação de que o dia acabou
