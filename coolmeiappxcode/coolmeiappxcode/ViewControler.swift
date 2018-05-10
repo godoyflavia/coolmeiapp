@@ -150,6 +150,13 @@ class ViewController: UIViewController {
             localData.chosenDomesticTasks = chosenTasks
         }
         
+//        if let decoded = UserDefaults.standard.object(forKey: "cellMemberColor") as? Data {
+//            let cellMemberColors = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [DomesticTask]
+//            cellMemberColors[selectedAddedTask
+//
+//        }
+        
+        
         // First: addMembersPopUpView
         if localData.houseMembers.count == 0 {
             // comente essa linha acima pra testar os 2 1os popups
@@ -325,6 +332,7 @@ extension ViewController: UITableViewDelegate {
             cell.memberColor.layer.borderWidth = 2
             cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
+            
             print("que")
             print(selectedPersonColor)
             
