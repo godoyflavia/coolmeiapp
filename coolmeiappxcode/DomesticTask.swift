@@ -34,9 +34,9 @@ class DomesticTask: NSObject, NSCoding {
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let icon = aDecoder.decodeObject(forKey: "icon") as! String
         let value = aDecoder.decodeInteger(forKey: "value") as Int
-  //////////      //let taskMemberColor = aDecoder.decodeObject(forKey: "taskMemberColor") as! String
+        let taskMemberColor = aDecoder.decodeObject(forKey: "taskMemberColor") as! String
         self.init(name: name, iconColor: icon, value1to5: value)
-  //////////     // self.taskMemberColor = taskMemberColor
+        self.taskMemberColor = taskMemberColor
     }
 
     func encode(with aCoder: NSCoder) {
