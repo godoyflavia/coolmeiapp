@@ -131,10 +131,7 @@ class ViewController: UIViewController {
     //MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Textfield placeholder
-        insertNameTxtField.placeholder = "type here"
-        
+    
         //Blur config for popups
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -231,11 +228,12 @@ class ViewController: UIViewController {
 
         
         //textfield
-        self.insertNameTxtField.delegate = self as? UITextFieldDelegate
+        self.insertNameTxtField.delegate = self
         
         // Tap gesture for dismissing Keyboard
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         collectMemberInfoPopUpView.addGestureRecognizer(tapGesture)
+        
         
         //MARK: flow layouts (tela principal e popUp validate)
         let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
@@ -612,16 +610,16 @@ extension ViewController: UICollectionViewDelegate {
 
 
 //MARK: TextField
-extension ViewController: UITextViewDelegate {
+extension ViewController: UITextFieldDelegate {
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.tag == 1 {
-            textField.resignFirstResponder()
-        }
+        view.endEditing(true)
         return true
     }
+    
 }
 
 //MARK: Blur functions to all PopUps
@@ -770,7 +768,6 @@ extension ViewController {
         colorWasChosen = false
         nameWasChosen = false
         insertNameTxtField.text = ""
-        insertNameTxtField.textColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
         imageSelectedColor.isHidden = true
         collectMemberInfoPopUpView.isHidden = true
     }
@@ -956,6 +953,7 @@ extension ViewController {
             seconds = seconds24h
             openBlur()
             formatPopUp(saysWinnerPopUpView, isHidden: false)
+            runTimer()
             //Mandar notificação de que o dia acabou
         } else {
             timeToEndOfDayProgressView.progress -= 1/seconds24h
