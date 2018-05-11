@@ -511,7 +511,7 @@ extension ViewController: UICollectionViewDelegate {
             //MARK: BUG CONTAINS (?)
             // essa merda de contains que ficou uma bosta
             // provavelmente o bug ta aqui
-            if localData.tasksBeingChosen.contains(where: { $0 == taskTaped }) {
+            if localData.tasksBeingChosen.contains(taskTaped) {
                localData.tasksBeingChosen.remove(at: indexPath.row)
             } else { // se não contêm
                 localData.tasksBeingChosen.append(taskTaped)
