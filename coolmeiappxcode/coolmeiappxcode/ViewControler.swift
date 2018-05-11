@@ -536,11 +536,30 @@ extension ViewController: UICollectionViewDelegate {
             //MARK: BUG CONTAINS (?)
             // essa merda de contains que ficou uma bosta
             // provavelmente o bug ta aqui
+            
+            ////////////////////////////// NOVO AGORA VAI
             if localData.tasksBeingChosen.contains(taskTaped) {
-               localData.tasksBeingChosen.remove(at: indexPath.row)
-            } else { // se não contêm
+                var index = 0
+                while index < localData.tasksBeingChosen.count {
+                    if localData.tasksBeingChosen[index] == taskTaped {
+                        localData.tasksBeingChosen.remove(at: index)
+                        break
+                    }
+                    index = index + 1
+                }
+                print("\(localData.allDomesticTasks[indexPath.row].name) removida")
+                
+            } else {
                 localData.tasksBeingChosen.append(taskTaped)
+                print("\(localData.allDomesticTasks[indexPath.row].name) adicionada")
             }
+            
+//            if localData.tasksBeingChosen.contains(taskTaped) {
+//                //////////// AQUIEE
+//               localData.tasksBeingChosen.remove(at: indexPath.row)
+//            } else { // se não contêm
+//                localData.tasksBeingChosen.append(taskTaped)
+//            }
         
         // domesticTasksCollection.reloadData() //- quando chama reloadData() ele relê o cellForItemAt e refaz as células por ele, ignorando qualquer mudança posterior
             

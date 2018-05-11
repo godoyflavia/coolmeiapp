@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1849BE3B20A38059003EC8D3 /* ValidateTasksCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849BE3A20A38059003EC8D3 /* ValidateTasksCollectionCell.swift */; };
+		18891EC320A65D2F00D88E86 /* PointsEarnedTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18891EC220A65D2F00D88E86 /* PointsEarnedTableCell.swift */; };
 		54E36132D02F5032CBC285AE /* Pods_coolmeiappxcode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44027F85C2625AD350E1572 /* Pods_coolmeiappxcode.framework */; };
 		57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF6208F9FE900D333AF /* AppDelegate.swift */; };
 		57020DF9208F9FE900D333AF /* ViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57020DF8208F9FE900D333AF /* ViewControler.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		136D250F30CB3CFACEF87328 /* Pods-coolmeiappxcodeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcodeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcodeTests/Pods-coolmeiappxcodeTests.release.xcconfig"; sourceTree = "<group>"; };
 		1849BE3A20A38059003EC8D3 /* ValidateTasksCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTasksCollectionCell.swift; sourceTree = "<group>"; };
+		18891EC220A65D2F00D88E86 /* PointsEarnedTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsEarnedTableCell.swift; sourceTree = "<group>"; };
 		254285780CF81F9A03C6E410 /* Pods-coolmeiappxcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcode/Pods-coolmeiappxcode.release.xcconfig"; sourceTree = "<group>"; };
 		2B20BA1760DE3A57112741A3 /* Pods-coolmeiappxcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coolmeiappxcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-coolmeiappxcode/Pods-coolmeiappxcode.debug.xcconfig"; sourceTree = "<group>"; };
 		4C0A1EBE3AB8DBBEB99A2F25 /* Pods_coolmeiappxcodeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coolmeiappxcodeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +217,7 @@
 				EFF9094B209C844300277F38 /* ChoseMemberToDoTableCell.swift */,
 				1849BE3A20A38059003EC8D3 /* ValidateTasksCollectionCell.swift */,
 				578D5CAA209BC53E00CA7FD7 /* ViewMembersTableCell.swift */,
+				18891EC220A65D2F00D88E86 /* PointsEarnedTableCell.swift */,
 			);
 			name = "Subclasses novas";
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				57020DF9208F9FE900D333AF /* ViewControler.swift in Sources */,
 				5732D6CE2093C2D2009E7435 /* HouseMember.swift in Sources */,
 				EFD41DC4208FD3E80076C40C /* DomesticTask.swift in Sources */,
+				18891EC320A65D2F00D88E86 /* PointsEarnedTableCell.swift in Sources */,
 				578D5CAB209BC53E00CA7FD7 /* ViewMembersTableCell.swift in Sources */,
 				57020DF7208F9FE900D333AF /* AppDelegate.swift in Sources */,
 				5732D6D02093C44C009E7435 /* LocalData.swift in Sources */,
@@ -617,7 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KCZBA8LA89;
+				DEVELOPMENT_TEAM = AUVGK4GFGB;
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -634,7 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KCZBA8LA89;
+				DEVELOPMENT_TEAM = AUVGK4GFGB;
 				INFOPLIST_FILE = coolmeiappxcode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
