@@ -57,14 +57,22 @@ class DomesticTask: NSObject, NSCoding {
 
 // var nobody: HouseMember
 
-//extension DomesticTask: Equatable {
+extension DomesticTask {// : Equatable {
 //
-//    static func ==(lhs: DomesticTask, rhs: DomesticTask) -> Bool {
+    override func isEqual(_ object: Any?) -> Bool {
+        if let rhs = object as? DomesticTask {
+            return self.name == rhs.name
+        } else {
+            return false
+        }
+    }
+    
+//    override static func ==(lhs: DomesticTask, rhs: DomesticTask) -> Bool {
 //        if lhs.name == rhs.name {
 //            return true
 //        } else {
 //            return false
 //        }
 //    }
-//
-//}
+
+}

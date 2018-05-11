@@ -12,7 +12,7 @@ class ValidateTasksCollectionCell: UICollectionViewCell {
    
     @IBOutlet weak var taskToValidateIcon: UIImageView!
     
-    @IBOutlet weak var memberToValidateColor: UIView!
+    @IBOutlet weak var memberToValidateColor: UIImageView!
     
     var isValidateCellSelected = false
     

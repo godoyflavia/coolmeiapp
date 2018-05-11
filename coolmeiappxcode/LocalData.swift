@@ -11,20 +11,21 @@ import UIKit
 
 // esse struct é nosso banco de dados local
 class LocalData {
-  
-  // se precisar de objetos pra "ninguem"
-  var nobody = HouseMember(name: "nobody", color: "1")
-  
-  //MARK: arrays Banco de Dados
-  // array pra alimentar as table views dos moradores
-  var houseMembers: [HouseMember] = []
-
-  // array pra alimentar as collection views das tarefas escolhidas por Rita
-  var chosenDomesticTasks: [DomesticTask] = []
+    
+    // se precisar de objetos pra "ninguem"
+    var nobody = HouseMember(name: "nobody", color: "1")
+    
+    //MARK: arrays Banco de Dados
+    // array pra alimentar as table views dos moradores
+    var houseMembers: [HouseMember] = []
+    
+    // array pra alimentar as collection views das tarefas escolhidas por Rita
+    var chosenDomesticTasks: [DomesticTask] = []
+    
     
     var chosenPeople:[HouseMember] = []
-   
-   //
+    
+    //
     var allDomesticTasks: [DomesticTask] = [
         DomesticTask(name: "lavar os pratos", iconColor: "lavar-pratos.png", value1to5: 2),
         DomesticTask(name: "botar a mesa", iconColor: "botar-mesa.png", value1to5: 1),
@@ -47,10 +48,10 @@ class LocalData {
         DomesticTask(name: "levar os filhos", iconColor: "levar-filhos.png", value1to5: 3),
         DomesticTask(name: "buscar os filhos", iconColor: "buscar-filhos.png", value1to5: 3)
         
-    ] as [DomesticTask]
+        ] as [DomesticTask]
     
     
-  // cores dos moradores
+    // cores dos moradores
     var colorsDictionary:[String:UIColor] = ["1" : #colorLiteral(red: 0.9215686275, green: 0.431372549, blue: 0.5019607843, alpha: 1),
                                              "2" : #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),
                                              "3" : #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),
@@ -59,20 +60,24 @@ class LocalData {
                                              "6" : #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1),
                                              "deactivated" : #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     ]
-  
+    
     // array que vai receber os itens selecionados na collectionView do popUp choseTodayTasksPopUpView
     // no botão ok, ele é adicionado ao array da tela principal
     var tasksBeingChosen: [DomesticTask] = []
     
+    // array que vai receber as tarefas sendo validadas no popUp de validateTasks
+    // no botao ok, ele repassa pra a tela principal as tarefas validadas
+    var tasksBeingValidated: [DomesticTask] = []
     
-  //em vez de ser uma variável do objeto a ser criado, é uma variável do proprio tipo LocalData
-  // acessar com LocalData.shared.houseMembers
-  // tipo a classe mediadora de flávia (singleton) (single ailton)
-  // o static transforma em singleton: só vai existir uma instância (objeto) ??
-  // usada pra assessar esses arrays do lado de fora do struct
-  //MARK:
-  static let shared = LocalData()
-  private init() {}
+    
+    //em vez de ser uma variável do objeto a ser criado, é uma variável do proprio tipo LocalData
+    // acessar com LocalData.shared.houseMembers
+    // tipo a classe mediadora de flávia (singleton) (single ailton)
+    // o static transforma em singleton: só vai existir uma instância (objeto) ??
+    // usada pra assessar esses arrays do lado de fora do struct
+    //MARK:
+    static let shared = LocalData()
+    private init() {}
 }
-  
+
 

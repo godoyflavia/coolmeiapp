@@ -527,9 +527,11 @@ extension ViewController: UICollectionViewDelegate {
             cell.layer.backgroundColor = #colorLiteral(red: 1, green: 0.862745098, blue: 0.4705882353, alpha: 0.2223447086)
             
             let taskTaped = DomesticTask(
-                name: cell.taskNameLabel.text!,
+                name: localData.allDomesticTasks[indexPath.row].name,
+                // cell.taskNameLabel.text!,
                 iconColor: localData.allDomesticTasks[indexPath.row].icon,
-                value1to5: Int(cell.taskValueLabel.text!)!
+                value1to5: localData.allDomesticTasks[indexPath.row].value
+                // Int(cell.taskValueLabel.text!)!
             
             )
             
@@ -561,19 +563,40 @@ extension ViewController: UICollectionViewDelegate {
                 
             } else {   // ATIVIDADES PRA VALIDAR
                 // adiciona ou retira do array auxiliar de validadas
-                // aqui no didSelect ta trocando, lá tá só mostrando
-                // por isso que é invertido
+                // aqui no didSelect ta trocando, lá tá só mostrando, por isso que é invertido
                 if cell.isValidateCellSelected == true {
                     cell.alpha = 0.6 // fica morta   // clarinho
                     cell.isValidateCellSelected = false
-                    print("morreu")
+                    // print("morreu")
                 } else {
                     cell.alpha = 1 // fica viva   // normal
                     cell.isValidateCellSelected = true
-                    print("renasceu")
+                    // print("renasceu")
                 }
                 
-                print(localData.chosenDomesticTasks[indexPath.row].name)
+                let taskTapped = DomesticTask(
+                    name: localData.chosenDomesticTasks[indexPath.row].name,
+                    iconColor: localData.chosenDomesticTasks[indexPath.row].icon,
+                    value1to5: localData.chosenDomesticTasks[indexPath.row].value
+                )
+                
+                if localData.tasksBeingValidated.contains(taskTapped) { // nunca entra
+                    var i = 0
+                    while i < localData.tasksBeingValidated.count {
+                        if localData.tasksBeingValidated[i] == taskTapped {
+                            localData.tasksBeingValidated.remove(at: i)
+                            break
+                        }
+                        i = i + 1
+                    }
+                    print("\(localData.chosenDomesticTasks[indexPath.row].name) removida")
+                    
+                } else {
+                    localData.tasksBeingValidated.append(taskTapped)
+                    print("\(localData.chosenDomesticTasks[indexPath.row].name) adicionada")
+                }
+                
+                
             
             }
             
@@ -819,7 +842,14 @@ extension ViewController {
         validateTasksPopUpView.isHidden = true
         closeBlur()
     }
-    // ok (na collection view)
+    // ok
+    @IBAction func validateTasksButton(_ sender: Any) {
+        
+        // validar aqui
+        
+        validateTasksPopUpView.isHidden = true
+        closeBlur()
+    }
 }
 
 
