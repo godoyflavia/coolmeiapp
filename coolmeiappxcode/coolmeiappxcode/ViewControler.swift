@@ -133,7 +133,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Textfield placeholder
-        insertNameTxtField.placeholder = "digite aqui"
+        insertNameTxtField.placeholder = "type here"
         
         //Blur config for popups
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
