@@ -926,6 +926,7 @@ extension ViewController {
             seconds = seconds24h
             openBlur()
             formatPopUp(saysWinnerPopUpView, isHidden: false)
+            runTimer()
             //Mandar notificação de que o dia acabou
         } else {
             timeToEndOfDayProgressView.progress -= 1/seconds24h
