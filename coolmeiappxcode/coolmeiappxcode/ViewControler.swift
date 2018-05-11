@@ -152,12 +152,7 @@ class ViewController: UIViewController {
             let chosenTasks = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [DomesticTask]
             localData.chosenDomesticTasks = chosenTasks
         }
-        
-//        if let decoded = UserDefaults.standard.object(forKey: "cellMemberColor") as? Data {
-//            let cellMemberColors = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [DomesticTask]
-//            cellMemberColors[selectedAddedTask
-//
-//        }
+    
         
         
         // First: addMembersPopUpView
@@ -330,11 +325,17 @@ extension ViewController: UITableViewDelegate {
         if tableView == membersToChoseTableView {
             let selectedIndex = indexPath.row
             let selectedPersonColor = localData.houseMembers[selectedIndex].color
-            let cell = domesticTasksCollection.cellForItem(at: selectedAddedTask!) as! DomesticTaskCollectionCell
-            cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
-            cell.memberColor.layer.borderWidth = 2
-            cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
+            
+//            let cell = domesticTasksCollection.cellForItem(at: selectedAddedTask!) as! DomesticTaskCollectionCell
+//            cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
+//            cell.memberColor.layer.borderWidth = 2
+//            cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//            cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
+            
+            localData.chosenDomesticTasks[selectedAddedTask!.row].taskMemberColor = selectedPersonColor
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.chosenDomesticTasks)
+            UserDefaults.standard.set(encodedData, forKey: "chosenTask")
+            domesticTasksCollection.reloadData()
             
             print("que")
             print(selectedPersonColor)
@@ -380,6 +381,10 @@ extension ViewController: UICollectionViewDataSource {
             
             let cell: DomesticTaskCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTaskCollectionCell
             
+            // Cleaning the cell before using
+            cell.memberColor.layer.borderColor = UIColor.clear.cgColor
+            cell.memberColor.backgroundColor = .clear
+            cell.taskIcon.image = nil
             if indexPath.row % 8 == 3 || indexPath.row == 25 {
                 // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
                 // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
@@ -402,6 +407,15 @@ extension ViewController: UICollectionViewDataSource {
                 
                 if indexPath.row < localData.chosenDomesticTasks.count {
                     cell.taskIcon.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
+                    
+                    // Setting member color for taskMemberColor
+                    if localData.chosenDomesticTasks[indexPath.row].taskMemberColor != "" {
+                        cell.memberColor.layer.cornerRadius = 0.5 * cell.memberColor.bounds.size.width
+                        cell.memberColor.layer.borderWidth = 2
+                        cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                        cell.memberColor.backgroundColor = localData.colorsDictionary[localData.chosenDomesticTasks[indexPath.row].taskMemberColor]
+                        
+                    }
                     
                 } else {
                     // celulas invisiveis
@@ -767,7 +781,7 @@ extension ViewController {
         localData.chosenDomesticTasks = localData.chosenDomesticTasks + localData.tasksBeingChosen
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.chosenDomesticTasks)
         UserDefaults.standard.set(encodedData, forKey: "chosenTask")
-        localData.chosenDomesticTasks = localData.chosenDomesticTasks as [DomesticTask]
+ 
         // appends
         domesticTasksCollection.reloadData() // chama o data source de novo // BUG
         localData.tasksBeingChosen = [] // zera esse array pra próxima leva
