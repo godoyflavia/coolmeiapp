@@ -132,6 +132,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Textfield placeholder
+        insertNameTxtField.placeholder = "digite aqui"
+        
         //Blur config for popups
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -678,10 +681,39 @@ extension ViewController {
             addMemberOutlet.isEnabled = false
         }
         
+        // Disabling chosen colors
+        for color in chosenColor {
+            if color == "1" {
+                chooseColor1Outlet.backgroundColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
+                chooseColor1Outlet.isEnabled = false
+            }
+            if color == "2" {
+                chooseColor2Outlet.backgroundColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
+                chooseColor2Outlet.isEnabled = false
+            }
+            if color == "3" {
+                chooseColor3Outlet.backgroundColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
+                chooseColor3Outlet.isEnabled = false
+            }
+            if color == "4" {
+                chooseColor4Outlet.backgroundColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
+                chooseColor4Outlet.isEnabled = false
+            }
+            if color == "5" {
+                chooseColor5Outlet.backgroundColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
+                chooseColor5Outlet.isEnabled = false
+            }
+            if color == "6" {
+                chooseColor6Outlet.backgroundColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
+                chooseColor6Outlet.isEnabled = false
+            }
+        }
+        
         nameAndColorOkOutlet.isEnabled = false
         colorWasChosen = false
         nameWasChosen = false
         insertNameTxtField.text = ""
+        insertNameTxtField.textColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
         imageSelectedColor.isHidden = true
         collectMemberInfoPopUpView.isHidden = true
     }
