@@ -132,6 +132,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Textfield placeholder
+        insertNameTxtField.placeholder = "digite aqui"
+        
         //Blur config for popups
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -678,6 +681,7 @@ extension ViewController {
             addMemberOutlet.isEnabled = false
         }
         
+        // Disabling chosen colors
         for color in chosenColor {
             if color == "1" {
                 chooseColor1Outlet.backgroundColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
@@ -709,6 +713,7 @@ extension ViewController {
         colorWasChosen = false
         nameWasChosen = false
         insertNameTxtField.text = ""
+        insertNameTxtField.textColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
         imageSelectedColor.isHidden = true
         collectMemberInfoPopUpView.isHidden = true
     }
