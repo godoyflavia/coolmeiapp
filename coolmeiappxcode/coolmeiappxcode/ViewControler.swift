@@ -131,10 +131,7 @@ class ViewController: UIViewController {
     //MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Textfield placeholder
-        insertNameTxtField.placeholder = "type here"
-        
+
         //Blur config for popups
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -747,7 +744,6 @@ extension ViewController {
         colorWasChosen = false
         nameWasChosen = false
         insertNameTxtField.text = ""
-        insertNameTxtField.textColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
         imageSelectedColor.isHidden = true
         collectMemberInfoPopUpView.isHidden = true
     }
