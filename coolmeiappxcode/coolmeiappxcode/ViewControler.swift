@@ -424,18 +424,26 @@ extension ViewController: UICollectionViewDataSource {
             
             let cell: ValidateTasksCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "validate-cell", for: indexPath) as! ValidateTasksCollectionCell
             
-            if indexPath.row % 8 == 3 || indexPath.row == 25 {
+            if indexPath.row % 8 == 3 || indexPath.row == 25 {  // AS ERRADAS
                 // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
                 // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
                 // nada acontece feijoada
                 cell.taskToValidateIcon.image = nil
-            } else if indexPath.row == 9 {
+            } else if indexPath.row == 9 {  // CENTRO VAZIO
                 // esse é o centro, com o botão de ok
-                cell.taskToValidateIcon.image = UIImage(named: "ok.png")
-            } else {
+                // cell.taskToValidateIcon.image = UIImage(named: "ok.png")
+                cell.taskToValidateIcon.image = nil // agora vazio
+            } else {  // TAREFAS
                 cell.taskToValidateIcon.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
                 cell.memberToValidateColor.layer.cornerRadius = 0.5 * cell.memberToValidateColor.bounds.size.width
                 // cell.memberToValidateColor.layer.backgroundColor = ??
+                
+                if cell.isValidateCellSelected == true {
+                    cell.alpha = 1 // aparece viva  // alfa 1 é opaco
+                } else {
+                    cell.alpha = 0.6 // aparece morta  // alfa 0 é transparente
+                }
+                
             }
             return cell
         }
@@ -527,6 +535,7 @@ extension ViewController: UICollectionViewDelegate {
             let cell: ValidateTasksCollectionCell = collectionView.cellForItem(at: indexPath) as! ValidateTasksCollectionCell
             ///////
             
+            // atualmente esse primeiro if ta desnecessario (mas deixa ele aqui)
             if cell.taskToValidateIcon.image == UIImage(named: "ok.png") {  // VALIDATE BUTTON
                 // validar e fechar popUp
                 closeBlur()
@@ -537,7 +546,18 @@ extension ViewController: UICollectionViewDelegate {
                 print("vc recebeu a maldição da celula invisivel, toque no seu amiguinho mais próximo pra repassar")
                 
             } else {   // ATIVIDADES PRA VALIDAR
-                // abre o popUp de escolher quem vai fazer
+                // adiciona ou retira do array auxiliar de validadas
+                // aqui no didSelect ta trocando, lá tá só mostrando
+                // por isso que é invertido
+                if cell.isValidateCellSelected == true {
+                    cell.alpha = 0.6 // fica morta   // clarinho
+                    cell.isValidateCellSelected = false
+                    print("morreu")
+                } else {
+                    cell.alpha = 1 // fica viva   // normal
+                    cell.isValidateCellSelected = true
+                    print("renasceu")
+                }
                 
                 print(localData.chosenDomesticTasks[indexPath.row].name)
             

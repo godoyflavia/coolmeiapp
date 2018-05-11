@@ -14,5 +14,6 @@ class ValidateTasksCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var memberToValidateColor: UIView!
     
+    var isValidateCellSelected = false
     
 }
