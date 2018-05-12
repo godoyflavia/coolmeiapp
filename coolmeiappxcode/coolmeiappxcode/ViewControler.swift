@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     
     // Variables
     var blurEffectView = UIVisualEffectView()
-    var nowEditing = false
     var usedColors:[String] = []
     var chosenColor = ""
     var genericName = ""
@@ -30,7 +29,7 @@ class ViewController: UIViewController {
     var seconds24h : Float = 86400.0
     var seconds : Float = 86400.0
     var timer = Timer()
-    
+    var taskToPersonDict:[IndexPath:Int] = [:]
     
     //MARK: outlets da tela principal
     @IBOutlet weak var familyButton: UIButton!
@@ -123,10 +122,15 @@ class ViewController: UIViewController {
     //MARK: Nineth PopUp Outlets (start new day)
     @IBOutlet var startNewDayPopUpView: UIView!
     
-
-    
    ///////////////////////////////////////////////////////////////////////////////////////////
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let index = membersToChoseTableView.indexPathForSelectedRow{
+            membersToChoseTableView.deselectRow(at: index, animated: true)
+        }
+    }
     
     //MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -255,7 +259,9 @@ class ViewController: UIViewController {
   
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 //MARK: TableView DataSource
 extension ViewController: UITableViewDataSource {
@@ -310,13 +316,13 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
         if tableView == firstPopUpMembersTableView {
             let selectedIndex = indexPath.row
             //        tableView.cellForRow(at: [indexPath.row])?.layer.backgroundColor = #colorLiteral(red: 0.3098039216, green: 0.262745098, blue: 0.4549019608, alpha: 0.25)
             let selectedPerson = localData.houseMembers[selectedIndex]
             addMember(selectedPerson)
             insertNameTxtField.text! = selectedPerson.name
-            nowEditing = true
             
         }
         
@@ -340,13 +346,17 @@ extension ViewController: UITableViewDelegate {
             
         }
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete {
-            localData.houseMembers.remove(at: indexPath.row)
-            let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
-            UserDefaults.standard.set(encodedData, forKey: "person")
-            tableView.reloadData()
+        
+        if tableView == firstPopUpMembersTableView || tableView == membersTableView {
+            if editingStyle == UITableViewCellEditingStyle.delete {
+                localData.houseMembers.remove(at: indexPath.row)
+                let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.houseMembers)
+                UserDefaults.standard.set(encodedData, forKey: "person")
+                tableView.reloadData()
+            }
+                
         }
     }
 }
@@ -383,6 +393,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.memberColor.layer.borderColor = UIColor.clear.cgColor
             cell.memberColor.backgroundColor = .clear
             cell.taskIcon.image = nil
+            
             if indexPath.row % 8 == 3 || indexPath.row == 25 {
                 // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
                 // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
@@ -413,11 +424,15 @@ extension ViewController: UICollectionViewDataSource {
                         cell.memberColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                         cell.memberColor.backgroundColor = localData.colorsDictionary[localData.chosenDomesticTasks[indexPath.row].taskMemberColor]
                         
+                        
+                        print(localData.chosenDomesticTasks[indexPath.row].isDone)
+                        if localData.chosenDomesticTasks[indexPath.row].isDone == true {
+                            cell.memberColor.image = #imageLiteral(resourceName: "ok")
+                            
+                        }
+                        
                     }
                     
-                } else {
-                    // celulas invisiveis
-                    // cell.taskIcon.image = UIImage(named: "hexagon.png")
                 }
             }
             // Array<DomesticTask>
@@ -452,6 +467,8 @@ extension ViewController: UICollectionViewDataSource {
                 
                 if cell.isValidateCellSelected == true {
                     cell.alpha = 1 // aparece viva  // alfa 1 é opaco
+                    
+
                 } else {
                     cell.alpha = 0.6 // aparece morta  // alfa 0 é transparente
                 }
@@ -506,6 +523,9 @@ extension ViewController: UICollectionViewDelegate {
                 openBlur()
                 view.addSubview(delegateTasksPopUpView)
                 formatPopUp(delegateTasksPopUpView, isHidden: false)
+   
+                
+               // membersToChoseTableView.reloadData()
                 
                 // alimentar o header do popUp (se aproveitando do indexPath)
                 iconTaskClickedImageView.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
@@ -589,6 +609,7 @@ extension ViewController: UICollectionViewDelegate {
                     cell.alpha = 1 // fica viva   // normal
                     cell.isValidateCellSelected = true
                     // print("renasceu")
+                    
                 }
                 
                 let taskTapped = DomesticTask(
@@ -597,7 +618,7 @@ extension ViewController: UICollectionViewDelegate {
                     value1to5: localData.chosenDomesticTasks[indexPath.row].value
                 )
                 
-                if localData.tasksBeingValidated.contains(taskTapped) { // nunca entra
+                if localData.tasksBeingValidated.contains(taskTapped) { // agora entra
                     var i = 0
                     while i < localData.tasksBeingValidated.count {
                         if localData.tasksBeingValidated[i] == taskTapped {
@@ -612,8 +633,6 @@ extension ViewController: UICollectionViewDelegate {
                     localData.tasksBeingValidated.append(taskTapped)
                     print("\(localData.chosenDomesticTasks[indexPath.row].name) adicionada")
                 }
-                
-                
             
             }
             
@@ -861,6 +880,21 @@ extension ViewController {
     // ok
     @IBAction func validateTasksButton(_ sender: Any) {
         
+        var index = 0
+        while index < localData.tasksBeingValidated.count {
+            
+            if localData.chosenDomesticTasks.contains(localData.tasksBeingValidated[index]) {
+                let indexOfTask = localData.chosenDomesticTasks.index(of: localData.tasksBeingValidated[index])
+                print(indexOfTask!)
+                localData.chosenDomesticTasks[indexOfTask!].isDone = true
+                print(localData.chosenDomesticTasks[indexOfTask!].isDone)
+                
+                let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.chosenDomesticTasks)
+                UserDefaults.standard.set(encodedData, forKey: "chosenTask")
+                domesticTasksCollection.reloadData()
+            }
+            index = index + 1
+        }
         // validar aqui
         
         validateTasksPopUpView.isHidden = true
