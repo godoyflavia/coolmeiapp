@@ -24,6 +24,7 @@ class LocalData {
     
     var chosenPeople:[HouseMember] = []
     
+    
     //
     var allDomesticTasks: [DomesticTask] = [
         DomesticTask(name: "lavar os pratos", iconColor: "lavar-pratos.png", value1to5: 2),
@@ -67,6 +68,12 @@ class LocalData {
     // array que vai receber as tarefas sendo validadas no popUp de validateTasks
     // no botao ok, ele repassa pra a tela principal as tarefas validadas
     var tasksBeingValidated: [DomesticTask] = []
+    
+    // eh pra ser inicializado vazio (só testando)
+    var membersGettingPoints: [HouseMember] = [
+        HouseMember(name: "hilary", color: "1"),
+        HouseMember(name: "rebecca", color: "6")
+    ]
     
     
     //em vez de ser uma variável do objeto a ser criado, é uma variável do proprio tipo LocalData

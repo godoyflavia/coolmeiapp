@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var colorWasChosen = false
     var okToDelegate = false
     var selectedAddedTask:IndexPath?
+    
 
     var memberColorChosen: UIColor!
     
@@ -229,6 +230,9 @@ class ViewController: UIViewController {
         self.membersToChoseTableView.dataSource = self
         self.membersToChoseTableView.delegate = self
         
+        self.pointsEarnedTableView.dataSource = self
+        self.pointsEarnedTableView.delegate = self
+        
 
         
         //textfield
@@ -268,8 +272,16 @@ extension ViewController: UITableViewDataSource {
     
     // igual pra todas > todas as table views são pra house members
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return localData.houseMembers.count
+        
+        if tableView == pointsEarnedTableView {
+            // caso especial, onde nao se mostra a familia toda necessariamente
+            return localData.membersGettingPoints.count
+            
+        } else { // todas as outras table views que mostram a familia toda
+            return localData.houseMembers.count
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -292,13 +304,23 @@ extension ViewController: UITableViewDataSource {
             
             return cell
             
-        } else { // if tableView == membersToChoseTableView // pop up de delegar tarefas
+        } else if tableView == membersToChoseTableView { // pop up de delegar tarefas
             
             let cell: ChoseMemberToDoTableCell = tableView.dequeueReusableCell(withIdentifier: "membersToChose") as! ChoseMemberToDoTableCell
             cell.memberNameLabel.text = localData.houseMembers[indexPath.row].name
             cell.memberColorView.backgroundColor = localData.colorsDictionary[localData.houseMembers[indexPath.row].color]
             cell.memberColorView.layer.cornerRadius = 0.5 * cell.memberColorView.bounds.size.width
             
+            return cell
+            
+        } else { // if tableView == pointsEarnedTableView { // pop up de mostrar gotinhas ganhas
+            
+            let cell: PointsEarnedTableCell = tableView.dequeueReusableCell(withIdentifier: "see-points-cell") as! PointsEarnedTableCell
+            
+            cell.memberNameLabel.text = localData.membersGettingPoints[indexPath.row].name
+            cell.memberColorView.backgroundColor = localData.colorsDictionary[localData.membersGettingPoints[indexPath.row].color]
+            cell.memberColorView.layer.cornerRadius = 0.5 * cell.memberColorView.bounds.size.width
+            cell.memberPointsLabel.text = String(localData.membersGettingPoints[indexPath.row].points)
             return cell
         }
         
@@ -392,6 +414,7 @@ extension ViewController: UICollectionViewDataSource {
             // Cleaning the cell before using
             cell.memberColor.layer.borderColor = UIColor.clear.cgColor
             cell.memberColor.backgroundColor = .clear
+            cell.memberColor.image = nil
             cell.taskIcon.image = nil
             
             if indexPath.row % 8 == 3 || indexPath.row == 25 {
@@ -441,6 +464,12 @@ extension ViewController: UICollectionViewDataSource {
         } else if collectionView == tasksToChoseCollection {
         
             let cell: ChoseTaskCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "newTaskCell", for: indexPath) as! ChoseTaskCollectionCell
+            
+//            //// Cleaning the cell before using
+//            cell.taskIconImageView.image = nil
+//            cell.taskNameLabel.text = ""
+//            cell.taskValueLabel.text = ""
+            
             cell.taskIconImageView.image = UIImage(named: localData.allDomesticTasks[indexPath.row].icon)
             cell.taskNameLabel.text = localData.allDomesticTasks[indexPath.row].name
             cell.taskValueLabel.text = String(localData.allDomesticTasks[indexPath.row].value)
@@ -553,11 +582,9 @@ extension ViewController: UICollectionViewDelegate {
             
             )
             
-            //MARK: BUG CONTAINS (?)
-            // essa merda de contains que ficou uma bosta
-            // provavelmente o bug ta aqui
             
-            ////////////////////////////// NOVO AGORA VAI
+            // bug do contains resolvido!! amem francisco
+            
             if localData.tasksBeingChosen.contains(taskTaped) {
                 var index = 0
                 while index < localData.tasksBeingChosen.count {
