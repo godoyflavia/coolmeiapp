@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var toTheEndOfDayText: UILabel!
     //collection da view tela principal
     @IBOutlet weak var domesticTasksCollection: UICollectionView!
+    @IBOutlet weak var addTasksGuideLabel: UILabel!
     
     
     //MARK: First popup (add members or go)
@@ -66,6 +67,7 @@ class ViewController: UIViewController {
         imageSelectedColor.isHidden = true
     }
     
+    @IBOutlet weak var hatch: UIImageView!
     @IBOutlet weak var imageSelectedColor: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBAction func insertName(_ sender: Any) {
@@ -181,6 +183,9 @@ class ViewController: UIViewController {
         // view.addSubview(popUp)
         // formatPopUp(popUp, isHidden: false) // função q eu fiz la em baixo que ja tem todas as formatações
         
+        // guiding label
+        self.reloadFirstScreen()
+        
         
         // Rounded buttons and colors for Second Popup
         chooseColor1Outlet.layer.cornerRadius = 0.5 * chooseColor1Outlet.bounds.size.width
@@ -247,7 +252,7 @@ class ViewController: UIViewController {
         let flowLayout: PBJHexagonFlowLayout = domesticTasksCollection.collectionViewLayout as! PBJHexagonFlowLayout
         //flowLayout.scrollDirection = UICollectionViewScrollDirection.vertical
         //flowLayout.minimumInteritemSpacing = 3
-        flowLayout.itemSize = CGSize(width: 80, height: 80)
+        flowLayout.itemSize = CGSize(width: 75, height: 75) //////HEIGHT CELL
         self.domesticTasksCollection.setCollectionViewLayout(flowLayout, animated: false)
         
         let validateFlowLayout: PBJHexagonFlowLayout = tasksToValidateCollection.collectionViewLayout as! PBJHexagonFlowLayout
@@ -333,8 +338,14 @@ extension ViewController: UITableViewDelegate {
     
     // pega em todas
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        
+        if tableView == firstPopUpMembersTableView {
+            return 55
+        } else {
+            return 60
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -450,7 +461,7 @@ extension ViewController: UICollectionViewDataSource {
                         
                         print(localData.chosenDomesticTasks[indexPath.row].isDone)
                         if localData.chosenDomesticTasks[indexPath.row].isDone == true {
-                            cell.memberColor.image = #imageLiteral(resourceName: "ok")
+                            cell.memberColor.image = #imageLiteral(resourceName: "validated")
                             
                         }
                         
@@ -804,6 +815,7 @@ extension ViewController {
         // Disabling chosen colors
         for color in chosenColor {
             if color == "1" {
+               // imageSelectedColor.frame = CGRect(x: 218, y: 288, width: 60, height: 60)
                 chooseColor1Outlet.backgroundColor = #colorLiteral(red: 0.794226794, green: 0.794226794, blue: 0.794226794, alpha: 1)
                 chooseColor1Outlet.isEnabled = false
             }
@@ -868,7 +880,9 @@ extension ViewController {
         UserDefaults.standard.set(encodedData, forKey: "chosenTask")
  
         // appends
+        
         domesticTasksCollection.reloadData() // chama o data source de novo // BUG
+        self.reloadFirstScreen() // 
         localData.tasksBeingChosen = [] // zera esse array pra próxima leva
         choseTodayTasksPopUpView.isHidden = true
         closeBlur()
@@ -1051,5 +1065,16 @@ extension ViewController {
 }
 
 
-
-
+//MARK: Desativando coisas na tela principal
+extension ViewController {
+    
+    func reloadFirstScreen() {
+        if localData.chosenDomesticTasks.count == 0 { // && nenhum responsavel
+            addTasksGuideLabel.text = "try adding the tasks that should be done today"
+            // shareWinnerButtonOUtLET.isEnabled = false
+        } else {
+            addTasksGuideLabel.text = ""
+        }
+    }
+    
+}
