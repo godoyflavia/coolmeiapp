@@ -44,7 +44,8 @@ class ViewController: UIViewController {
     
     //MARK: First popup (add members or go)
     @IBOutlet var addMembersPopUpView: UIView!
-    @IBOutlet weak var firstPopUptITitle: UILabel!
+    @IBOutlet weak var firstPopUptITitle: UILabel! // change after 1st
+    @IBOutlet weak var addMemberGuideLabel: UILabel! // this one too
     @IBOutlet weak var firstPopUpMembersTableView: UITableView!
     @IBOutlet weak var addMemberOutlet: UIButton!
     @IBAction func addMember(_ sender: Any) {
@@ -65,6 +66,7 @@ class ViewController: UIViewController {
         collectMemberInfoPopUpView.isHidden = true
         insertNameTxtField.text = ""
         imageSelectedColor.isHidden = true
+        reloadAddMembersPopUp()
     }
     
     @IBOutlet weak var hatch: UIImageView!
@@ -161,7 +163,7 @@ class ViewController: UIViewController {
         
         // First: addMembersPopUpView
         if localData.houseMembers.count == 0 {
-            // comente essa linha acima pra testar os 2 1os popups
+            
             openBlur()
             view.addSubview(addMembersPopUpView)
             formatPopUp(addMembersPopUpView, isHidden: false) //////
@@ -174,7 +176,10 @@ class ViewController: UIViewController {
             view.addSubview(collectMemberInfoPopUpView)
             formatPopUp(collectMemberInfoPopUpView, isHidden: true) /////
             imageSelectedColor.isHidden = true
-        } // e essa tbm
+            
+            // guiding labels
+            self.reloadAddMembersPopUp()
+        }
         
         
         // os outros popUps não precisam estar aqui!
@@ -185,26 +190,27 @@ class ViewController: UIViewController {
         
         // guiding label
         self.reloadFirstScreen()
+        self.reloadAddMembersPopUp()
         
         
         // Rounded buttons and colors for Second Popup
         chooseColor1Outlet.layer.cornerRadius = 0.5 * chooseColor1Outlet.bounds.size.width
-        chooseColor1Outlet.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.431372549, blue: 0.5019607843, alpha: 1)
+        chooseColor1Outlet.backgroundColor = localData.colorsDictionary["1"]
         
         chooseColor2Outlet.layer.cornerRadius = 0.5 * chooseColor2Outlet.bounds.size.width
-        chooseColor2Outlet.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        chooseColor2Outlet.backgroundColor = localData.colorsDictionary["2"]
         
         chooseColor3Outlet.layer.cornerRadius = 0.5 * chooseColor3Outlet.bounds.size.width
-        chooseColor3Outlet.backgroundColor = #colorLiteral(red: 0.7058277924, green: 0.4251030925, blue: 0.9686274529, alpha: 1)
+        chooseColor3Outlet.backgroundColor = localData.colorsDictionary["3"]
         
         chooseColor4Outlet.layer.cornerRadius = 0.5 * chooseColor4Outlet.bounds.size.width
-        chooseColor4Outlet.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
+        chooseColor4Outlet.backgroundColor = localData.colorsDictionary["4"]
         
         chooseColor5Outlet.layer.cornerRadius = 0.5 * chooseColor5Outlet.bounds.size.width
-        chooseColor5Outlet.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        chooseColor5Outlet.backgroundColor = localData.colorsDictionary["5"]
         
         chooseColor6Outlet.layer.cornerRadius = 0.5 * chooseColor6Outlet.bounds.size.width
-        chooseColor6Outlet.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        chooseColor6Outlet.backgroundColor = localData.colorsDictionary["6"]
         
         
         //do progress view
@@ -370,6 +376,7 @@ extension ViewController: UITableViewDelegate {
 //            cell.memberColor.backgroundColor = localData.colorsDictionary[selectedPersonColor]
             
             localData.chosenDomesticTasks[selectedAddedTask!.row].taskMemberColor = selectedPersonColor
+            
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.chosenDomesticTasks)
             UserDefaults.standard.set(encodedData, forKey: "chosenTask")
             domesticTasksCollection.reloadData()
@@ -428,25 +435,29 @@ extension ViewController: UICollectionViewDataSource {
             cell.memberColor.image = nil
             cell.taskIcon.image = nil
             
-            if indexPath.row % 8 == 3 || indexPath.row == 25 {
+            if indexPath.row % 8 == 3 || indexPath.row == 25 {  // INVISIVEIS
                 // célula invisível nos indexPathes 4, 12, 20, 28, 36.... (a cada 8)
                 // a célula não recebe nenhum atributo, e na didSelect, ela tbm não pode ser clicada
                 // nada acontece feijoada
                 cell.taskIcon.image = nil
-            } else if indexPath.row == 9 {
+                
+            } else if indexPath.row == 9 {  // ADICIONAR
                 // o caso 9 é pra mostrar o botão de add
                 cell.taskIcon.image = UIImage(named: "add-task.png")
-            } else if indexPath.row == 24 {
+                
+            } else if indexPath.row == 24 {  // COMPARTILHAR
                 // share (ultima celula)
                 // if localData.chosenDomesticTasks.count == 0 {
                     // cell.taskIcon.image = UIImage(named: "share-not-enabled.png")
                 // } else {
                     cell.taskIcon.image = UIImage(named: "share.png")
                 // }
-            } else if indexPath.row == 26 {
+                
+            } else if indexPath.row == 26 {  // VALIDAR
                 // verificar atividades
                 cell.taskIcon.image = UIImage(named: "verify-tasks.png")
-            } else {
+                
+            } else {  // TAREFAS
                 
                 if indexPath.row < localData.chosenDomesticTasks.count {
                     cell.taskIcon.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
@@ -487,7 +498,7 @@ extension ViewController: UICollectionViewDataSource {
             // cell.isOpaque = true
             return cell
         
-        } else { // if collectionView == tasksToValidateCollection
+        } else { // if collectionView == tasksToValidateCollection // AQUI
             
             let cell: ValidateTasksCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "validate-cell", for: indexPath) as! ValidateTasksCollectionCell
             
@@ -502,13 +513,18 @@ extension ViewController: UICollectionViewDataSource {
                 cell.taskToValidateIcon.image = nil // agora vazio
             } else {  // TAREFAS
                 cell.taskToValidateIcon.image = UIImage(named: localData.chosenDomesticTasks[indexPath.row].icon)
-                cell.memberToValidateColor.layer.cornerRadius = 0.5 * cell.memberToValidateColor.bounds.size.width
-                // cell.memberToValidateColor.layer.backgroundColor = ??
+                
+                // se a tarefa tiver responsavel, a cor dele aparece no popUp de validar
+                if localData.chosenDomesticTasks[indexPath.row].taskMemberColor != "" {
+                    cell.memberToValidateColor.layer.cornerRadius = 0.5 * cell.memberToValidateColor.bounds.size.width
+                    cell.memberToValidateColor.layer.borderWidth = 2
+                    cell.memberToValidateColor.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    cell.memberToValidateColor.backgroundColor =  localData.colorsDictionary[localData.chosenDomesticTasks[indexPath.row].taskMemberColor]
+                }
+                
                 
                 if cell.isValidateCellSelected == true {
                     cell.alpha = 1 // aparece viva  // alfa 1 é opaco
-                    
-
                 } else {
                     cell.alpha = 0.6 // aparece morta  // alfa 0 é transparente
                 }
@@ -547,7 +563,10 @@ extension ViewController: UICollectionViewDelegate {
                 
             } else if cell.taskIcon.image == UIImage(named: "share.png") {   // SHARE BUTTON
                 // sharing activities
-                let activityVC = UIActivityViewController(activityItems: ["veja como eu dividi as tarefas!"], applicationActivities: nil)
+                // TEXTO DE COMPARTILHAMENTO AQUI
+                let activityVC = UIActivityViewController(activityItems: [
+                    "veja como eu dividi as tarefas!"
+                    ], applicationActivities: nil)
                 activityVC.popoverPresentationController?.sourceView = self.view
                 self.present(activityVC, animated:  true, completion: nil)
                 print("ui, compartilhei!")
@@ -572,7 +591,7 @@ extension ViewController: UICollectionViewDelegate {
                 valueTaskClickedLabel.text = String(localData.chosenDomesticTasks[indexPath.row].value)
                 
                 let taskName = localData.chosenDomesticTasks[indexPath.row].name
-                whoWillDoThatLabel.text = "quem vai \(taskName)?"
+                whoWillDoThatLabel.text = "who should \(taskName) today?"
                 
                 print("ui, deleguei")
             }
@@ -802,6 +821,7 @@ extension ViewController {
         membersTableView.reloadData()
         goOutlet.isEnabled = false
         
+        self.reloadAddMembersPopUp()
         // usedColors.append(self.chosenColor)
         
         if localData.houseMembers.count >= 2 {
@@ -975,7 +995,9 @@ extension ViewController {
     // share
     @IBAction func shareWinnerButton(_ sender: Any) {
         // copiado do outro
-        let activityVC = UIActivityViewController(activityItems: ["Julia ganhou!!"], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [
+            "And today's winner is... Theo!! Congrats, Theo! You can choose what the family will have for lunch this weekend!"
+            ], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated:  true, completion: nil)
     }
@@ -1072,8 +1094,19 @@ extension ViewController {
         if localData.chosenDomesticTasks.count == 0 { // && nenhum responsavel
             addTasksGuideLabel.text = "try adding the tasks that should be done today"
             // shareWinnerButtonOUtLET.isEnabled = false
+            // validar tbm
         } else {
             addTasksGuideLabel.text = ""
+        }
+    }
+    
+    func reloadAddMembersPopUp() {
+        if localData.houseMembers.count == 0 { // nenhum membro
+            // firstPopUptITitle -> o que tem la no storyboard
+            //addMemberGuideLabel.text = "first, add yourself to this hive"
+        } else { // pelo menos 1 membro
+            firstPopUptITitle.text = "now, add the people who live in your hive"
+            addMemberGuideLabel.text = ""
         }
     }
     
