@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "startAtivo 23.png",
+      "filename" : "starteAtivo 27.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "startAtivo 23@2x.png",
+      "filename" : "starteAtivo 27@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "startAtivo 23@3x.png",
+      "filename" : "starteAtivo 27@3x.png",
       "scale" : "3x"
     }
   ],
