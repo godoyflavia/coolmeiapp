@@ -71,8 +71,11 @@ class LocalData {
     
     // eh pra ser inicializado vazio (só testando)
     var membersGettingPoints: [HouseMember] = [
-        HouseMember(name: "Hilary", color: "1"),
-        HouseMember(name: "Rebecca", color: "6")
+        HouseMember(name: "Rachel", color: "3", points: 13),
+        HouseMember(name: "Robert", color: "5", points: 10),
+        HouseMember(name: "Theo", color: "2", points: 14),
+        HouseMember(name: "Julia", color: "6", points: 11)
+        
     ]
     
     

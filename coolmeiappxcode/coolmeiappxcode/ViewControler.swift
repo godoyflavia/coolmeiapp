@@ -23,7 +23,8 @@ class ViewController: UIViewController {
     var colorWasChosen = false
     var okToDelegate = false
     var selectedAddedTask:IndexPath?
-    
+    // pra desativar as celulas de share e validate
+    var allNotDelegated = true
 
     var memberColorChosen: UIColor!
     
@@ -331,7 +332,7 @@ extension ViewController: UITableViewDataSource {
             cell.memberNameLabel.text = localData.membersGettingPoints[indexPath.row].name
             cell.memberColorView.backgroundColor = localData.colorsDictionary[localData.membersGettingPoints[indexPath.row].color]
             cell.memberColorView.layer.cornerRadius = 0.5 * cell.memberColorView.bounds.size.width
-            cell.memberPointsLabel.text = String(localData.membersGettingPoints[indexPath.row].points)
+            cell.memberPointsLabel.text = "+\(String(localData.membersGettingPoints[indexPath.row].points))"
             return cell
         }
         
@@ -427,6 +428,13 @@ extension ViewController: UICollectionViewDataSource {
         
         if collectionView == domesticTasksCollection {
             
+//            for task in localData.chosenDomesticTasks {
+//                if task.taskMemberColor != "" {
+//                    allNotDelegated = false
+//                    break
+//                }
+//            }
+            
             let cell: DomesticTaskCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "taskCell", for: indexPath) as! DomesticTaskCollectionCell
             
             // Cleaning the cell before using
@@ -451,11 +459,27 @@ extension ViewController: UICollectionViewDataSource {
                     // cell.taskIcon.image = UIImage(named: "share-not-enabled.png")
                 // } else {
                     cell.taskIcon.image = UIImage(named: "share.png")
+                
+                if localData.chosenDomesticTasks.count == 0 && allNotDelegated {
+                    cell.alpha = 0.6
+                    cell.isUserInteractionEnabled = false
+                } else {
+                    cell.alpha = 1
+                    cell.isUserInteractionEnabled = true
+                }
                 // }
                 
             } else if indexPath.row == 26 {  // VALIDAR
                 // verificar atividades
                 cell.taskIcon.image = UIImage(named: "verify-tasks.png")
+                
+                if localData.chosenDomesticTasks.count == 0 && allNotDelegated {
+                    cell.alpha = 0.6
+                    cell.isUserInteractionEnabled = false
+                } else {
+                    cell.alpha = 1
+                    cell.isUserInteractionEnabled = true
+                }
                 
             } else {  // TAREFAS
                 
@@ -565,7 +589,7 @@ extension ViewController: UICollectionViewDelegate {
                 // sharing activities
                 // TEXTO DE COMPARTILHAMENTO AQUI
                 let activityVC = UIActivityViewController(activityItems: [
-                    "veja como eu dividi as tarefas!"
+                    "Good morning, hive! \nThis are the things that must be done today: \n\nRachel \n- make breakfast (2 pts) \n- take the kids (3pts) \n\n Rob \n- buy groceries (4 pts) \n- get the kids (3 pts) \n\nTheo: \n- wash the dishes (2 pts) \n- fold the laundry \n\nJolie: \n- do the laundry (2pts) \n- dry the dishes (1pt) \n\nTomorrow morning we'll know the winner!"
                     ], applicationActivities: nil)
                 activityVC.popoverPresentationController?.sourceView = self.view
                 self.present(activityVC, animated:  true, completion: nil)
@@ -899,9 +923,18 @@ extension ViewController {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: localData.chosenDomesticTasks)
         UserDefaults.standard.set(encodedData, forKey: "chosenTask")
  
+        // pra celulas share e very ficarem desativadas
+        for task in localData.chosenDomesticTasks {
+            if task.taskMemberColor != "" {
+                allNotDelegated = false
+                break
+            }
+        }
         // appends
         
-        domesticTasksCollection.reloadData() // chama o data source de novo // BUG
+        domesticTasksCollection.reloadData()
+        tasksToValidateCollection.reloadData()
+        // chama o data source de novo // BUG
         self.reloadFirstScreen() // 
         localData.tasksBeingChosen = [] // zera esse array pra próxima leva
         choseTodayTasksPopUpView.isHidden = true
@@ -959,20 +992,19 @@ extension ViewController {
         // validar aqui
         
         validateTasksPopUpView.isHidden = true
-        closeBlur()
+        // closeBlur()
+        formatPopUp(saysPointsEarnedPopUpView, isHidden: false)
+        
+        // gambiarra pro tempo passar
+        //timeToEndOfDayProgressView.progress = 1
+        //timeToEndOfDayLabel.text = "6h25min"
     }
 }
 
 
 //MARK: Seventh PopUp actions (see points)
 extension ViewController {
-    
-     //abrir gambiarra
-    @IBAction func gotinhasPopUpGambiarra(_ sender: Any) {
-        validateTasksPopUpView.isHidden = true
-        // openBlur()
-        formatPopUp(saysPointsEarnedPopUpView, isHidden: false)
-    }
+
     
     // ok
     @IBAction func confirmPointsEarnedButton(_ sender: Any) {
@@ -987,8 +1019,7 @@ extension ViewController {
     
     // abrir gambiarra
     @IBAction func vencedorPopUpGambiarra(_ sender: Any) {
-        validateTasksPopUpView.isHidden = true
-        // openBlur()
+        openBlur()
         formatPopUp(saysWinnerPopUpView, isHidden: false)
     }
     
@@ -1015,13 +1046,40 @@ extension ViewController {
 extension ViewController {
     // sim
     @IBAction func keepTasksToNewDayButton(_ sender: Any) {
+        // resetar tempo, pontos e validação
+        
+        for task in localData.chosenDomesticTasks {
+           // task.taskMemberColor = ""
+            task.isDone = false
+        }
+        
+        for member in localData.houseMembers {
+            member.points = 0
+        }
+        
+        membersTableView.reloadData()
+        domesticTasksCollection.reloadData()
+        tasksToValidateCollection.reloadData()
+        
         startNewDayPopUpView.isHidden = true
         closeBlur()
     }
 
     // nao
     @IBAction func resetTasksToNewDayButton(_ sender: Any) {
-        // resetar o que precisar
+        // resetar tudo
+        // tempo, tarefas, responsaveis, pontos, validação
+        
+        localData.chosenDomesticTasks = []
+        
+        for member in localData.houseMembers {
+            member.points = 0
+        }
+        
+        membersTableView.reloadData()
+        domesticTasksCollection.reloadData()
+        tasksToValidateCollection.reloadData()
+        
         localData.chosenDomesticTasks = []
         startNewDayPopUpView.isHidden = true
         closeBlur()

@@ -11,17 +11,24 @@ import UIKit
 
 
 class HouseMember: NSObject, NSCoding {
-  //var localData = LocalData.shared
-  var name: String
-  var color: String
-  var points: Int = 0
-//  var areYouWinning: Bool = false
-//  var won: Bool = false
-  
-  init(name: String, color: String) {
-    self.name = name
-    self.color = color
-  }
+    //var localData = LocalData.shared
+    var name: String
+    var color: String
+    var points: Int = 0
+    //  var areYouWinning: Bool = false
+    //  var won: Bool = false
+    
+    init(name: String, color: String) {
+        self.name = name
+        self.color = color
+    }
+    
+    // init pra entregar as gotinhas falsas
+    init(name: String, color: String, points: Int) {
+        self.name = name
+        self.color = color
+        self.points = points
+    }
     
     required convenience init(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObject(forKey: "name") as! String
@@ -33,39 +40,39 @@ class HouseMember: NSObject, NSCoding {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(color, forKey: "color")
     }
-  
-  
-  //MARK:
-  // função que identifica o membro da casa com mais pontos no momento
-  // pode ser usada pra colocar a coroinha e tbm dar o premio no fim do dia
-  func whoHaveMorePoints (members: [HouseMember]) -> HouseMember {
     
-    var index = 0
-    var winnerPoints = 0
-    var winnerMember: HouseMember = LocalData.shared.nobody
     
-    while index < members.count {
-      if members[index].points > winnerPoints {
-        winnerPoints = members[index].points
-        winnerMember = members[index]
-      }
-      index = index + 1
+    //MARK:
+    // função que identifica o membro da casa com mais pontos no momento
+    // pode ser usada pra colocar a coroinha e tbm dar o premio no fim do dia
+    func whoHaveMorePoints (members: [HouseMember]) -> HouseMember {
+        
+        var index = 0
+        var winnerPoints = 0
+        var winnerMember: HouseMember = LocalData.shared.nobody
+        
+        while index < members.count {
+            if members[index].points > winnerPoints {
+                winnerPoints = members[index].points
+                winnerMember = members[index]
+            }
+            index = index + 1
+        }
+        
+        // vai ser nobody se todos tiverem zero pontos (nunca entra no if)
+        return winnerMember
     }
     
-    // vai ser nobody se todos tiverem zero pontos (nunca entra no if)
-    return winnerMember
-  }
-  
-  
-  // função Booleana > checa se o membro tem mais pontos ou não
-  // uso: member1.isWinnig()
-  func isWinning () -> Bool {
-    if self.whoHaveMorePoints(members: LocalData.shared.houseMembers) == self {
-      return true
+    
+    // função Booleana > checa se o membro tem mais pontos ou não
+    // uso: member1.isWinnig()
+    func isWinning () -> Bool {
+        if self.whoHaveMorePoints(members: LocalData.shared.houseMembers) == self {
+            return true
+        }
+        return false
     }
-    return false
-  }
-  
+    
 }
 
 
